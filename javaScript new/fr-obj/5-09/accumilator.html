@@ -1,0 +1,14 @@
+accumilator
+<script>
+    function Accumulator(start){
+        this.value = start;
+        this.sum = function(){
+            this.value += +prompt("Enter the number",0);
+            alert(this.value);
+        };
+    }
+     let accumulator = new Accumulator(1);
+    accumulator.sum();
+    accumulator.sum();
+    
+</script>

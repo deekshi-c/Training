@@ -1,0 +1,15 @@
+.element1{
+    margin: 20px;
+    padding: 2em;
+    border-width: 2px;
+    border-style: solid;
+    max-width: 700px;
+    margin: auto;
+   
+    
+
+}
+.container element2{
+    max-width: 700px;
+    margin: auto;
+}

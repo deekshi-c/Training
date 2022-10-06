@@ -1,0 +1,8 @@
+{
+  "debug.allowBreakpointsEverywhere": true,
+  "files.autoGuessEncoding": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+
+  "livePreview.defaultPreviewPath": "/home/deekshithc/Desktop/html/new/html/index.html"
+}
