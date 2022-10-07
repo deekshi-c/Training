@@ -1,0 +1,16 @@
+.bodyBg{
+    background-color: antiquewhite;
+    margin: 2;
+    padding: 20px;
+}
+
+h2{
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 1em;
+}
+
+button{
+    font-size: larger;
+    font-weight: 5000;
+}
