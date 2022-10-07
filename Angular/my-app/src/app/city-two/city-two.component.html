@@ -1,3 +1,7 @@
 <div class="citytwo" id="sct1"><h2>Delhi</h2>
         <p>The endlessly fascinating capital of the country, Delhi, acts as a magnet, attracting people worldwide. The city displays the perfect blend of old world charm and the contemporary dynamism.</p>
 </div> 
+<ul>
+      <li (click)="onSelect(department)" *ngFor="let department of departments"><button>{{ department.name }}</button><br><br>
+      </li>
+</ul>
