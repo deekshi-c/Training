@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router,ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-cityone-detail',
@@ -7,20 +7,26 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./cityone-detail.component.css']
 })
 export class CityoneDetailComponent implements OnInit {
-  public depId: any;
-  public depName: any;
-  public depCity: any;
 
-  constructor(private route:ActivatedRoute) { }
+  public depId: any;
+
+  constructor(private route:ActivatedRoute , private router:Router) { }
 
   ngOnInit(){
-    let id =this.route.snapshot.paramMap.get('id');
-    this.depId=id;
+    this.route.paramMap.subscribe((params:ParamMap) =>{
+      let id= params.get('id');
+      this.depId = id;
+    });
+}
+  goPrev(){
+    let prevId = parseInt(this.depId) - 1;
+    this.router.navigate(['/cityone',prevId]);
 
-    let id2 = this.route.snapshot.paramMap.get('name');
-    this.depName = id2;
-    let id3 =this.route.snapshot.paramMap.get('detail');
-    this.depCity=id3;
+  }
+  goNext(){
+    let nextId = parseInt(this.depId) + 1;
+    this.router.navigate(['/cityone', nextId]);
   }
 
 }
+

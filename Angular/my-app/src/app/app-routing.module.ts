@@ -10,8 +10,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/cityone', pathMatch: 'full' },
   { path: 'cityone', component: CityOneComponent },
   { path: 'citytwo', component: CityTwoComponent },
-  { path: 'citytwo/:id/:name/:detail', component: CitytwoDetailComponent },
-  { path: 'cityone/:id/:name/:detail', component: CityoneDetailComponent },
+  { path: 'cityone/:id', component: CityoneDetailComponent },
+  { path: 'citytwo/:id', component: CitytwoDetailComponent },
 
   { path: '**', component: PageNotFoundComponent },
 ];

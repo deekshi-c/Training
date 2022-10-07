@@ -10,27 +10,27 @@ import { Router } from '@angular/router';
 export class CityOneComponent implements OnInit {
   departments = [
     {
-      id: 1,
-      name: 'Kanheri Caves',
+      'id': '1',
+      'name': 'Kanheri Caves',
       detail:
         ' Sanjay Gandhi National Park, on the former island of Salsette in the western outskirts',
     },
     {
-      id: 2,
-      name: 'Marine Drive',
-      detail: 'Netaji Subhash Chandra Bose Road',
+      'id': '2',
+      'name': 'Marine Drive',
+      'detail': 'Netaji Subhash Chandra Bose Road',
     },
     {
-      id: 3,
-      name: 'Bandra-Worli Sea Link',
-      detail:
+      'id': '3',
+      'name': 'Bandra-Worli Sea Link',
+      'detail':
         'Bandra in the Western Suburbs of Mumbai with Worli in South Mumbai.',
     },
   ];
   constructor(private router: Router) {}
 
   onSelect(dep: any) {
-    this.router.navigate(['/cityone',dep.id,dep.name,dep.detail]);
+    this.router.navigate(['/cityone',dep.id]);
     console.log('click');
   }
   ngOnInit(): void {}
