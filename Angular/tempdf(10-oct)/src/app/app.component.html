@@ -1,0 +1,56 @@
+<div>
+  <h3>Details Form</h3>
+  <form #userForm="ngForm">
+    {{userForm.value|json}}
+    <div>
+      <label>Name&emsp;&nbsp;&nbsp;</label>
+      <input type="text" ngModel name="Username">
+    </div>
+    <div>
+      <label for="">Email&emsp;&nbsp;&nbsp;</label>
+      <input type="email" ngModel name="email">
+    </div>
+    <div>
+      <label for="">Number&nbsp;</label>
+      <input type="number" ngModel name="number">
+    </div>
+    <div class="k" ngModelGroup="Address">
+      <label>House Name</label>
+      <input type="text" ngModel name="Hname">
+      <br><br>
+      <label>Street&emsp;&nbsp;&emsp;&nbsp;</label>
+      <input type="text" ngModel name="street"><br>
+      <br>
+      <label>Town&emsp;&nbsp;&emsp;&nbsp;</label>
+      <input type="text" ngModel name="town"><br><br>
+      <label>District&emsp;&nbsp;&nbsp;</label>
+      <input type="text" ngModel name="District"><br>
+    </div>
+    <div>
+      <label for="">Gender</label><br>
+      <label for="">Male </label>&ensp; &nbsp;
+      <input type="radio" name="gender" ngModel value="Male">
+      &nbsp;<label for="">Female</label>
+      <input type="radio" name="gender" ngModel value="Female">
+      &nbsp;<label for="">Other</label>
+      <input type="radio" name="gender" ngModel value="Other">
+    </div>
+    <div>
+      <label for="">Select prefered item:&emsp;</label>
+      <select ngModel name="choice">
+          <option *ngFor="let item of topic ">{{item}}</option>
+      </select>
+    </div>
+    <div>
+      <label for="" name="dob">DOB&emsp;</label>
+      <input type="date" name="dob">
+    </div>
+    <div>
+      <input type="checkbox" name="agree" ngModel>
+      <label>&nbsp;I agree to the terms and Conditions</label>
+    </div>
+    <input type="submit" value="Submit">&nbsp;
+    <input type="reset" name="" id="">
+    
+  </form>
+</div>

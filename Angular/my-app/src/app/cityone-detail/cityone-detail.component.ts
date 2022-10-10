@@ -34,6 +34,7 @@ export class CityoneDetailComponent implements OnInit {
   showOverview() {
     this.router.navigate(['overview'], { relativeTo: this.route });
   }
+
   showContact() {
     this.router.navigate(['contact'], { relativeTo: this.route });
   }
