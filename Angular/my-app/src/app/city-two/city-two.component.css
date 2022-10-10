@@ -6,3 +6,7 @@
     
    
 }
+button.selected{
+    background-color: aqua;
+    color: blue;
+}

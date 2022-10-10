@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CitytwoDetailComponent } from './citytwo-detail/citytwo-detail.component';
 import { CityoneDetailComponent } from './cityone-detail/cityone-detail.component';
+import { KanheOverviewComponent } from './kanhe-overview/kanhe-overview.component';
+import { KanheContactComponent } from './kanhe-contact/kanhe-contact.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { CityoneDetailComponent } from './cityone-detail/cityone-detail.componen
     PageNotFoundComponent,
     CitytwoDetailComponent,
     CityoneDetailComponent,
+    KanheOverviewComponent,
+    KanheContactComponent,
     
   ],
   imports: [

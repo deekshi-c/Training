@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CityTwoComponent } from './city-two.component';
+import { KanheContactComponent } from './kanhe-contact.component';
 
-describe('CityTwoComponent', () => {
-  let component: CityTwoComponent;
-  let fixture: ComponentFixture<CityTwoComponent>;
+describe('KanheContactComponent', () => {
+  let component: KanheContactComponent;
+  let fixture: ComponentFixture<KanheContactComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CityTwoComponent ]
+      declarations: [ KanheContactComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CityTwoComponent);
+    fixture = TestBed.createComponent(KanheContactComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

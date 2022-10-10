@@ -9,24 +9,25 @@ import { ActivatedRoute,ParamMap,Router } from '@angular/router';
 export class CitytwoDetailComponent implements OnInit {
   public depId: any;
 
-  constructor(private route:ActivatedRoute, private router:Router) { }
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
-  ngOnInit(){
-    this.route.paramMap.subscribe((params: ParamMap)=>{
-      let id=(params.get('id'));
-      this.depId=id;
+  ngOnInit() {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      let id = params.get('id');
+      this.depId = id;
     });
-
   }
-  goPrev(){
+  goPrev() {
     let prevId = parseInt(this.depId) - 1;
-    this.router.navigate(['/cityone',prevId]);
-
+    this.router.navigate(['/citytwo', prevId]);
   }
-  goNext(){
+  goNext() {
     let nextId = parseInt(this.depId) + 1;
-    this.router.navigate(['/cityone', nextId]);
+    this.router.navigate(['/citytwo', nextId]);
   }
-
+  goBack() {
+    let selectedId = this.depId ? this.depId : null;
+    this.router.navigate(['/citytwo', {id:selectedId}]);
+  }
 }
 

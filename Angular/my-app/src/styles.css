@@ -1,3 +1,7 @@
 body{
     background-color: rgb(114, 147, 153);
 }
+ul li.selected{
+    background-color: cyan;
+    color: darkorchid;
+}

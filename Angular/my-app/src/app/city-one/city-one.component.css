@@ -10,3 +10,8 @@ img{
     border: 2em;
     
 }
+
+button.selected{
+    background-color: aqua;
+    color: blue;
+}

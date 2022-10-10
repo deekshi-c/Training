@@ -1,5 +1,17 @@
 <h3>You selected department with id = {{depId}}</h3>
-<p>
+    <p>
+
+        <button (click)="showOverview()" >Overview</button>
+        <button (click)="showContact()">Contact</button>
+    <br><br>
+    </p>
+
+    <p>
       <button (click)="goPrev()">Previous</button>
       <button (click)="goNext()">Next</button>
-    </p>
+</p>
+    <div>
+    <button (click)="goBack()">
+        back
+    </button>
+</div>

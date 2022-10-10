@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router ,ParamMap} from '@angular/router';
 
 
 @Component({
@@ -27,11 +27,22 @@ export class CityOneComponent implements OnInit {
         'Bandra in the Western Suburbs of Mumbai with Worli in South Mumbai.',
     },
   ];
-  constructor(private router: Router) {}
+
+  public selectedId: any;
+  constructor(private router: Router,private route: ActivatedRoute) {}
 
   onSelect(dep: any) {
     this.router.navigate(['/cityone',dep.id]);
     console.log('click');
   }
-  ngOnInit(): void {}
+  ngOnInit(){
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      let id = params.get('id');
+      this.selectedId = id;
+  });
+} 
+
+isSelected(department: any){
+  return department.id === this.selectedId;
+}
 }
