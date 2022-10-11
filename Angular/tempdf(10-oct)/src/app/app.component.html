@@ -1,31 +1,33 @@
 <div class="main">
-<div class="container-fluid mb-5">
   <h3>User Reg</h3>
   <form  #userForm="ngForm">
-    {{userForm.value|json}}
+    <!-- {{userForm.value|json}} -->
     <hr >
-    <hr>
-    {{userModel|json}}
+    <!-- <hr> -->
+    <!-- {{userModel|json}} -->
     
     <div class="form-group">
       <label>Name&emsp;&nbsp;&nbsp;</label>
       <input type="text" required #name="ngModel"
             [class.alert]="name.invalid  && name.touched" 
-            [(ngModel)]="userModel.name" name="Username">
+            [(ngModel)]="userModel.name" name="Username"><br>
+            <small [class.display]="name.valid||name.untouched" style="color: red;">Name is required</small>
 
     </div>
           Untouched {{name.untouched}}  || Pristine {{name.pristine}}  || Valid {{name.invalid}}
     <div>
       <label for="">Email&emsp;&nbsp;&nbsp;</label>
-      <input type="email" required #name="ngModel"
-            [class.alert]="name.invalid  && name.touched"
-            [(ngModel)]="userModel.email" name="email">
+      <input type="email" required #email="ngModel"
+            [class.alert]="email.invalid  && email.touched"
+            [(ngModel)]="userModel.email" name="email"><br>
+            <small [class.display]="email.valid||email.untouched" style="color: red;">Email is required</small>
     </div>
     <div>
       <label for="">Number&nbsp;</label>
       <input type="number" required #phone="ngModel"  pattern="\d{10}$"
             [class.alert]="phone.invalid  && phone.touched"
-      [(ngModel)]="userModel.number" name="number">
+      [(ngModel)]="userModel.number" name="number"><br>
+      <small [class.display]="phone.valid||phone.untouched" style="color: red;">Must be 10  digit</small>
     </div>
     <div class="k" ngModelGroup="Address">
       <label>House Name</label>
@@ -58,7 +60,7 @@
       <label>&nbsp;I agree to the terms and Conditions</label>
     </div>
     <input appHover type="submit" value="Submit">&nbsp;
-    <input type="reset" name="" id="">
+    <input type="reset" appHover name="" id="">
     
   </form>
 </div>
