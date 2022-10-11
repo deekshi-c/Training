@@ -1,43 +1,51 @@
-<div>
-  <h3>Details Form</h3>
-  <form #userForm="ngForm">
+<div class="main">
+<div class="container-fluid mb-5">
+  <h3>User Reg</h3>
+  <form  #userForm="ngForm">
     {{userForm.value|json}}
-    <div>
+    <hr >
+    <hr>
+    {{userModel|json}}
+    
+    <div class="form-group">
       <label>Name&emsp;&nbsp;&nbsp;</label>
-      <input type="text" ngModel name="Username">
+      <input type="text" required #name="ngModel"
+            [class.alert]="name.invalid  && name.touched" 
+            [(ngModel)]="userModel.name" name="Username">
+
     </div>
+          Untouched {{name.untouched}}  || Pristine {{name.pristine}}  || Valid {{name.invalid}}
     <div>
       <label for="">Email&emsp;&nbsp;&nbsp;</label>
-      <input type="email" ngModel name="email">
+      <input type="email" required #name="ngModel"
+            [class.alert]="name.invalid  && name.touched"
+            [(ngModel)]="userModel.email" name="email">
     </div>
     <div>
       <label for="">Number&nbsp;</label>
-      <input type="number" ngModel name="number">
+      <input type="number" required #phone="ngModel"  pattern="\d{10}$"
+            [class.alert]="phone.invalid  && phone.touched"
+      [(ngModel)]="userModel.number" name="number">
     </div>
     <div class="k" ngModelGroup="Address">
       <label>House Name</label>
-      <input type="text" ngModel name="Hname">
+      <input type="text" [(ngModel)]="userModel.hName" name="Hname">
       <br><br>
       <label>Street&emsp;&nbsp;&emsp;&nbsp;</label>
-      <input type="text" ngModel name="street"><br>
+      <input type="text" [(ngModel)]="userModel.sName" name="street"><br>
       <br>
-      <label>Town&emsp;&nbsp;&emsp;&nbsp;</label>
-      <input type="text" ngModel name="town"><br><br>
-      <label>District&emsp;&nbsp;&nbsp;</label>
-      <input type="text" ngModel name="District"><br>
     </div>
     <div>
       <label for="">Gender</label><br>
-      <label for="">Male </label>&ensp; &nbsp;
-      <input type="radio" name="gender" ngModel value="Male">
-      &nbsp;<label for="">Female</label>
-      <input type="radio" name="gender" ngModel value="Female">
-      &nbsp;<label for="">Other</label>
-      <input type="radio" name="gender" ngModel value="Other">
+      <input type="radio" name="gender" [(ngModel)]="userModel.gender" value="Male">Male
+      &nbsp;
+      <input type="radio" name="gender" [(ngModel)]="userModel.gender" value="Female">female
+      &nbsp;
+      <input type="radio" name="gender" [(ngModel)]="userModel.gender"l value="Other">Other
     </div>
     <div>
       <label for="">Select prefered item:&emsp;</label>
-      <select ngModel name="choice">
+      <select [(ngModel)]="userModel.choice" name="choice">
           <option *ngFor="let item of topic ">{{item}}</option>
       </select>
     </div>
@@ -49,7 +57,7 @@
       <input type="checkbox" name="agree" ngModel>
       <label>&nbsp;I agree to the terms and Conditions</label>
     </div>
-    <input type="submit" value="Submit">&nbsp;
+    <input appHover type="submit" value="Submit">&nbsp;
     <input type="reset" name="" id="">
     
   </form>
