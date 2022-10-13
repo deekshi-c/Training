@@ -4,19 +4,54 @@
     <form [formGroup]="registForm">
       <div class="form-group">
         <label>User name </label>
-        <p><input [class.invalid]="formUser()?.invalid 
-                && formUser()?.touched" formControlName="username" 
-                type="text" class="form-control" /></p>
-            <small [class.alert]="formUser()?.valid 
-                || formUser()?.untouched">Enter the Name</small>
+        <p>
+          <input
+            [class.invalid]="formUser()?.invalid && formUser()?.touched"
+            formControlName="username"
+            type="text"
+            class="form-control"
+          />
+        </p>
+        <!-- <small [class.alert]="formUser()?.valid 
+                || formUser()?.untouched">Enter the Name</small> -->
+        <div *ngIf="formUser()?.invalid && formUser()?.touched">
+          <small *ngIf="formUser()?.errors?.['required']" class="alert"
+            >Enter the value
+          </small>
+          <small *ngIf="formUser()?.errors?.['minlength']" class="alert"
+            >Must conntain atleast 3 letetrs</small
+          >
+          <small *ngIf="formUser()?.errors?.['forbiddenName']" class="alert"
+            >{{formUser()?.errors?.['forbiddenName'].value}}Not allowed</small
+          >
+          <small *ngIf="formUser()?.errors?.['pattern']" class="alert"
+            >{{formUser()?.errors?.['pattern'].value}} Numbers are not
+            allowed</small
+          >
+        </div>
       </div>
+
       <div class="form-group">
         <label>email </label>
-        <input formControlName="email" type="text" class="form-control" />
+        <input [class.invalid]="emailId?.invalid && emailId?.touched" formControlName="email" type="text" class="form-control" />
+`         <small *ngIf="emailId?.invalid || emailId?.touched && registForm.get('subscribe')" class="alert">eMAIL REQUIRED</small>      </div>
+      <div>
+        <input formControlName="subscribe" type="checkbox">
+        <label>Promotions</label>
       </div>
       <div class="form-group">
         <label>Recovery email </label>
-        <input formControlName="recoverymail" type="text" class="form-control" />
+        <input
+          formControlName="recoverymail"
+          type="text"
+          class="form-control"
+        />
+      </div>
+      <div>
+        <button (click)="addNum()">Add</button>
+        <div formArrayName="contactNumber" *ngFor="let num of mob.controls; let i=index ">
+          <input type="text" formControlName="i">
+        </div>
       </div>
       <div class="form-group">
         <label>DOB </label>
@@ -25,26 +60,26 @@
       <div class="form-group">
         <label>Gender</label>
         <input
-        formControlName="gender"
-        type="radio"
-        name="gender"
-        value="Male"
-      />Male &nbsp;
-      <input
-      formControlName="gender"
-        type="radio"
-        name="gender"
-        value="Female"
-      />female &nbsp;
-      <input
-      formControlName="gender"
-        type="radio"
-        name="gender"
-        l
-        value="Other"
-      />Other
+          formControlName="gender"
+          type="radio"
+          name="gender"
+          value="Male"
+        />Male &nbsp;
+        <input
+          formControlName="gender"
+          type="radio"
+          name="gender"
+          value="Female"
+        />female &nbsp;
+        <input
+          formControlName="gender"
+          type="radio"
+          name="gender"
+          l
+          value="Other"
+        />Other
       </div>
-      <div formGroupName="address">  
+      <div formGroupName="address">
         <div class="form-group">
           <label>House Name</label>
           <input formControlName="hname" type="text" class="form-control" />
@@ -57,20 +92,30 @@
           <label>State </label>
           <input formControlName="state" type="text" class="form-control" />
         </div>
-      </div>  
+      </div>
       <div class="form-group">
         <label>Password </label>
-        <input formControlName="password" type="password" class="form-control" />
+        <input
+          formControlName="password"
+          type="password"
+          class="form-control"
+        />
       </div>
       <div class="form-group">
         <label>Confirm Password </label>
-        <input formControlName="confirmPassword" type="password" class="form-control" />
+        <input
+          [class.invalid]="registForm.errors?.['misMatch']"
+          formControlName="confirmPassword"
+          type="password"
+          class="form-control"
+        />
+      </div>
+      <div>
+        <small *ngIf="registForm.errors?.['misMatch']">Error</small>
       </div>
       <button type="submit">Register</button>
       <button (click)="preset()" class="preset"><p>Preset Data</p></button>
     </form>
-
   </div>
 </div>
-{{registForm.value | json}}
-      
+{{ registForm.value | json }}

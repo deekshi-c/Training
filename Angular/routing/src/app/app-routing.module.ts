@@ -8,18 +8,19 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 const routes: Routes = [
   { path: '', redirectTo: '/departments', pathMatch: 'full' },
   { path: 'departments', component: DepartmentListComponent },
-  { path: 'departments/:id', component:DepartmentDetailsComponent },
+  { path: 'departments/:id', component: DepartmentDetailsComponent },
   { path: 'employees', component: EmployeeListComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
-export const routingComponents = [DepartmentListComponent,
-                                  EmployeeListComponent,
-                                  DepartmentDetailsComponent,
-                                  PageNotFoundComponent
-                                 ];
+export class AppRoutingModule {}
+export const routingComponents = [
+  DepartmentListComponent,
+  EmployeeListComponent,
+  DepartmentDetailsComponent,
+  PageNotFoundComponent,
+];

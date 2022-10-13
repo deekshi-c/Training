@@ -21,8 +21,7 @@ label { display: table-cell;
         text-align-last: auto;    
     }
 input { display: table-cell; 
-        content: "\a";
-        white-space: pre;}
+        border-radius: 10px;}
 button{
     margin: 10px;
 }
@@ -36,7 +35,7 @@ button p{
 }
 .alert{
     
-    display: none;
+    display: contents;
 }
 
 small{
