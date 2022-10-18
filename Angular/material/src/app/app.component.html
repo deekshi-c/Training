@@ -1,0 +1,67 @@
+<mat-toolbar color="primary" class="nav">
+  <div class="navbar">
+    <button mat-raise-button (click)="sidenav.toggle()">
+      <span class="material-icons"> menu </span>
+    </button>
+    <span class="material-icons"> book_online </span>
+    <span>Booker</span>
+  </div>
+  <div>
+    <span class="material-icons" (click)="onClick()"> home </span>
+    <span class="material-icons" [matMenuTriggerFor]="contact">
+      contact_support
+    </span>
+    <mat-menu #contact xPosition="before" yPosition="below">
+      <button mat-menu-item>FAQ</button>
+      <button mat-menu-item>Complaint</button>
+    </mat-menu>
+    <span class="material-icons"> login </span>
+  </div>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav mode="push" #sidenav>
+    <div class="sidebutton">
+      <button class="mar" mat-flat-button [matMenuTriggerFor]="bus">
+        <span class="material-icons"> directions_bus_filled </span>
+      </button>
+      <div>
+        <mat-menu #bus xPosition="after" yPosition="above">
+          <button mat-menu-item>Semi-sleeper</button>
+          <button mat-menu-item>Semi-sleeper</button>
+          <button mat-menu-item>AC sleeper</button>
+        </mat-menu>
+      </div>
+    </div>
+    <div class="sidebutton">
+      <button class="mar" mat-flat-button [matMenuTriggerFor]="train">
+        <span class="material-icons"> directions_railway </span>
+      </button>
+      <div>
+        <mat-menu #train xPosition="before" yPosition="below">
+          <button mat-menu-item>2S</button>
+          <button mat-menu-item>Sleeper</button>
+          <button mat-menu-item>AC sleeper</button>
+        </mat-menu>
+      </div>
+    </div>
+    <div class="sidebutton">
+      <button class="mar" mat-flat-button [matMenuTriggerFor]="flight">
+        <span class="material-icons">flight</span>
+      </button>
+      <div>
+        <mat-menu #flight xPosition="after" yPosition="below">
+          <button mat-menu-item>Business</button>
+          <button mat-menu-item>Economy</button>
+        </mat-menu>
+      </div>
+    </div>
+  </mat-sidenav>
+  <div class="journey">
+    <mat-form-field>
+      <input matInput>
+    </mat-form-field>
+  </div>
+  <!-- <mat-sidenav-content>
+    
+  </mat-sidenav-content> -->
+</mat-sidenav-container>

@@ -1,0 +1,13 @@
+.A{
+    float: right;
+}
+
+.form{
+    width:max-content;
+    padding: 20px;
+}
+
+input{
+    width: 100px;
+    margin-right: 70px;
+}

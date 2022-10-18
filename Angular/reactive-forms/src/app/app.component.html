@@ -32,11 +32,21 @@
       </div>
 
       <div class="form-group">
-        <label>email </label>
-        <input [class.invalid]="emailId?.invalid && emailId?.touched" formControlName="email" type="text" class="form-control" />
-`         <small *ngIf="emailId?.invalid || emailId?.touched && registForm.get('subscribe')" class="alert">eMAIL REQUIRED</small>      </div>
+        <label >email </label>
+        <input
+          [class.invalid]="emailId?.invalid && emailId?.touched"
+          formControlName="email"
+          type="text"
+          class="form-control"/>
+        <small
+          *ngIf="
+            emailId?.invalid || registForm.get('subscribe')"
+          class="alert"
+          >EMAIL REQUIRED</small
+        >
+      </div>
       <div>
-        <input formControlName="subscribe" type="checkbox">
+        <input formControlName="subscribe" type="checkbox" >
         <label>Promotions</label>
       </div>
       <div class="form-group">
@@ -48,16 +58,21 @@
         />
       </div>
       <div>
+        <label>Number</label>
+        
         <button (click)="addNum()">Add</button>
-        <div formArrayName="contactNumber" *ngFor="let num of mob.controls; let i=index ">
-          <input type="text" formControlName="i">
+        <div
+          formArrayName="contactNumber"
+          *ngFor="let num of contactNumber.controls; let i = index"
+        >
+          <input type="text" [formControlName]="i" />
         </div>
       </div>
       <div class="form-group">
         <label>DOB </label>
         <input formControlName="dob" type="date" class="form-control" />
       </div>
-      <div class="form-group">
+      <div>
         <label>Gender</label>
         <input
           formControlName="gender"
@@ -119,3 +134,7 @@
   </div>
 </div>
 {{ registForm.value | json }}
+
+<mat-form-field>
+  <input matInput>
+</mat-form-field>

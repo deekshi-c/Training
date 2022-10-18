@@ -61,12 +61,12 @@ export class AppComponent implements OnInit {
   }
 
 
-  get mob(){
+  get contactNumber(){
     return this.registForm.get('contactNumber') as FormArray;
   }
 
   addNum(){
-    this.mob.push(this.fb.control(''));
+    this.contactNumber.push(this.fb.control(''));
   }
 
   preset() {
@@ -76,12 +76,14 @@ export class AppComponent implements OnInit {
       subscribe: true,
       recoverymail: 'recjohn@gmail.com',
       dob: '2002-09-08',
+    
       gender: 'Male',
       address: {
         hname: 'abc',
         sname: '3rd street',
         state: 'goa',
       },
+      contactNumber:56656,
       password: null,
       confirmPassword: null,
     });

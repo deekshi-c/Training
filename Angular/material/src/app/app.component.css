@@ -1,0 +1,56 @@
+.nav{
+    
+    justify-content: space-between;
+
+}
+
+span{
+    padding: 1rem;
+}
+
+.material-icons{
+    transform: scale(1.5);
+}
+mat-sidenav-container{
+    background-color: beige;
+
+    height: 75%;
+}
+mat-sidenav-container,mat-sidenav{
+    
+    padding:6px;
+}
+
+mat-sidenav{ 
+        
+
+    width:20%;
+} 
+ 
+.sidebutton{
+    background-size: 100%;
+    padding-bottom:10px;
+}
+
+.sidebutton button{
+    width: 3cm;
+}
+
+.navbar button{
+    
+    transform: scale(0.5);
+}
+
+.mar{
+    background-color: beige;
+    margin: 1rem;
+}
+
+.journey{
+    width: 100;
+    height: 50%;
+    border: 1px solid black;
+    background-color: aliceblue;
+}
+
+}
