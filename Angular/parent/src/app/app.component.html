@@ -1,0 +1,17 @@
+<div class="parent">
+  <h1><b></b> Parent</h1>
+<p>NAME:<input type="text" #name /></p>
+<p>AGE:<input type="text" #age /></p>
+<p>EMAIL:<input type="text" #email /></p>
+<button (click)="onClick(name.value,age.value,email.value)">Send to child</button>
+
+  <h3>The Entered Data is :{{ data1 }} </h3>
+  <button (click)="uLoggedIn=true">Login</button>
+  <button (click)="uLoggedIn=false">logOut</button>
+</div>
+ <app-child [pData]="data"  (parentFunction)="parentFunction($event)" [p3Data]="val" >
+  </app-child>
+
+  <app-child2 [p2Data]="data1" [loggedIn]="uLoggedIn" (parentFunction)="parentFunction2($event)">
+  </app-child2>
+ 

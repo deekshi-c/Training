@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+h1{
+    background-color: aliceblue;
+    border-style: double;
+    color: rgb(0, 0, 118);
+}
+body{
+    background-color: rgb(220, 220, 220);
+}

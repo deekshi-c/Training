@@ -1,0 +1,15 @@
+<div>
+ <h1><b>Child</b></h1>
+  <h4>Parent Data </h4>
+   <h5> Name :{{ pData.name }}
+   Age :{{ pData.age }}
+   Email:{{ pData.email }}</h5>
+
+  <h4>Message Through Parent:-{{p3Data}}</h4>
+  <p><input type="text" #input /></p>
+  <button (click)="onClick(input.value)">Click Me to send Data</button><br>
+  <p>
+  <label>Enter data for Sending</label>
+  <input  type="text" #val>
+  <button (click)="send(val.value)">Direct Send</button></p>
+</div>
