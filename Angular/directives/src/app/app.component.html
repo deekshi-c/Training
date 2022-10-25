@@ -1,0 +1,50 @@
+<div>
+  <h3>ngIf</h3>
+  <div *ngIf="flag">If works</div>
+  <div [ngClass]="flag == true ? 'back' : 'backf'">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime libero
+    veniam voluptatum consequuntur quisquam modi ea id quos sapiente natus,
+    corporis saepe commodi iusto reiciendis optio consectetur possimus beatae
+    blanditiis.
+  </div>
+  <button (click)="click()">Click</button><br />
+  <button (click)="onclick()">Click</button>
+  <div *ngIf="this.val; then correct; else wrong"></div>
+  <ng-template #correct> TRUE CONDISON WORKS </ng-template>
+  <ng-template #wrong> Wrong Works </ng-template>
+</div>
+<hr />
+
+<div>
+  <h3>ngFor</h3>
+  <div
+    *ngFor="let item of data"
+    [ngStyle]="{
+      'background-color': 'yellow',
+      width: '600px',
+      color: '#C90AAF'
+    }"
+  >
+    <span
+      ><b>{{ item.id }}</b> Name:-{{ item.name }}&nbsp; Locatin:{{
+        item.location
+      }}</span
+    >
+  </div>
+</div>
+<hr />
+<input type="number" [(ngModel)]="num" placeholder="Enter Id" />
+<div [ngSwitch]="num">
+  <div *ngSwitchCase="1">NAME:{{ data[0].name }}</div>
+  <div *ngSwitchCase="2">NAME:{{ data[1].name }}</div>
+  <div *ngSwitchCase="3">NAME:{{ data[2].name }}</div>
+  <div *ngSwitchDefault>User Not Found</div>
+</div>
+<hr />
+<hr />
+<div><h2>Custom Directive</h2></div>
+<div appCustom>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa mollitia
+  repudiandae magnam aut sed qui odit animi vitae, quod vel est velit enim
+  ducimus, aliquid porro veniam totam consequatur debitis!
+</div>

@@ -1,0 +1,15 @@
+<h3>Parameterized Pipes</h3>
+ <p>Default {{DOB | date}}</p>
+  <p>Short {{DOB | date:'short'}}</p>
+  <p>Short {{DOB | date:'long'}}</p>
+
+<hr>
+<h4>Curency</h4>
+<p>Default {{ cost | currency}}</p>
+<p>Custom {{ cost | currency: 'INR'}}</p>
+<p>Code {{ cost | currency: 'INR':'code'}}</p>
+<p>Custom decimal :{{ cost | currency: 'INR':'':'4.3-4'}}</p>
+<p>Custom decimal :{{ cost | currency: 'INR':'':'3.0-1'}}</p>
+<hr><hr>
+<h3>Chaining Pipes </h3>
+<p>{{DOB | date:'MMMM'|uppercase}}</p>

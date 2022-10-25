@@ -6,10 +6,13 @@
 </div>
 
 <div class="post">
-  <H1>Post Method</H1>
-<form #userForm="ngForm" (ngSubmit)="sendData(userForm.value)">
-  <input type="text" ngModel name="name" placeholder="Name"><br>
-  <input type="text" ngModel name="email" placeholder="email"><br>
-<button>Add</button>
-</form>
+    <H1>Post Method</H1>
+  <form #userForm="ngForm" (ngSubmit)="sendData(userForm.value)">
+    <input type="text" ngModel name="name" placeholder="Name"><br>
+    <input type="text" ngModel name="email" placeholder="email"><br>
+  <button>Add</button>
+  </form>
 </div>
+
+<button (click)="click()">UPDATE</button>
+<button (click)="del()">Delete</button>

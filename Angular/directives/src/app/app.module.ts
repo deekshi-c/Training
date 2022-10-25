@@ -1,20 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule, routing } from './app-routing.module';
-import { AppComponent } from './app.component';
-import{HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { PutComponent } from './put/put.component';
-
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { CustomDirective } from './custom.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    routing,
+    CustomDirective
   ],
   imports: [
-    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule

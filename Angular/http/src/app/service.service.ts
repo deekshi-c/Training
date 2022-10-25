@@ -15,7 +15,33 @@ export class ServiceService {
 
   constructor(public http:HttpClient) { }
 
+  update(){
+    const data = {
+      name: "John",
+      username: "Luther",
+    }
+    this.http.put('https://jsonplaceholder.typicode.com/users/1',data).subscribe( x => {
+      console.log(x);
+    });
+  }
+//DELETE
+  delete(id: any){
+    const deleteHeaders = new HttpHeaders({
+      'authenticationToken':'User222',
+      'expiryToken':'33'
+    });
+    const deleteParams = new HttpParams()
+     .set('Role','admin');
+    return this.http.delete(
+      'https://jsonplaceholder.typicode.com/users/' + id,
+      {
+        headers: deleteHeaders,
+        params : deleteParams
+      }
+    );
+  }
 
+//GET
   getUsers():Observable<User> {
     const headers1 =new HttpHeaders({
       'content-type': 'app',

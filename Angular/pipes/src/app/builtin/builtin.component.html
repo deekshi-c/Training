@@ -1,0 +1,10 @@
+<input type="text" #name  [(ngModel)]="val" placeholder="Enter text">
+<p>lowercase :{{val | lowercase}}</p>
+<p>Upper case :{{val| uppercase}}</p>
+<p>
+<input type="date" #name  [(ngModel)]="date">
+</p>
+<p> Default : {{date| date  }}</p>
+<hr>
+<p>Without Json pipe {{detail}}</p>
+<p>With Json{{detail | json}}</p>
