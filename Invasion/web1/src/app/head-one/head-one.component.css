@@ -1,12 +1,10 @@
-.nav {
+.header {
   width: 100%;
+  background-color: white;
+  padding-left:130px;
+  padding-top: 23px;
   height: 100px;
-  background-color: #ffffff;
+
 }
-.nav img {
-  width: 280px;
-  height: 54px;
-  margin-left: 130px;
-  margin-top: 23px;
-}
+
 

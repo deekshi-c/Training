@@ -1,0 +1,29 @@
+.header {
+  background-color: white;
+  padding-left:9%;
+  padding-top: 2.5%;
+  height: 100px;
+
+}
+.user img{
+  box-sizing: border-box;
+  height: 44px;
+  width: 44px;
+  border: 2px solid #D92756;
+  border-radius: 50px;
+}
+
+.user{
+  display: flex;
+  float: right;
+  margin-right: 130px;
+  margin-top: 20px;
+}
+
+.uname{
+  font-family: Roboto;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+

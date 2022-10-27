@@ -1,0 +1,49 @@
+.innerbox{
+   height: 193px;
+  width: 563px;
+  box-shadow: 0 0 11px 0 rgba(0,0,0,0.2);
+  border-radius: 20px;
+  background-color: white;
+  margin: auto;
+  margin-top: 324px;
+  text-align: center;
+}
+
+.form {
+  height: 1138px;
+
+  width: 100%;
+  background: linear-gradient(52.03deg, #7a7fc8 0%, #bd385b 100%);
+}
+
+.message{
+    padding: 56px 55px 27px 55px;
+    text-align: center;
+    height: 19px;
+  width: 451px;
+  color: #000000;
+  font-family: Roboto;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+.btn{
+  height: 49px;
+
+  width: 149px;
+  margin-bottom:47px;
+  border-radius: 50px;
+  background: #D92756;
+  border: none;
+}
+ .btn label{
+  height: 16px;
+  width: 31.04px;
+  color: #FFFFFF;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1.25px;
+  line-height: 16px;
+  text-align: center;
+ }

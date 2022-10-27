@@ -1,4 +1,5 @@
 {
-    "debug.allowBreakpointsEverywhere": true,
-    "files.autoGuessEncoding": true
+  "debug.allowBreakpointsEverywhere": true,
+  "files.autoGuessEncoding": true,
+  "livePreview.defaultPreviewPath": "/home/deekshithc/Desktop/Git_Angular/Invasion/web1/src/app/home/home.component.html"
 }
