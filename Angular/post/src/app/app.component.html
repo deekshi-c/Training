@@ -1,6 +1,44 @@
-<H1>Post Method</H1>
-<form action="" #uForm="ngForm" (ngSubmit)="getUserData(uForm.value)">
+<!-- <div><H1>Post Method</H1>
+<form action="" #uForm="ngForm" (ngSubmit)="getUserdata1(uForm.value)">
   <input type="text" name="name" placeholder="Name"><br>
   <input type="text" name="email" placeholder="email"><br>
-<button>Add</button>
-</form>
+<button>Delete </button>
+</form></div> -->
+
+
+  <h2>
+    Entering data to local and session Storage
+  </h2>
+<div class="local">
+  <h2 class="one">LOCAL STORAGE</h2>
+    <input type="text" #key name="Key" placeholder="Key"><br>
+    <input type="text" #data name="Value" placeholder="Value"><br>
+
+  <button (click)="addlocal(key.value,data.value)">Add</button>
+  <button (click)="getlocal(key.value)">Get</button>
+  <button (click)="delelocal(key.value)">Delete</button>
+  <button (click)="clearlocal()">clear</button>
+</div>
+<div class="session">
+  <h2 class="two">SESSION STORAGE</h2>
+    <input type="text" #nam name="nam" placeholder="Key"><br>
+    <input type="text" #data1 name="Value" placeholder="Value"><br>
+
+  <button (click)="addsession(nam.value,data1.value)">Add</button>
+  <button (click)="getsession(nam.value)">Get</button>
+  <button (click)="delesession(nam.value)">Delete</button>
+  <button (click)="clearsession()">clear</button>
+</div>
+
+<div class="Cookie">
+  <h2 class="Three">COOKIE</h2>
+    <input type="text"  [(ngModel)]="cookieKey" name="name" placeholder="Key"><br>
+    <input type="text" [(ngModel)]="cookieValue" name="Value" placeholder="Value"><br>
+
+  <button (click)="addCookie(cookieKey,cookieValue)">Add</button>
+  <button (click)="getCookie(cookieKey)">Get</button>
+  <button (click)="getallCookie()">Get All</button>
+  <button (click)="deletcookie(cookieKey)">Delete</button>
+  <button (click)="deletcookieAll()">Delete All</button>
+ 
+</div>

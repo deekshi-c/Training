@@ -1,14 +1,13 @@
-.aa{
-    /* border:2px solid rgb(24, 133, 40); */
-    margin-bottom: 20px;
+.aa {
+  /* border:2px solid rgb(24, 133, 40); */
+  margin-bottom: 20px;
 }
-.body{
-    display: flex;
-    padding-top: 20px;
-    background-color: #f7f7f7;
-    height: 1025px;
+.body {
+  display: flex;
+  padding-top: 20px;
+  background-color: #f7f7f7;
+  height: 1025px;
 }
-
 
 .head {
   height: 476px;
@@ -31,21 +30,134 @@
   line-height: 28px;
 }
 .btn {
-border-radius: 50px;
+  border-radius: 50px;
+  border: none;
   height: 48px;
   width: 240px;
   background-color: #d92756;
   color: #ffffff;
 }
 
-.select{
+.select {
+  border: none;
   height: 48px;
   width: 240px;
+  border-radius: 40px;
   margin-top: 40px;
-
 }
 
-.select:hover{
-border-radius: 40px;
-background-color: rgba(217,39,86,0.05);
+.select:hover {
+  background-color: rgba(217, 39, 86, 0.05);
 }
+
+.form {
+  display: flex;
+  margin-left: 20px;
+  padding: 20px;
+  width: 880px;
+  height: 952px;
+  background-color: #ffffff;
+}
+
+.frmG h2 {
+  height: 24px;
+  opacity: 0.87;
+  color: #000000;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.15px;
+  line-height: 24px;
+}
+
+.ip-one {
+  margin-bottom: 18px;
+  height: 56px;
+  width: 580px;
+  border-radius: 4px;
+}
+.frmGrp {
+  margin-bottom: 18px;
+}
+
+.textArea {
+  border-radius: 4px;
+  width: 580px;
+}
+
+.textButton,
+.pdf {
+  margin-right: 20px;
+  height: 56px;
+  width: 280px;
+  border-radius: 4px;
+}
+
+.inputFrm {
+  margin-bottom: 37px;
+}
+
+.date {
+  height: 84px;
+  width: 180px;
+  margin-right: 20px;
+}
+
+.action {
+  /* margin-left: 30px; */
+  border-left: #d92756 2px solid;
+  padding-left: 30px;
+  padding-bottom: 30px;
+  height: 351px;
+  width: 230px;
+}
+
+.inner {
+  display: flex;
+}
+
+.inside {
+  height: 321px;
+  width: 200px;
+}
+
+.inside button {
+  text-align: left;
+  padding: 12px;
+  height: 49px;
+  width: 200px;
+  background-color: #fdf4f6;
+  margin-bottom: 19px;
+}
+
+.pink {
+  color: #d92756;
+}
+
+.box {
+  padding-right: 10px;
+}
+.inside button {
+  color: #d92756;
+ /* padding-top: 5px; */
+ /* padding-left: 10px; */
+  background-color: #FDF4F6;
+}
+
+.inside label{
+  margin: 13px;
+    height: 16px;
+  width: 104.83px;
+}
+ 
+.actn mat-icon{
+  height: 24px;
+  width: 24px;
+}
+
+.add{
+margin-top: 350px;
+justify-content: flex-end;
+display: flex;
+}
+

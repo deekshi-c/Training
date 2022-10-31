@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import{HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { routing } from './app-routing.module';
@@ -12,7 +12,7 @@ import { ForgotComponent } from './forgot/forgot.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { HomeComponent } from './home/home.component';
 import { IconHeaderComponent } from './icon-header/icon-header.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +21,7 @@ import { IconHeaderComponent } from './icon-header/icon-header.component';
     ForgotComponent,
     ChangePasswordComponent,
     HomeComponent,
-    IconHeaderComponent
+    IconHeaderComponent,
     
   ],
   imports: [
@@ -29,7 +29,9 @@ import { IconHeaderComponent } from './icon-header/icon-header.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
 
   ],
   providers: [],

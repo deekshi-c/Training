@@ -1,3 +1,22 @@
 input{
-    padding: bottom 1.5cm;
+   margin-bottom: 10px;
+}
+button{
+   margin-right: 10px;
+}
+div{
+    margin: 20px;
+    padding: 20px;
+    width: fit-content;
+    border: 2px solid black;
+}
+.one{
+   color:rgb(96, 111, 132)
+}
+
+.Three{
+   color: brown;
+}
+.two{
+   color: cadetblue;
 }

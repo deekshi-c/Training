@@ -4,25 +4,25 @@
   </div>
   <div class="innerbox">
     <div class="rec">
-      <form action="">
+      <form name="login" [formGroup]="login">
         <div class="inputFrm">
           <div class="frmG">
             <h2 class="login">Login</h2>
           </div>
-          <div class="frmGrp">
+          <div class="frmGrp" >
             <mat-form-field appearance="outline">
               <mat-label>Enter Username</mat-label>
-              <input type="text" matInput />
+              <input type="text" #uname matInput formControlName="username" />
             </mat-form-field>
           </div>
           <div class="frmGrp">
             <mat-form-field appearance="outline">
               <mat-label>Enter Password</mat-label>
-              <input type="text" matInput />
+              <input type="password" #pass matInput  formControlName="password" />
             </mat-form-field>
           </div>
           <div class="frmGrp">
-             <button class="btn" mat-stroked-button routerLink="home"> 
+             <button class="btn" mat-stroked-button (click)="onClick()"> 
                 <label>Login</label>
             </button>
           </div>
