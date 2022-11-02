@@ -1,0 +1,22 @@
+<h1>Encrypt Decrypt</h1>
+<div class="input">
+  <input type="text" placeholder="Secret Message" [(ngModel)]="plain"><br>
+  <input type="text" placeholder="Key" [(ngModel)]="key"><br>
+  <button (click)="encr()">Encrypt</button>
+  <button (click)="decr()">Decrypt</button>
+</div>
+<div class="out">
+  <div class="encrypt">
+    <label>Encryption</label>
+    <textarea readonly cols="30" rows="10">{{encrypt}}</textarea>
+  </div>
+  <div class="decrypt">
+    <label>Decryption</label>
+    <textarea readonly cols="30" rows="10">{{decrypt}}</textarea>
+  </div>
+</div>
+<input type="text" placeholder="Enter delay time" [(ngModel)]="delay"/>
+
+
+<button (click)="clickone(delay)" > side task without Worker</button>
+<button (click)="clicktwo(delay)" > side task with Worker</button>{{result}}

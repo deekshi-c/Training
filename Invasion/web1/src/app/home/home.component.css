@@ -54,9 +54,10 @@
   display: flex;
   margin-left: 20px;
   padding: 20px;
-  width: 880px;
   height: 952px;
+  width: 880px;
   background-color: #ffffff;
+  box-shadow: 0 4px 40px 0 rgba(217,39,86,0.08);
 }
 
 .frmG h2 {
@@ -94,6 +95,7 @@
 }
 
 .inputFrm {
+ 
   margin-bottom: 37px;
 }
 
@@ -103,7 +105,16 @@
   margin-right: 20px;
 }
 
+.textareatwo{
+    height: 16px;
+  width: 580px;
+  border-radius: 4px;
+}
+
+
+
 .action {
+  position:relative;
   /* margin-left: 30px; */
   border-left: #d92756 2px solid;
   padding-left: 30px;
@@ -111,6 +122,18 @@
   height: 351px;
   width: 230px;
 }
+.pdfTwo{
+  height:116px;
+  width: 580px;
+}
+
+
+.pdfOne{
+  height: 102px;
+  width: 580px;
+  border-radius: 4px;
+}
+
 
 .inner {
   display: flex;
@@ -119,6 +142,10 @@
 .inside {
   height: 321px;
   width: 200px;
+}
+
+.topbox{
+  margin-bottom: 37px;
 }
 
 .inside button {
@@ -139,25 +166,48 @@
 }
 .inside button {
   color: #d92756;
- /* padding-top: 5px; */
- /* padding-left: 10px; */
-  background-color: #FDF4F6;
+  /* padding-top: 5px; */
+  /* padding-left: 10px; */
+  background-color: #fdf4f6;
 }
 
-.inside label{
+.inside label {
   margin: 13px;
-    height: 16px;
+  height: 16px;
   width: 104.83px;
 }
- 
-.actn mat-icon{
+
+.actn mat-icon {
   height: 24px;
   width: 24px;
 }
 
+.top {
+  margin-top: 280px;
+  
+  position:absolute;
+  /* justify-content: flex-end;
+  display: flex; */
+}
 .add{
-margin-top: 350px;
-justify-content: flex-end;
-display: flex;
+  position:relative;
+}
+/* .options{
+  float:right; 
+   opacity:1;
+} */
+.optbuton button{
+  background-color: #FDF4F6;
+  border:none;
+  border-radius:50px;
+  margin-top:15.4px;
+  height: 35px;
+  width: 195px;
 }
 
+ .plus{
+  margin-left:187px;
+  margin-top: 450px;
+  position:absolute;
+
+ }

@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  public plusclick=false;
+  public symbol=true;
   constructor() { }
 
   ngOnInit(): void {
   }
+  onClick(){
+    this.plusclick=!this.plusclick;
+    this.symbol=!this.symbol;
+  }
+
 
 }

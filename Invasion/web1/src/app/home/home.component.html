@@ -15,41 +15,45 @@
       <button mat-stroked-button class="select">Process Guidelines</button>
     </div>
   </div>
+
   <div class="form">
     <div class="box">
-      <div class="frmG">
-        <h2>Questionnaire</h2>
+      <div class="topbox">
+        <div class="frmG">
+          <h2>Questionnaire</h2>
+        </div>
+        <div class="frmGrp">
+          <mat-form-field appearance="outline" class="ip-one">
+            <mat-label>Enter Title</mat-label>
+            <input type="text" matInput />
+            <mat-hint
+              ><strong> Please enter appropriate title</strong>
+            </mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="frmGrp">
+          <mat-form-field appearance="outline" class="pdfOne">
+            <mat-label>Description</mat-label>
+            <input type="text" class="pdfOne" matInput />
+          </mat-form-field>
+        </div>
+        <div class="frmGrp">
+          <mat-form-field appearance="outline" class="textButton">
+            <mat-label>Button Title</mat-label>
+            <input type="text" matInput />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="textButton">
+            <mat-label>Button Text</mat-label>
+            <input type="text" matInput />
+          </mat-form-field>
+        </div>
+        <div class="frmGrp">
+          <mat-form-field appearance="outline" class="ip-one">
+            <mat-label>Check box text</mat-label>
+            <input type="text" matInput />
+          </mat-form-field>
+        </div>
       </div>
-      <div class="frmGrp">
-        <mat-form-field appearance="outline" class="ip-one">
-          <mat-label>Enter Title</mat-label>
-          <input type="text" matInput />
-          <mat-hint><strong> Please enter appropriate title</strong> </mat-hint>
-        </mat-form-field>
-      </div>
-      <div class="frmGrp">
-        <mat-form-field appearance="outline" class="textArea">
-          <mat-label>Description</mat-label>
-          <textarea style="resize: none" matInput rows="3"></textarea>
-        </mat-form-field>
-      </div>
-      <div class="frmGrp">
-        <mat-form-field appearance="outline" class="textButton">
-          <mat-label>Button Title</mat-label>
-          <input type="text" matInput />
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="textButton">
-          <mat-label>Button Text</mat-label>
-          <input type="text" matInput />
-        </mat-form-field>
-      </div>
-      <div class="frmGrp">
-        <mat-form-field appearance="outline" class="ip-one">
-          <mat-label>Check box text</mat-label>
-          <input type="text" matInput />
-        </mat-form-field>
-      </div>
-
       <div class="inputFrm">
         <div class="frmG">
           <h2>Additional Details</h2>
@@ -58,7 +62,7 @@
           <mat-form-field appearance="outline" class="date">
             <mat-label>Choose a date</mat-label>
             <input matInput [matDatepicker]="picker" />
-            <mat-datepicker-toggle
+            <mat-datepicker-toggle class="pink"
               matSuffix
               [for]="picker"
             ></mat-datepicker-toggle>
@@ -67,11 +71,11 @@
           <mat-form-field appearance="outline" class="date">
             <mat-label>Choose a date</mat-label>
             <input matInput [matDatepicker]="picker1" />
-            <mat-datepicker-toggle
+            <mat-datepicker-toggle class="pink"
               matSuffix
               [for]="picker1"
             ></mat-datepicker-toggle>
-            <mat-datepicker #picker1></mat-datepicker>
+            <mat-datepicker  #picker1></mat-datepicker>
           </mat-form-field>
           <mat-form-field appearance="outline" class="date">
             <mat-label>Auto reminder </mat-label>
@@ -81,7 +85,11 @@
         <div class="frmGrp">
           <mat-form-field appearance="outline" class="pdf">
             <mat-label>Select Content PPT File</mat-label>
-            <input type="text" matInput /><mat-icon class="pink" matSuffix fontIcon="cloud_upload"></mat-icon>
+            <input type="text" matInput /><mat-icon
+              class="pink"
+              matSuffix
+              fontIcon="cloud_upload"
+            ></mat-icon>
           </mat-form-field>
           <mat-form-field appearance="outline" class="pdf">
             <mat-label>Select participant xl sheet </mat-label>
@@ -93,32 +101,59 @@
           </mat-form-field>
         </div>
         <div class="frmGrp">
-          <mat-form-field appearance="outline" class="textArea">
-            <mat-label>Mail Body</mat-label>
-            <textarea style="resize: none" matInput rows="3"></textarea>
+          <mat-form-field appearance="outline" class="pdfTwo">
+            <mat-label>Select Content PPT File</mat-label>
+            <input type="text" class="pdfTwo" matInput />
           </mat-form-field>
         </div>
       </div>
     </div>
     <div class="action">
       <div class="inside">
-         <button class="actn" mat-stroked-button><mat-icon fontIcon="save"></mat-icon><label>SAVE</label></button>
-         <button class="actn" mat-stroked-button><mat-icon fontIcon="preview"></mat-icon><label>PREVIEW</label></button>
-         <button class="actn" mat-stroked-button><mat-icon fontIcon="publish"></mat-icon><label>PUBLISH</label></button>
-         <button class="actn" mat-stroked-button><mat-icon fontIcon="add_alert"></mat-icon><label>REMIND</label></button>
-         <button class="actn" mat-stroked-button><mat-icon fontIcon="article"></mat-icon><label>GENRATE REPORT</label></button>
-    </div>
-    <div class="add">
-        <button mat-fab  aria-label="Example icon button with a delete icon">
-          <mat-icon>delete</mat-icon>
+        <button class="actn" mat-stroked-button>
+          <mat-icon fontIcon="save"></mat-icon><label>SAVE</label>
+        </button>
+        <button class="actn" mat-stroked-button>
+          <mat-icon fontIcon="preview"></mat-icon><label>PREVIEW</label>
+        </button>
+        <button class="actn" mat-stroked-button>
+          <mat-icon fontIcon="publish"></mat-icon><label>PUBLISH</label>
+        </button>
+        <button class="actn" mat-stroked-button>
+          <mat-icon fontIcon="add_alert"></mat-icon><label>REMIND</label>
+        </button>
+        <button class="actn" mat-stroked-button>
+          <mat-icon fontIcon="article"></mat-icon><label>GENRATE REPORT</label>
         </button>
       </div>
 
+      <div class="add">
+        <div *ngIf="plusclick" [class.options]="plusclick">
+          <div class="top">
+            <div class="optbuton">
+              <button>change Password</button>
+            </div>
+            <div class="optbuton">
+              <button>Add/Remove Super Admins</button>
+            </div>
+            <div class="optbuton">
+              <button>Add/Remove Admins</button>
+            </div>
+          </div>
+        </div>
+        <div class="plus">
+          <button mat-fab (click)="onClick()">
+            <div *ngIf="symbol; then tick; else cross"></div>
+
+            <ng-template #tick> <mat-icon>add</mat-icon></ng-template>
+            <ng-template #cross> <mat-icon>close</mat-icon></ng-template>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
-  
-</div>
-<!-- <span class="material-symbols-outlined"> </span> -->
-<!-- <div>
+  <!-- <span class="material-symbols-outlined"> </span> -->
+  <!-- <div>
   
   <div class="bg">
     <div class="questionbar">
@@ -128,3 +163,4 @@
     </div>
   </div>
 </div> -->
+</div>
