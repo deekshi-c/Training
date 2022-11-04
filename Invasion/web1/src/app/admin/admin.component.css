@@ -1,0 +1,112 @@
+
+.outer{
+  height: 584px;
+  width: 1033px;
+  border-radius: 20px;
+  background-color: #ffffff;
+}
+.add{
+  margin-left: 60px;
+  margin-top: 38px;
+  display: flex;
+  /* position: relative; */
+}
+.close .mat-icon{
+  position: absolute;
+  top:18%;
+  size :2px;
+  margin-left:991px;
+    height: 55px;
+  width: 55px;
+color: #656568;
+
+}
+
+.frmGrp{
+  margin-right:20px;
+}
+
+.frmGrp1 .mat-form-field{
+  flex-basis: 50%;
+  width:306px;
+}
+.headText {
+  margin-left: 62px;
+    margin-top: 63px;
+  height: 28px;
+  width: 228px;
+  color: #000000;
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 28px;
+}
+
+.dotBox{
+  box-sizing: border-box;
+  height: 2px;
+  width: 1034px;
+  border: 1px dashed #A2A2A2;
+  opacity: 0.6;
+}
+
+.btn1{
+  /* position: absolute; */
+  height: 51px;
+  width: 51px;
+  background-color:#d92756;
+  color: #ffffff;
+  margin-left:20px;
+  border-radius: 50px;
+  border: none;
+}
+.btn2{
+  /* position: absolute; */
+  height: 51px;
+  width: 51px;
+  background-color:#d92756;
+  color: #ffffff;
+  margin-left:20px;
+  border-radius: 50px;
+  border: none;
+}
+.btn .mat-icon{
+    height: 15px;
+  width: 15px;
+  background-color: #FFFFFF;
+}
+.displayout{
+   margin-left: 60px;
+  margin-top: 31px;
+}
+.display{
+ 
+  display: flex;
+  /* position: relative;  */
+}
+.options button{
+  height: 49px;
+  border-radius: 50px;
+  background-color: #d92756;
+  color: #FFFFFF;
+  width: 129px;
+  border: none;
+  margin-right: 32px;
+}
+
+.options button label{
+  height: 16px;
+  width: 53px;
+  color: #FFFFFF;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1.25px;
+  line-height: 16px;
+  text-align: center;
+}
+.options{
+  margin-left: 538px;
+  margin-top: 59px;
+}

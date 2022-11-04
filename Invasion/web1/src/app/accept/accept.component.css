@@ -1,0 +1,135 @@
+.full {
+  background-image: url(src/assets/Bitmap.png);
+  height: 100%;
+}
+
+.division1 {
+  margin-top: -780px;
+}
+.user {
+  margin-top: -920px;
+  margin-left: 141px;
+  display: flex;
+}
+.user img {
+  height: 80px;
+  width: 80px;
+}
+
+.userName {
+  margin-left: 10px;
+  height: 62px;
+  width: fit-content;
+  color: #575757;
+  font-family: Inter;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: 31px;
+}
+.heading {
+  margin-left: 258px;
+  height: 93px;
+  width: fit-content;
+}
+.h1 {
+  height: 60px;
+  text-align: center;
+  color: #000000;
+  font-family: Inter;
+  font-size: 50px;
+  letter-spacing: 0;
+  line-height: 60px;
+}
+.h3 {
+  height: 21px;
+  width: fit-content;
+  color: #575757;
+  font-family: Inter;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: 21px;
+}
+.logo img {
+  height: 54px;
+  width: 283px;
+}
+
+.logo {
+  margin-top: 20px;
+  margin-left: 269px;
+}
+
+.show {
+  height: 492px;
+  width: 843px;
+  border:2px solid black;
+  background-color: aliceblue;
+  margin-left: 488px;
+  margin-top: 76px;
+}
+
+.check {
+  margin-top: 40px;
+  margin-left: 783px;
+  height: 21px;
+  width: fit-content;
+}
+.dp{
+  border-radius: 40px;
+}
+
+.check-edit {
+  box-sizing: border-box;
+  height: 21px;
+  width: 21px;
+  border-radius: 2px;
+}
+.check span {
+  height: 21px;
+  color: #575757;
+  font-family: Inter;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: 21px;
+}
+.acknow {
+  margin-top: 26px;
+  margin-left: 605px;
+  height: 20px;
+  width: fit-content;
+  color: #000000;
+  font-family: Inter;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 20px;
+  text-align: center;
+}
+
+button label {
+  height: 20px;
+  width: 56px;
+  color: #ffffff;
+  font-family: Inter;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 20px;
+  text-align: center;
+}
+button {
+  margin-top: 26px;
+  margin-left: 843px;
+  background-color: #d92756;
+  height: 45px;
+  width: 233px;
+}
+footer {
+  height: 17px;
+  color: #959595;
+  font-family: Inter;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 17px;
+  text-align: center;
+  margin-top: 41px;
+  margin-left: 94px;
+}

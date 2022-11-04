@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import{Observable} from 'rxjs';
 
-interface login {
+interface login extends Array<login[]>
+ {
+  user: any;
   id: number;
   name: string;
   password: string;
@@ -14,7 +16,7 @@ export class ServiceService {
 
   constructor(private http:HttpClient) {  }
 
-  getUser():Observable<login>{
-    return this.http.get<login>('http://localhost:3000/user');
+  getUser():Observable<login[]>{
+    return this.http.get<login[]>('http://localhost:3000/user');
   }
 }

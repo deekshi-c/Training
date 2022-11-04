@@ -8,6 +8,8 @@ import {MatCardModule} from '@angular/material/card';
  import{ MatNativeDateModule} from '@angular/material/core';
  import { NativeDateModule } from '@angular/material/core';
  import {MatRippleModule} from '@angular/material/core';
+ import { MatDialogModule } from '@angular/material/dialog';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 
@@ -20,7 +22,9 @@ const matArray = [
   MatDatepickerModule,
   MatNativeDateModule,
   NativeDateModule,
-  MatRippleModule
+  MatRippleModule,
+  MatDialogModule,
+  MatCheckboxModule
 ];
 @NgModule({
   exports:[matArray],

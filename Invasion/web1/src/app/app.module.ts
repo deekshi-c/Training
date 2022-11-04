@@ -13,6 +13,10 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { HomeComponent } from './home/home.component';
 import { IconHeaderComponent } from './icon-header/icon-header.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SupAdminComponent } from './sup-admin/sup-admin.component';
+import { AdminComponent } from './admin/admin.component';
+import { AcceptComponent } from './accept/accept.component';
+import { ThankComponent } from './thank/thank.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +26,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     ChangePasswordComponent,
     HomeComponent,
     IconHeaderComponent,
+    SupAdminComponent,
+    AdminComponent,
+    AcceptComponent,
+    ThankComponent,
     
   ],
   imports: [

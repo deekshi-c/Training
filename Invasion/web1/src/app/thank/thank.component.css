@@ -1,0 +1,37 @@
+.inner {
+  display: flex;
+  width: fit-content;
+}
+.close {
+  margin-left: 276px;
+}
+
+.close-icon{
+  height: 25px;
+  width: 25px;
+  color: #DC4868;
+
+}
+.tick {
+  margin-left: 33px;
+  margin-top: 16;
+}
+
+.tick mat-icon {
+  height: 30px;
+  width: 30px;
+  color:rgb(0, 245, 49)
+}
+
+.headText{
+    margin-left: 9px;
+    margin-top: 6px;
+    height: 20px;
+  width: fit-content;
+  color: #000000;
+  font-family: Inter;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 20px;
+  text-align: center;
+}

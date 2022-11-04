@@ -8,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class IconHeaderComponent implements OnInit {
 
   constructor() { }
-
-  ngOnInit(): void {
+name:any;
+  ngOnInit(): void { this.name = localStorage.getItem('name');
   }
-  name="Jane Doe"
-
+ 
 }

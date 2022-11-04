@@ -7,7 +7,7 @@
     </button>
     <div class="options">
       <button mat-stroked-button class="select">Secure coding Guide</button>
-      <button mat-stroked-button class="select">
+      <button mat-stroked-button class="select" routerLink="/accept">
         ISMS Questionnaire
         <!-- <mat-icon fontIcon="arrow_forward_ios"></mat-icon> -->
       </button>
@@ -62,7 +62,8 @@
           <mat-form-field appearance="outline" class="date">
             <mat-label>Choose a date</mat-label>
             <input matInput [matDatepicker]="picker" />
-            <mat-datepicker-toggle class="pink"
+            <mat-datepicker-toggle
+              class="pink"
               matSuffix
               [for]="picker"
             ></mat-datepicker-toggle>
@@ -71,11 +72,12 @@
           <mat-form-field appearance="outline" class="date">
             <mat-label>Choose a date</mat-label>
             <input matInput [matDatepicker]="picker1" />
-            <mat-datepicker-toggle class="pink"
+            <mat-datepicker-toggle
+              class="pink"
               matSuffix
               [for]="picker1"
             ></mat-datepicker-toggle>
-            <mat-datepicker  #picker1></mat-datepicker>
+            <mat-datepicker #picker1></mat-datepicker>
           </mat-form-field>
           <mat-form-field appearance="outline" class="date">
             <mat-label>Auto reminder </mat-label>
@@ -131,18 +133,19 @@
         <div *ngIf="plusclick" [class.options]="plusclick">
           <div class="top">
             <div class="optbuton">
-              <button>change Password</button>
+              <button routerLink="/change">Change Password</button>
+            </div>
+
+            <div class="optbuton">
+              <button (click)="admin()">Add/Remove Admins</button>
             </div>
             <div class="optbuton">
-              <button>Add/Remove Super Admins</button>
-            </div>
-            <div class="optbuton">
-              <button>Add/Remove Admins</button>
+              <button (click)="superAdmin()">Add/Remove Super Admins</button>
             </div>
           </div>
         </div>
         <div class="plus">
-          <button mat-fab (click)="onClick()">
+          <button (click)="onClick()">
             <div *ngIf="symbol; then tick; else cross"></div>
 
             <ng-template #tick> <mat-icon>add</mat-icon></ng-template>
@@ -152,15 +155,8 @@
       </div>
     </div>
   </div>
-  <!-- <span class="material-symbols-outlined"> </span> -->
-  <!-- <div>
-  
-  <div class="bg">
-    <div class="questionbar">
-      <div class="head">
-        <p class="headText">Your Questionnaires</p>
-      </div>
-    </div>
-  </div>
-</div> -->
 </div>
+<div class="footer">
+<p>Robosoft.Copyright <span>&#169;</span> 2020.All rights reserved</p>
+</div>
+
