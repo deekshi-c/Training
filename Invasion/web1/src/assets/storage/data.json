@@ -1,19 +1,63 @@
 {
-    "user":[
-      {
-        "id": 1,
-        "name": "rayan",
-        "password": "456"
-      },
-      {
-        "id": 1,
-        "name": "Jhon",
-        "password": "123"
-      },
-      {
-        "id": 1,
-        "name": "smith",
-        "password": "789"
-      }
-    ]
+  "user": [
+    {
+      "password": "147",
+      "name": "rayan",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "Jhon",
+      "password": "123"
+    },
+    {
+      "id": 3,
+      "name": "smith",
+      "password": "789"
+    }
+  ],
+  "admin": [
+    {
+      "name": "Jhon",
+      "id": 2,
+      "email": "jhon#qwee"
+    },
+    {
+      "name": "sd",
+      "id": "sds",
+      "email": "sda"
+    },
+    {
+      "name": "assadas",
+      "id": "asdasd",
+      "email": "asdas"
+    },
+    {
+      "name": "xcxz",
+      "id": "zxczxc",
+      "email": "zxczxc"
+    },
+    {
+      "name": "xf",
+      "id": "dfdf",
+      "email": "df"
+    }
+  ],
+  "Sadmin": [
+    {
+      "id": 1,
+      "name": "rayan",
+      "email": "rayan@jsdkd"
+    },
+    {
+      "id": 9,
+      "name": "ray2",
+      "email": "rayan@js"
+    },
+    {
+      "id": 10,
+      "name": "ran",
+      "email": "rayan@dkd"
+    }
+  ]
 }

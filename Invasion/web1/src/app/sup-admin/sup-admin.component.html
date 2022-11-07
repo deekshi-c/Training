@@ -9,45 +9,48 @@
         mat-dialog-close
       ></mat-icon>
     </div>
-    <div class="add">
+    <div class="add" [formGroup]="admin"> 
+       
       <div class="frmGrp">
         <mat-form-field appearance="outline" class="input">
           <mat-label>Enter name</mat-label>
-          <input matInput />
+          <input matInput #name formControlName="name" />
         </mat-form-field>
       </div>
       <div class="frmGrp">
         <mat-form-field appearance="outline" class="input">
           <mat-label>Enter Employee Code</mat-label>
-          <input matInput />
+          <input 
+formControlName="id" #id matInput />
         </mat-form-field>
       </div>
       <div class="frmGrp1">
         <mat-form-field appearance="outline" class="input">
           <mat-label>Enter Mail ID </mat-label>
-          <input type="text" matInput />
+          <input type="text" #email formControlName="email" 
+  matInput  />
         </mat-form-field>
-        <button class="btn1">
+        <button class="btn1" (click)="add()" >
           <mat-icon aria-hidden="false" fontIcon="add"></mat-icon>
         </button>
-      </div>
-    </div>
+      </div> 
+    </div> 
     <div class="dotBox"></div>
     <div class="displayout">
-      <div class="display">
+      <div class="display" *ngFor="let item of users">
         <div class="frmGrp">
           <mat-form-field appearance="outline" class="input">
-            <input matInput />
+            <input type="text" matInput value="{{item.name}}" />
           </mat-form-field>
         </div>
         <div class="frmGrp">
           <mat-form-field appearance="outline" class="input">
-            <input matInput />
+            <input matInput  value="{{item.id}}"/>
           </mat-form-field>
         </div>
         <div class="frmGrp1">
           <mat-form-field appearance="outline" class="input">
-            <input type="text" matInput />
+            <input type="text" matInput value="{{item.email}}" />
           </mat-form-field>
           <button class="btn1">
             <mat-icon aria-hidden="false" fontIcon="edit"></mat-icon>
@@ -57,33 +60,11 @@
           </button>
         </div>
       </div>
-      <div class="display">
-        <div class="frmGrp">
-          <mat-form-field appearance="outline" class="input">
-            <input matInput />
-          </mat-form-field>
-        </div>
-        <div class="frmGrp">
-          <mat-form-field appearance="outline" class="input">
-            <input matInput />
-          </mat-form-field>
-        </div>
-        <div class="frmGrp1">
-          <mat-form-field appearance="outline" class="input">
-            <input type="text" matInput />
-          </mat-form-field>
-          <button class="btn1">
-            <mat-icon aria-hidden="false" fontIcon="edit"></mat-icon>
-          </button>
-          <button class="btn2">
-            <mat-icon aria-hidden="false" fontIcon="delete"></mat-icon>
-          </button>
-        </div>
-      </div>
+    </div>
       <div class="options">
         <button ><label > Update</label></button>
         <button ><label>Cancel</label></button>
       </div>
-    </div>
+    
   </div>
 </div>

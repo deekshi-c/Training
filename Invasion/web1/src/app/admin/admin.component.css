@@ -77,6 +77,8 @@ color: #656568;
   background-color: #FFFFFF;
 }
 .displayout{
+  height: 150px;
+  overflow-y: scroll;
    margin-left: 60px;
   margin-top: 31px;
 }

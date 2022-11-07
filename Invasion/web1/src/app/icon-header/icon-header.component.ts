@@ -9,7 +9,7 @@ export class IconHeaderComponent implements OnInit {
 
   constructor() { }
 name:any;
-  ngOnInit(): void { this.name = localStorage.getItem('name');
+  ngOnInit(): void { this.name = localStorage.getItem('name')?.replace(/['"]+/g, '');
   }
  
 }
