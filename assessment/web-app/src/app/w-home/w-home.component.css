@@ -1,0 +1,126 @@
+.outer{
+opacity: 1;
+margin-bottom: 66px;
+  /* border: 2px solid #000000; */
+}
+
+.place{
+    margin-top:6.83vh;
+    font-family: sans-serif;
+    color: white;
+    font-size: 23px;
+    font-weight:600 ;
+  letter-spacing: 0;
+  line-height: 24px;
+  text-align: left;
+}
+
+.fav{
+    margin-top: 2.9vh;
+}
+
+.false{
+    font-weight: 600;
+    color: white;
+}
+.true{
+    color: #FAD05B;
+}
+.yellow{
+    font-weight: 600;
+    color: #FAD05B
+}
+
+.display{
+    margin-top: 26px;
+    text-align: center;
+}
+.show{
+    margin: auto;
+    margin-left: 45%;
+    height: 75px;
+  width: 134px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.val{
+    margin: auto;
+    color: white;
+    font-size: 64px;
+  font-weight: 500;
+  line-height: 75px;
+}
+.cel{
+    margin: auto;
+    box-sizing: border-box;
+    height: 5rem;
+  width: 5rem;
+    display: flex;
+}
+hr{
+      box-sizing: border-box;
+      border: 1px solid #FFFFFF;
+  opacity: 0.3;
+}
+.degree,.faren{
+    margin: auto;
+    border: 1px solid white;
+      height: 30px;
+  width: 28px;
+}
+
+.weather{
+    color: white;
+    font-size: 22px;
+  letter-spacing: 0;
+  line-height: 25px;
+  text-align: center;
+}
+
+.footer{
+    padding: 35px 92px;
+    display: flex;
+    justify-content: space-between;
+    /* border: 2px solid green; */
+}
+.box{
+    padding: 2px;
+    display: flex;
+      height: 49px;
+      width: fit-content;
+      
+}
+
+
+.detail{  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+.text{
+    margin-left: 17px;
+    color: #FFFFFF;
+}
+
+.log2{
+    margin-left: 48px;
+    margin-right: 38px;
+}
+
+
+
+/* .mat-button-toggle{
+    background-color: transparent;
+  color: white;
+    display: flex;
+    align-items: center;
+    padding: 0%;
+    text-align: center;
+      height: 30px;
+  width: 28px;
+}
+
+bg{
+
+} */

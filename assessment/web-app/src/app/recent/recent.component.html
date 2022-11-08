@@ -1,0 +1,51 @@
+<div *ngIf="fav; then avail; else notavail"></div>
+<ng-template #avail>
+  <div class="body">
+    <div class="details">
+      <div class="list">
+        {{count }} Added as favourite
+      </div>
+      <div class="clear">
+        <button (click)="option()">Remove All</button>
+      </div>   
+    </div>
+    <div class="repeat">
+        <div class="place">
+            {{place}},{{State}}
+        </div>
+        <div class="weather">
+            <div class="icon">
+                <img src="assets/icon_humidity.png" alt="icon">
+            </div>
+            <div class="val">
+                29&deg;C
+            </div>
+            <div class="condition">
+              Rainy
+            </div>
+        </div>
+        <div class="fav" *ngIf="check; then add; else added"></div>
+    <ng-template #add>
+<mat-icon class="false" (click)="toggle()">favorite_border</mat-icon>
+    </ng-template>
+    <ng-template #added>
+      <mat-icon class="true" (click)="toggle()">favorite</mat-icon
+      ></ng-template
+    >
+
+    </div>
+  </div>
+
+
+
+
+
+</ng-template>
+<ng-template #notavail>
+  <div class="body1">
+    <div class="box">
+      <img src="assets/icon_nothing.png" alt="Nothing" />
+      <p>No Favorites added</p>
+    </div>
+  </div>
+</ng-template>
