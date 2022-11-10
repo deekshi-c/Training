@@ -9,15 +9,22 @@ export class WHomeComponent implements OnInit {
   place = 'Udupi';
   State = 'Karnataka';
   fav: any = true;
-  degr:any =false
   val: any = 87;
+  bagf='';
+  bagc='colorc';
   constructor() {}
 
   ngOnInit(): void {}
   toggle() {
     this.fav = !this.fav;
   }
-  dtoggle() {
-    this.degr = !this.degr;
+ cel(){
+    this.bagf='';
+    this.bagc='colorc';
+
+  }
+  far(){
+    this.bagf='colorf';
+    this.bagc='';
   }
 }

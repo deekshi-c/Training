@@ -8,9 +8,9 @@ import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { WHomeComponent } from './w-home/w-home.component';
-import { FavComponent } from './fav/fav.component';
-import { DialogComponent } from './dialog/dialog.component';
+import { FavComponent } from './fav/fav.component'
 import { RecentComponent } from './recent/recent.component';
+import { DialogComponent } from './dialog/dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,8 +18,8 @@ import { RecentComponent } from './recent/recent.component';
     HomeComponent,
     WHomeComponent,
     FavComponent,
+    RecentComponent,
     DialogComponent,
-    RecentComponent
   ],
   imports: [
     BrowserModule,
