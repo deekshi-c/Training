@@ -11,7 +11,14 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-
+@media (max-width: 500px) {
+  .custom .mat-dialog-container {
+    height: 138px;
+    width: 280px;
+    padding: 0;
+    
+  }
+}
 /* .custom {
   transition: none;
   height: 30.5vh;

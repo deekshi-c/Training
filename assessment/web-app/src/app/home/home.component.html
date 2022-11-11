@@ -1,26 +1,5 @@
 <div class="background">
-  <div class="header">
-    <div class="logo">
-      <img src="assets/logo_web.png" alt="logo" />
-    </div>
-    <div class="searchbar">
-      <input type="text" placeholder="Search" class="search" mat-input>
-      <mat-icon matSuffix>search</mat-icon>
-    </div>
-  </div>
-  <div class="navBar">
-     <div class="options">
-  <a href="#" routerLink="">HOME</a>
-  <a href="#" routerLink="/fav">FAVOURITE</a>
-  <a href="#" routerLink="/recent">RECENT SEARCH</a>
-</div> 
-    <div class="day">
-        <p class="p">{{date| date:'EEE, dd MMM'}} </p>
-        <p> {{date| date:'h.mm a'}}</p>
-  </div>
-
-  
-</div>
+  <app-header></app-header>
 <div class="body">
     <hr>
     <router-outlet></router-outlet>

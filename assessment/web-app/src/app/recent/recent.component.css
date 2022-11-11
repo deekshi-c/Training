@@ -1,3 +1,7 @@
+
+.heading{
+  display: none;
+}
 .body1 {
   width: 100%;
   padding: 29vh 0vh;
@@ -138,6 +142,9 @@ p .p{
 
 }
 @media (max-width:700px){
+  .heading{
+  display: none;
+}
   .body1 {
   width: 100%;
   padding: 29vh 0vh;
@@ -279,6 +286,18 @@ p .p{
 }
 
 @media (max-width: 500px){
+  .heading{
+  margin: 0;
+  padding: 0%;
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  height: 56px;
+  width: 100vw;
+
+  background-color: #FFFFFF;
+  
+}
   .body1 {
   width: 100%;
   padding-top: 0%;
@@ -319,7 +338,7 @@ p .p{
 }
 
 .clear button {
-  margin-left: ;
+  margin-left: 5px;
   color: white;
   font-size: 13px;
   border: none;
@@ -438,4 +457,16 @@ td{
 big{
   margin-top: 2px;
 }
+.heading .title{
+  font-size: 20px;
+  text-shadow: 0 2px 2px 0 rgba(0,0,0,0.15);
+}
+  .search{
+      margin-right: 26px;
+  }
+  .heading .back{
+    margin-left: 20px;
+      height: 16px;
+  width: 16px;
+  }
 }

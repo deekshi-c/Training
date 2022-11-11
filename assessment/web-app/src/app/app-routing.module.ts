@@ -6,8 +6,9 @@ import { RecentComponent } from './recent/recent.component';
 import { WHomeComponent } from './w-home/w-home.component';
 
 const routes: Routes = [
-  // {path:'',component:HomeComponent },
+  // {path:'home',component:HomeComponent },
   {path:'',component:WHomeComponent},
+  {path:'home',component:WHomeComponent},
   {path:'fav',component:FavComponent},
   {path:'recent',component:RecentComponent}
 ];

@@ -1,30 +1,55 @@
-<div class="outer">
-  <div class="place">{{ place }}, {{ State }}</div>
+<div class="heading">
+  <div class="h1">
+    <mat-icon  (click)="ham()" >menu</mat-icon>
+    <div class="back" *ngIf="display"  (click)="ham()">
+      <li><a class="hom" (click)="ham()"  >Home</a></li>
+      <li><a routerLink="/fav" >Favourite</a></li>
+      <li><a routerLink="/recent">Recent Search</a></li>
+    </div>
+  <div class="logo">
+      <img src="assets/logo_web.png" alt="logo" />
+    </div>
+  <div class="search">
+    <mat-icon >search</mat-icon>
+  </div>
+</div>
+<div class="day">
+  <p>
+      {{date| date:'EEE, dd MMM'|uppercase}} 
+       {{date| date:'h.mm a'}}
+       </p>
+  </div>
+
+</div>
+
+<div class="outer"  >
+  <div class="place">{{ place  | titlecase }},{{ Country  | uppercase }}</div>
   <div class="fav">
     <div *ngIf="fav; then add; else added"></div>
     <ng-template #add>
       <div class="false">
-        <mat-icon class="false" (click)="toggle()">favorite_border</mat-icon
+        <mat-icon class="false" (click)="favadd()">favorite_border</mat-icon
         ><label></label>Add to favorite
       </div>
     </ng-template>
     <ng-template #added>
-      <mat-icon class="true" (click)="toggle()">favorite</mat-icon
+      <mat-icon class="true" (click)="favadded()">favorite</mat-icon
       ><label class="yellow">Added to favorite</label></ng-template
     >
   </div>
   <div class="display">
-    <img src="assets/sunny.png" alt="" />
+    <img [src]="icon" alt="asdas" />
+
     <div class="show">
       <div class="val">
-        <label>{{ val }}</label>
+        <label>{{ temp }}</label>
       </div>
       <div class="cel">
         <div ><button class="degree" [class]="bagc" (click)="cel()"  >&deg;C</button></div>
         <div ><button class="faren" [class]="bagf" (click)="far()" >&deg;F</button></div>
       </div>
     </div>
-    <div class="weather">Mostly Sunny</div>
+    <div class="weather">{{this.detail['weather'][0].main}}</div>
   </div>
 </div>
 <hr>
@@ -35,7 +60,7 @@
       </div>
       <div class="text">
         <div class="head">Min-Max</div>
-        <div class="detail">75&deg;-90&deg;</div>
+        <div class="detail">{{tempmin}}&deg;-{{tempmax}}&deg;</div>
       </div>
   </div>
   <div class="box" >
@@ -43,8 +68,8 @@
         <img src="assets/icon_precipitation.png" alt="temp" />
       </div>
       <div class="text">
-        <div class="head">Precipitation</div>
-        <div class="detail">0</div>
+        <div class="head">Presure</div>
+        <div class="detail">{{pressure}}atm</div>
       </div>
   </div>
   <div class="box" >
@@ -53,7 +78,7 @@
       </div>
       <div class="text">
         <div class="head">Humidity</div>
-        <div class="detail">47</div>
+        <div class="detail">{{humidity}}% </div>
       </div>
   </div>
   <div class="box" >
@@ -62,7 +87,7 @@
       </div>
       <div class="text">
         <div class="head">Wind</div>
-        <div class="detail">4mph</div>
+        <div class="detail">{{wind}}mph</div>
       </div>
   </div>
   <div class="box" >
@@ -71,7 +96,7 @@
       </div>
       <div class="text">
         <div class="head">Visibility</div>
-        <div class="detail">12mph</div>
+        <div class="detail">{{visib}}m</div>
       </div>
   </div>
 </div>

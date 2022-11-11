@@ -1,8 +1,19 @@
+<div class="heading">
+  <div class="back">
+    <mat-icon (click)="back()" >arrow_back</mat-icon>
+  </div>
+  <div class="title">
+    <b> Recent Search</b>
+  </div>
+  <div class="search">
+    <mat-icon matSuffix>search</mat-icon>
+  </div>
+</div>
 <div *ngIf="fav; then avail; else notavail"></div>
 <ng-template #avail>
   <div class="body">
     <div class="details">
-      <div class="list"></div>
+      <div class="list">You rececently searched for</div>
       <div class="clear">
         <button (click)="option()"><b>Remove All</b></button>
       </div>
@@ -10,18 +21,18 @@
 
     <div class="table">
       <table class="tab_container">
-        <tr class="color">
+        <tr class="color" *ngFor="let di of recent">
           <td>
             <div class="total">
               <div class="cnt1">
-                <p class="place">{{ place }},{{ State }}</p>
+                <p class="place">{{di.data.name}},{{di.data.sys.country}}</p>
               </div>
               <div class="inside_td">
-                <div><img src="assets/sunny.png" alt="" /></div>
+                <div><img src="http://openweathermap.org/img/wn/{{di.data.weather[0].icon}}@4x.png" alt="" /></div>
                 <div class="text_td">
-                  <p class="p"><span class="big">75</span>&deg;c</p>
+                  <p class="p"><span class="big">{{di.data['main'].temp-273.15|number:'2.0-0'}}</span>&deg;c</p>
                 </div>
-                <div><p class="index">Mostly Sunny</p></div>
+                <div><p class="index">{{di.data.weather[0].main}}</p></div>
               </div>
               <div class="fav">
                 <div *ngIf="check; then add; else added"></div>
@@ -50,7 +61,7 @@
   <div class="body1">
     <div class="box">
       <img src="assets/icon_nothing.png" alt="Nothing" />
-      <p class="ss">No Favorites added</p>
+      <p class="ss">No Recent Search</p>
     </div>
   </div>
 </ng-template>

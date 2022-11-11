@@ -11,6 +11,8 @@ import { WHomeComponent } from './w-home/w-home.component';
 import { FavComponent } from './fav/fav.component'
 import { RecentComponent } from './recent/recent.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,12 +22,14 @@ import { DialogComponent } from './dialog/dialog.component';
     FavComponent,
     RecentComponent,
     DialogComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

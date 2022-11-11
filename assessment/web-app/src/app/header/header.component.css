@@ -6,6 +6,16 @@
     height: 100vh;
     width : 100vw;
 }
+.hanburg{
+  display: none;
+}
+.header1{
+  display: flex;
+  justify-content: space-between;
+  margin-left:10vw;
+  margin-right: 10vw;
+  margin-bottom: 5.7vh;
+}
 .body{
   max-height: fit-content;
   /* opacity: ; */
@@ -15,13 +25,143 @@
 hr{
     border: 1px solid #FFFFFF;
 }
- 
+.logo img{
+  width: 20.8vw;
+  height:4.36vh ;
+}
+
+.logo{
+  margin-top: 4.25%;
+  display: flex;
+  align-items: center;
+}
+.searchbar{
+  margin-top: 4.08%;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.search{
+  border-radius: 3px;
+  background-color: rgba(255,255,255,0.6);
+  border: 1px solid #FFFFFF2F;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: larger;
+  height: 5.54vh;
+  width: 38vw;
+}
+mat-icon{
+  position: relative;
+  margin-left: -4vh;
+  color: #FFFFFF;
+  opacity: 0.5px;
+}
+
+
+.navBar{
+  display: flex;
+  justify-content: space-between;
+  margin-left:10%;
+  margin-right: 10%;
+}
+.options{
+  display: flex;
+  align-items: center;
+}
+.day{
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 16px;
+  text-align: right;
+  display: flex;
+  align-items:center;
+  color: #FFFFFF;
+}
+.options {
+  line-height: 15px;
+  font-size: 13px;
+  overflow: hidden;
+}
+
+.options a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.options a:hover{
+  transition: none;
+  color: #FFD639;
+  border-bottom: 2px solid #FFD639;
+}
+ a:focus{
+  color: #FFD639;
+  border-bottom: 2px solid #FFD639;
+}
+.p{
+  margin-right: 11px;
+}
+@media (max-width: 700px){
+  .hanburg{
+  display: none;
+  }
+  .navBar{
+  display: flex;
+  justify-content: space-between;
+  margin-left:10%;
+  margin-right: 10%;
+}
+.options{
+  display: flex;
+  align-items: center;
+}
+.day{
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 14px;
+  text-align: right;
+  display: flex;
+  align-items:center;
+  color: #FFFFFF;
+}
+.options {
+  line-height: 15px;
+  font-size: 13px;
+  overflow: hidden;
+}
+
+.options a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 5px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.options a:hover{
+  transition: none;
+  color: #FFD639;
+  border-bottom: 2px solid #FFD639;
+}
+ a:focus{
+  color: #FFD639;
+  border-bottom: 2px solid #FFD639;
+}
+.p{
+  margin-right: 9px;
+}
+.logo img{
+  width: 25vw;
+  height:3.75vh ;
+}
+}
 
 @media (max-width: 500px){
-  app-header{
-    display: none;
-  }
-
   .hanburg{
   text-align: left;
   background-color: #FFFFFF;
