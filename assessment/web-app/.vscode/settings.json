@@ -1,5 +1,5 @@
 {
   "debug.allowBreakpointsEverywhere": true,
   "files.autoGuessEncoding": true,
-  "livePreview.defaultPreviewPath": "/home/deekshithc/Desktop/Git_Angular/assessment/web-app/src/app/home/home.component.html"
+  "livePreview.defaultPreviewPath": "/home/deekshithc/Desktop/Git_Angular/assessment/web-app/src/app/w-home/w-home.component.html"
 }

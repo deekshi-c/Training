@@ -1,6 +1,6 @@
 <div class="heading">
   <div class="back">
-    <mat-icon (click)="back()" >arrow_back</mat-icon>
+    <mat-icon (click)="back()">arrow_back</mat-icon>
   </div>
   <div class="title">
     <b> Favorites</b>
@@ -9,7 +9,7 @@
     <mat-icon matSuffix>search</mat-icon>
   </div>
 </div>
-<div *ngIf="fav; then avail; else notavail"></div>
+<div *ngIf="count > 0; then avail; else notavail"></div>
 <ng-template #avail>
   <div class="body">
     <div class="details">
@@ -22,68 +22,41 @@
     <div class="table">
       <table class="tab_container">
         <tr class="color" *ngFor="let di of favour">
-          <td>
+          <td (click)="show(di.data.name)">
             <div class="total">
               <div class="cnt1">
-                <p class="place">{{di.data.name}},{{di.data.sys.country}}</p>
+                <p class="place">
+                  {{ di.data["name"] }},{{ di.data.sys.country }}
+                </p>
               </div>
               <div class="inside_td">
-                <div><img src="http://openweathermap.org/img/wn/{{di.data.weather[0].icon}}@4x.png" alt="" /></div>
-                <div class="text_td">
-                  <p class="p"><span class="big">{{di.data['main'].temp-273.15|number:'2.0-0'}}</span>&deg;c</p>
+                <div>
+                  <img
+                    src="http://openweathermap.org/img/wn/{{
+                      di.data.weather[0].icon
+                    }}@4x.png"
+                    alt=""
+                  />
                 </div>
-                <div><p class="index">{{di.data.weather[0].main}}</p></div>
+                <div class="text_td">
+                  <p class="p">
+                    <span class="big">{{
+                      di.data["main"].temp - 273.15 | number: "2.0-0"
+                    }}</span
+                    >&deg;c
+                  </p>
+                </div>
+                <div>
+                  <p class="index">{{ di.data.weather[0].main }}</p>
+                </div>
               </div>
-              <div class="fav">
-                <div *ngIf="check; then add; else added"></div>
-                <ng-template #add>
-                  <div class="false">
-                    <mat-icon class="false" (click)="toggle()"
-                      >favorite_border</mat-icon
-                    >
-                  </div>
-                </ng-template>
-                <ng-template #added>
-                  <mat-icon class="true" (click)="toggle()"
-                    >favorite</mat-icon
-                  ></ng-template
-                >
+              <div class="icon">
+                <mat-icon fontIcon="favorite" (click)="removeFav(di)"
+                ></mat-icon>
               </div>
             </div>
           </td>
         </tr>
-        <!-- <tr class="color">
-          <td>
-            <div class="total">
-              <div class="cnt1">
-                <p class="place">{{ place }},{{ State }}</p>
-              </div>
-              <div class="inside_td">
-                <div><img src="assets/sunny.png" alt="" /></div>
-                <div class="text_td">
-                  <p class="p"><span class="big">75</span>&deg;c</p>
-                </div>
-                <div><p class="index">Mostly Sunny</p></div>
-              </div>
-              <div class="fav">
-                <div *ngIf="check; then add; else added"></div>
-                <ng-template #add>
-                  <div class="false">
-                    <mat-icon class="false" (click)="toggle()"
-                      >favorite_border</mat-icon
-                    >
-                  </div>
-                </ng-template>
-                <ng-template #added>
-                  <mat-icon class="true" (click)="toggle()"
-                    >favorite</mat-icon
-                  ></ng-template
-                >
-              </div>
-            </div>
-          </td>
-        </tr> -->
-        
       </table>
     </div>
   </div>

@@ -1,8 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { FavComponent } from '../fav/fav.component';
-
 const API_KEY = environment.API_KEY;
 const API_URL = environment.API_URL;
 @Component({
@@ -12,10 +10,12 @@ const API_URL = environment.API_URL;
 })
 export class WHomeComponent implements OnInit {
   place: any;
-  display:boolean=false;
-  Country:any;
+  display: boolean = false;
+  Country: any;
+  favColor = true;
+  filled: boolean = false;
+  notFilled: boolean = true;
   fav: any = true;
-  val: any = 87;
   bagf = '';
   bagc = 'colorc';
   detail: any;
@@ -29,8 +29,9 @@ export class WHomeComponent implements OnInit {
   tempf: any;
   tempc: any;
   humidity: any;
-  favour:any;
-  curc:any;
+  favour: any;
+  curc: any;
+  values: any;
   constructor(private http: HttpClient) {}
   date = new Date();
   ngOnInit(): void {
@@ -52,36 +53,63 @@ export class WHomeComponent implements OnInit {
         this.tempf = (this.tempc * 9) / 5 + 32;
 
         this.icon = `http://openweathermap.org/img/wn/${this.detail['weather'][0].icon}@4x.png`;
-
-        //  this.tempmax = this.detail['main'].temp_max;
+        this.favour = localStorage.getItem('favour');
+        this.favour = JSON.parse(this.favour);
+        for (let val of this.favour) {
+          if (val.data.name.toLowerCase() == this.place.toLowerCase()) {
+            this.filled = true;
+            this.notFilled = false;
+          }
+        }
       });
+
+    //Yellow icon If in favourite
+
   }
   favadd() {
-    this.fav = !this.fav;
-    this.curc=localStorage.getItem('city');
-    this.curc=JSON.parse(this.curc);
-    console.log(this.curc);
-    this.http.get(`${API_URL}/weather?q=${this.curc}&appid=${API_KEY}`).subscribe(data =>{
-      console.log(data);
-      this.favour=localStorage.getItem('favour');
-      this.favour=JSON.parse(this.favour)||[];
-      this.favour.unshift({data});
-      localStorage.setItem('favour',JSON.stringify(this.favour));
-      // this.route.navigate([''])
-      // .then(()=>{
-      //   window.location.reload();
-      // })
-      // this.route.navigate(['..'])  
-      
-      // this.route.navigate(['../']);
-    });
-    
-  // }
-  }
+    this.filled = !this.filled;
+    this.notFilled = !this.notFilled;
 
-  favadded(){
-    this.fav = !this.fav;
+    this.curc = localStorage.getItem('city');
+    this.curc = JSON.parse(this.curc);
+    this.http
+      .get(`${API_URL}/weather?q=${this.curc}&appid=${API_KEY}`)
+      .subscribe((data) => {
+        this.favour = localStorage.getItem('favour');
+        this.favour = JSON.parse(this.favour) || [];
+       
+        this.favour.unshift({ data });
+        localStorage.setItem('favour', JSON.stringify(this.favour));
+      });
+}
+removefav(){
+  this.filled = !this.filled;
+  this.notFilled = !this.notFilled;
+  this.favour = localStorage.getItem('favour');
+  this.favour = JSON.parse(this.favour);
+  this.curc = localStorage.getItem('city');
+  this.curc = JSON.parse(this.curc);
+  // console.log("Favour"+this.favour);
+    console.log('curc ' + this.curc);
+   let temp = [];
+    for (let val of this.favour) {
+      if ((val.data.name).toLowerCase() != (this.curc).toLowerCase()) {
+        temp.push(val);
+      }
+      // temp.push(val.data)
+    }
+    localStorage.setItem('favour', JSON.stringify(temp));
+    window.location.reload();
   }
+  
+
+
+
+
+
+
+
+
 
   cel() {
     this.bagf = '';
@@ -94,8 +122,10 @@ export class WHomeComponent implements OnInit {
     this.temp = this.tempf;
   }
 
-  ham(){
-    this.display=!this.display;
+  ham() {
+    this.display = !this.display;
   }
-  
+  iconColor() {
+    return (this.favColor = !this.favColor);
+  }
 }

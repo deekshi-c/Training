@@ -1,6 +1,14 @@
 .heading {
   display: none;
 }
+.cel .degree{
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.cel .faren{
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
 .outer {
   margin-bottom: 6.3vh;
   /* border: 2px solid #000000; */
@@ -19,6 +27,12 @@
 
 .fav {
   margin-top: 2.9vh;
+  display: flex;
+}
+
+.fav p{
+  margin-top: 3px;
+margin-left: 10px;
 }
 
 .false {
@@ -38,8 +52,8 @@
   text-align: center;
 }
 .display img{
-      height: 19vh;
-      width: 19vw;
+      height: 26vh;
+      width: 22vw;
 
 }
 .show {
@@ -180,6 +194,8 @@ button {
     margin-left: 48px;
     margin-right: 38px;
   }
+
+
 }
 @media (max-width: 500px) {
   .outer {
@@ -243,10 +259,6 @@ button {
   .display {
     margin-top: 30px;
     text-align: center;
-  }
-  .display img {
-    height: 80px ;
-    width: 80px;
   }
   .show {
     margin: auto;
@@ -391,6 +403,18 @@ button {
     margin-left: 8vw;
     color: #ffffff;
   }
-  
+  .fav {
+  margin-top: 2.9vh;
+  display: flex;
+  justify-content: center;
+}
+  .fav p{
+  margin-left: 0;
+margin-top: 0;
+}
+  .fav p{
+  margin-top: 3px;
+margin-left: 10px;
+}
 
 }

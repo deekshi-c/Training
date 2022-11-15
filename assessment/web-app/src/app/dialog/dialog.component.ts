@@ -19,7 +19,7 @@ export class DialogComponent implements OnInit {
     }
     yes(){
         localStorage.removeItem('favour');
-        this.route.navigateByUrl('/fav');
+        this.route.navigateByUrl('/');
         window.location.reload();
     }
 }

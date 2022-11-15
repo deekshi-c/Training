@@ -24,21 +24,18 @@
 
 <div class="outer"  >
   <div class="place">{{ place  | titlecase }},{{ Country  | uppercase }}</div>
-  <div class="fav">
-    <div *ngIf="fav; then add; else added"></div>
-    <ng-template #add>
-      <div class="false">
-        <mat-icon class="false" (click)="favadd()">favorite_border</mat-icon
-        ><label></label>Add to favorite
-      </div>
-    </ng-template>
-    <ng-template #added>
-      <mat-icon class="true" (click)="favadded()">favorite</mat-icon
-      ><label class="yellow">Added to favorite</label></ng-template
-    >
+  <div class="fav" >
+    <div>
+    <mat-icon fontIcon="favorite_border" *ngIf="notFilled" style="color:white" (click)="favadd()" ></mat-icon>
+    <mat-icon fontIcon="favorite" *ngIf="filled" style="color:#FAD05B" (click)="removefav()"  ></mat-icon>
+    </div>
+    <div>
+    <p *ngIf="notFilled" style="color:white" (click)="favadd()" >Add to favourite</p>
+    <p  *ngIf="filled" style="color:#FAD05B" (click)="removefav()"  >Added to favourite</p>
+    </div>
   </div>
   <div class="display">
-    <img [src]="icon" alt="asdas" />
+    <img [src]="icon" alt="asdas"/>
 
     <div class="show">
       <div class="val">
@@ -59,7 +56,7 @@
         <img src="assets/icon_temp.png" alt="temp" />
       </div>
       <div class="text">
-        <div class="head">Min-Max</div>
+        <div class="head">Min - Max</div>
         <div class="detail">{{tempmin}}&deg;-{{tempmax}}&deg;</div>
       </div>
   </div>
@@ -68,7 +65,7 @@
         <img src="assets/icon_precipitation.png" alt="temp" />
       </div>
       <div class="text">
-        <div class="head">Presure</div>
+        <div class="head">Pressure</div>
         <div class="detail">{{pressure}}atm</div>
       </div>
   </div>
@@ -100,10 +97,3 @@
       </div>
   </div>
 </div>
-
-<!-- 
-
- <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-  <mat-button-toggle>&deg;C</mat-button-toggle>
-  <mat-button-toggle >&deg;F</mat-button-toggle>
-</mat-button-toggle-group> -->

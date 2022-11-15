@@ -26,8 +26,8 @@ hr{
     border: 1px solid #FFFFFF;
 }
 .logo img{
-  width: 20.8vw;
-  height:4.36vh ;
+  height: 30px;
+  width: 142px;
 }
 
 .logo{
@@ -44,8 +44,8 @@ hr{
 
 .search{
   border-radius: 3px;
-  background-color: rgba(255,255,255,0.6);
-  border: 1px solid #FFFFFF2F;
+  background-color: rgba(255, 255, 255, 0.122);
+  border: 1px solid #ffffff00;
   font-family: Arial, Helvetica, sans-serif;
   font-size: larger;
   height: 5.54vh;
@@ -156,8 +156,8 @@ mat-icon{
   margin-right: 9px;
 }
 .logo img{
-  width: 25vw;
-  height:3.75vh ;
+   height: 30px;
+  width: 142px;
 }
 }
 
