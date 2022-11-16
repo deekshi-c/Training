@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
+
 const API_KEY = environment.API_KEY;
 const API_URL = environment.API_URL;
 @Component({
@@ -11,6 +13,7 @@ const API_URL = environment.API_URL;
 export class WHomeComponent implements OnInit {
   place: any;
   display: boolean = false;
+  searchOpen: boolean = false;
   Country: any;
   favColor = true;
   filled: boolean = false;
@@ -32,8 +35,10 @@ export class WHomeComponent implements OnInit {
   favour: any;
   curc: any;
   values: any;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private route: Router) {}
   date = new Date();
+  list: any;
+  value: any;
   ngOnInit(): void {
     this.place = localStorage.getItem('city');
     this.place = JSON.parse(this.place);
@@ -64,7 +69,6 @@ export class WHomeComponent implements OnInit {
       });
 
     //Yellow icon If in favourite
-
   }
   favadd() {
     this.filled = !this.filled;
@@ -77,23 +81,23 @@ export class WHomeComponent implements OnInit {
       .subscribe((data) => {
         this.favour = localStorage.getItem('favour');
         this.favour = JSON.parse(this.favour) || [];
-       
+
         this.favour.unshift({ data });
         localStorage.setItem('favour', JSON.stringify(this.favour));
       });
-}
-removefav(){
-  this.filled = !this.filled;
-  this.notFilled = !this.notFilled;
-  this.favour = localStorage.getItem('favour');
-  this.favour = JSON.parse(this.favour);
-  this.curc = localStorage.getItem('city');
-  this.curc = JSON.parse(this.curc);
-  // console.log("Favour"+this.favour);
+  }
+  removefav() {
+    this.filled = !this.filled;
+    this.notFilled = !this.notFilled;
+    this.favour = localStorage.getItem('favour');
+    this.favour = JSON.parse(this.favour);
+    this.curc = localStorage.getItem('city');
+    this.curc = JSON.parse(this.curc);
+    // console.log("Favour"+this.favour);
     console.log('curc ' + this.curc);
-   let temp = [];
+    let temp = [];
     for (let val of this.favour) {
-      if ((val.data.name).toLowerCase() != (this.curc).toLowerCase()) {
+      if (val.data.name.toLowerCase() != this.curc.toLowerCase()) {
         temp.push(val);
       }
       // temp.push(val.data)
@@ -101,15 +105,6 @@ removefav(){
     localStorage.setItem('favour', JSON.stringify(temp));
     window.location.reload();
   }
-  
-
-
-
-
-
-
-
-
 
   cel() {
     this.bagf = '';
@@ -125,7 +120,38 @@ removefav(){
   ham() {
     this.display = !this.display;
   }
+
   iconColor() {
     return (this.favColor = !this.favColor);
+  }
+  open() {
+    this.searchOpen = !this.searchOpen;
+  }
+  find(item: any) {
+    let name = item;
+    localStorage.setItem('city', JSON.stringify(name));
+    this.http
+      .get(`${API_URL}/weather?q=${name}&appid=${API_KEY}`)
+      .subscribe((data) => {
+        console.log(data);
+        this.list = localStorage.getItem('list');
+        this.list = JSON.parse(this.list) || [];
+        this.list.unshift({ data });
+        console.log(this.list);
+        localStorage.setItem('list', JSON.stringify(this.list));
+        this.route.navigate(['']).then(() => {
+          window.location.reload();
+        });
+      });
+  }
+  handleS(e: any, item: any) {
+    e.preventDefault();
+    this.find(item);
+  }
+
+  handleKey(e: any, item: any) {
+    if (e.keyCode == 13) {
+      this.handleS(e, item);
+    }
   }
 }

@@ -1,99 +1,132 @@
 <div class="heading">
   <div class="h1">
-    <mat-icon  (click)="ham()" >menu</mat-icon>
-    <div class="back" *ngIf="display"  (click)="ham()">
-      <li><a class="hom" (click)="ham()"  >Home</a></li>
-      <li><a routerLink="/fav" >Favourite</a></li>
-      <li><a routerLink="/recent">Recent Search</a></li>
+    <mat-icon (click)="ham()">menu</mat-icon>
+    <div class="back" *ngIf="display" (click)="ham()">
+      <li><p class="hom" (click)="ham()">Home</p></li>
+      <li><p routerLink="/fav">Favourite</p></li>
+      <li><p routerLink="/recent">Recent Search</p></li>
     </div>
-  <div class="logo">
+    <div class="logo">
       <img src="assets/logo_web.png" alt="logo" />
     </div>
-  <div class="search">
-    <mat-icon >search</mat-icon>
+    <div class="search">
+      <mat-icon (click)="open()">search</mat-icon>
+      <div class="searching" *ngIf="searchOpen">
+        <div class="outer">
+          <mat-icon class="back" (click)="open()">arrow_back</mat-icon>
+          <div class="searchbar" (ngSubmit)="handleS($event, search.value)">
+            <input
+              type="text"
+              placeholder="Search"
+              class="search"
+              #search
+              mat-input
+              (keyup)="handleKey($event, search.value)"
+            />
+            <mat-icon (click)="find(search.value)">search</mat-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="day">
+    <p>
+      {{ date | date: "EEE, dd MMM" | uppercase }}
+      {{ date | date: "h.mm a" }}
+    </p>
   </div>
 </div>
-<div class="day">
-  <p>
-      {{date| date:'EEE, dd MMM'|uppercase}} 
-       {{date| date:'h.mm a'}}
-       </p>
-  </div>
 
-</div>
-
-<div class="outer"  >
-  <div class="place">{{ place  | titlecase }},{{ Country  | uppercase }}</div>
-  <div class="fav" >
+<div class="outer">
+  <div class="place">{{ place | titlecase }},{{ Country | uppercase }}</div>
+  <div class="fav">
     <div>
-    <mat-icon fontIcon="favorite_border" *ngIf="notFilled" style="color:white" (click)="favadd()" ></mat-icon>
-    <mat-icon fontIcon="favorite" *ngIf="filled" style="color:#FAD05B" (click)="removefav()"  ></mat-icon>
+      <mat-icon
+        fontIcon="favorite_border"
+        *ngIf="notFilled"
+        style="color: white"
+        (click)="favadd()"
+      ></mat-icon>
+      <mat-icon
+        fontIcon="favorite"
+        *ngIf="filled"
+        style="color: #fad05b"
+        (click)="removefav()"
+      ></mat-icon>
     </div>
     <div>
-    <p *ngIf="notFilled" style="color:white" (click)="favadd()" >Add to favourite</p>
-    <p  *ngIf="filled" style="color:#FAD05B" (click)="removefav()"  >Added to favourite</p>
+      <p *ngIf="notFilled" style="color: white" (click)="favadd()">
+        Add to favourite
+      </p>
+      <p *ngIf="filled" style="color: #fad05b" (click)="removefav()">
+        Added to favourite
+      </p>
     </div>
   </div>
   <div class="display">
-    <img [src]="icon" alt="asdas"/>
+    <img [src]="icon" alt="asdas" />
 
     <div class="show">
       <div class="val">
         <label>{{ temp }}</label>
       </div>
       <div class="cel">
-        <div ><button class="degree" [class]="bagc" (click)="cel()"  >&deg;C</button></div>
-        <div ><button class="faren" [class]="bagf" (click)="far()" >&deg;F</button></div>
+        <div>
+          <button class="degree" [class]="bagc" (click)="cel()">&deg;C</button>
+        </div>
+        <div>
+          <button class="faren" [class]="bagf" (click)="far()">&deg;F</button>
+        </div>
       </div>
     </div>
-    <div class="weather">{{this.detail['weather'][0].main}}</div>
+    <div class="weather">{{ this.detail["weather"][0].main }}</div>
   </div>
 </div>
-<hr>
-<div class="footer">  
+<hr />
+<div class="footer">
   <div class="box">
-      <div class="logo">
-        <img src="assets/icon_temp.png" alt="temp" />
-      </div>
-      <div class="text">
-        <div class="head">Min - Max</div>
-        <div class="detail">{{tempmin}}&deg;-{{tempmax}}&deg;</div>
-      </div>
+    <div class="logo">
+      <img src="assets/icon_temp.png" alt="temp" />
+    </div>
+    <div class="text">
+      <div class="head">Min - Max</div>
+      <div class="detail">{{ tempmin }}&deg;-{{ tempmax }}&deg;</div>
+    </div>
   </div>
-  <div class="box" >
-      <div class="logo" >
-        <img src="assets/icon_precipitation.png" alt="temp" />
-      </div>
-      <div class="text">
-        <div class="head">Pressure</div>
-        <div class="detail">{{pressure}}atm</div>
-      </div>
+  <div class="box">
+    <div class="logo">
+      <img src="assets/icon_precipitation.png" alt="temp" />
+    </div>
+    <div class="text">
+      <div class="head">Pressure</div>
+      <div class="detail">{{ pressure }}atm</div>
+    </div>
   </div>
-  <div class="box" >
-      <div class="logo" >
-        <img src="assets/icon_humidity.png" alt="temp" />
-      </div>
-      <div class="text">
-        <div class="head">Humidity</div>
-        <div class="detail">{{humidity}}% </div>
-      </div>
+  <div class="box">
+    <div class="logo">
+      <img src="assets/icon_humidity.png" alt="temp" />
+    </div>
+    <div class="text">
+      <div class="head">Humidity</div>
+      <div class="detail">{{ humidity }}%</div>
+    </div>
   </div>
-  <div class="box" >
-      <div class="logo" >
-        <img src="assets/icon_wind.png" alt="temp" />
-      </div>
-      <div class="text">
-        <div class="head">Wind</div>
-        <div class="detail">{{wind}}mph</div>
-      </div>
+  <div class="box">
+    <div class="logo">
+      <img src="assets/icon_wind.png" alt="temp" />
+    </div>
+    <div class="text">
+      <div class="head">Wind</div>
+      <div class="detail">{{ wind }}mph</div>
+    </div>
   </div>
-  <div class="box" >
-      <div class="logo" >
-        <img src="assets/icon_visibility.png" alt="temp" />
-      </div>
-      <div class="text">
-        <div class="head">Visibility</div>
-        <div class="detail">{{visib}}m</div>
-      </div>
+  <div class="box">
+    <div class="logo">
+      <img src="assets/icon_visibility.png" alt="temp" />
+    </div>
+    <div class="text">
+      <div class="head">Visibility</div>
+      <div class="detail">{{ visib }}m</div>
+    </div>
   </div>
 </div>

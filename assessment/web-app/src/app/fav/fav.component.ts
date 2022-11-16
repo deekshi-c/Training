@@ -1,8 +1,11 @@
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+const API_KEY = environment.API_KEY;
+const API_URL = environment.API_URL;
 @Component({
   selector: 'app-fav',
   templateUrl: './fav.component.html',
@@ -12,10 +15,16 @@ export class FavComponent implements OnInit {
   check: any = true;
   fav: any = true;
   count = 0;
-  place = 'Udupi';
   favour: any;
-  State = 'Karnataka';
-  constructor(public dialog: MatDialog, private route: Router) {}
+  searchOpen: boolean = false;
+
+  list: any;
+  value: any;
+  constructor(
+    private http: HttpClient,
+    public dialog: MatDialog,
+    private route: Router
+  ) {}
 
   ngOnInit(): void {
     this.favour = localStorage.getItem('favour');
@@ -49,9 +58,39 @@ export class FavComponent implements OnInit {
   }
   show(item: any) {
     console.log(item);
-     localStorage.setItem('city', JSON.stringify(item));
-     this.route.navigate(['']).then(() => {
-       window.location.reload();
-     });
+    localStorage.setItem('city', JSON.stringify(item));
+    this.route.navigate(['']).then(() => {
+      window.location.reload();
+    });
   }
+  // find(item: any) {
+  //   let name = item;
+  //   localStorage.setItem('city', JSON.stringify(name));
+  //   this.http
+  //     .get(`${API_URL}/weather?q=${name}&appid=${API_KEY}`)
+  //     .subscribe((data) => {
+  //       console.log(data);
+  //       this.list = localStorage.getItem('list');
+  //       this.list = JSON.parse(this.list) || [];
+  //       this.list.unshift({ data });
+  //       console.log(this.list);
+  //       localStorage.setItem('list', JSON.stringify(this.list));
+  //       this.route.navigate(['']).then(() => {
+  //         window.location.reload();
+  //       });
+  //     });
+  // }
+  // handleS(e: any, item: any) {
+  //   e.preventDefault();
+  //   this.find(item);
+  // }
+
+  // handleKey(e: any, item: any) {
+  //   if (e.keyCode == 13) {
+  //     this.handleS(e, item);
+  //   }
+  // }
+  // open() {
+  //   this.searchOpen = !this.searchOpen;
+  // }
 }

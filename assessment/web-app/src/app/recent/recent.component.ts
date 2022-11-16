@@ -17,7 +17,7 @@ export class RecentComponent implements OnInit {
   curc: any;
   recent: any;
   filled: boolean = false;
-  favList:any;
+  favList: any;
   notFilled: boolean = true;
   constructor(private route: Router, private http: HttpClient) {}
 
@@ -39,11 +39,8 @@ export class RecentComponent implements OnInit {
   back() {
     this.route.navigateByUrl('/');
   }
-  
 
   favadd(item: any) {
-      console.log(item);
-      
     this.filled = !this.filled;
     this.notFilled = !this.notFilled;
     this.http
@@ -72,25 +69,24 @@ export class RecentComponent implements OnInit {
     localStorage.setItem('favour', JSON.stringify(temp));
     window.location.reload();
   }
-  check(data:any){
-    this.favList = localStorage.getItem('favour')
-    this.favList=JSON.parse(this.favList);
-    for(let val of this.favList){
-      if((data).toLowerCase() == (val.data.name).toLowerCase())
-      {
-        this.filled = true;
-        this.notFilled = false;
-        break;
+  check(data: any) {
+    this.favList = localStorage.getItem('favour');
+    this.favList = JSON.parse(this.favList);
+    console.log(this.favList);
+    if (this.favList == null) {
+      this.filled = false;
+      this.notFilled = true;
+    } else {
+      for (let val of this.favList) {
+        if (data.toLowerCase() == val.data.name.toLowerCase()) {
+          this.filled = true;
+          this.notFilled = false;
+          break;
+        } else {
+          this.filled = false;
+          this.notFilled = true;
+        }
       }
-      else {
-
-        this.filled = false;
-        this.notFilled = true;
-      }
-        
     }
-    
   }
-
- 
 }

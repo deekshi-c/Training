@@ -4,8 +4,8 @@
     <div class="logo">
       <img src="assets/logo_web.png" alt="logo" />
     </div>
-    <div class="searchbar">
-      <input type="text" placeholder="Search" class="search" #search mat-input>
+    <div class="searchbar" (ngSubmit)="handleS($event,search.value)">
+      <input type="text" placeholder="Search" class="search" #search mat-input (keyup)="handleKey($event,search.value)">
       <mat-icon (click)="find(search.value)" >search</mat-icon>
     </div>
   </div>

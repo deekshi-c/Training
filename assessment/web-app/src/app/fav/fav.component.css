@@ -19,7 +19,7 @@
 .total{
   color:#FFFFFF ;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .body1 .box {
@@ -74,9 +74,10 @@
   margin-left: 5%;
 }
 
-.tab_container td img {
-  width: 36px;
-  height: 38px;
+tr img {
+  width: 10vh;
+height: 8vh;
+margin-top: -6%;
 }
 .tab_container td {
   align-items: center;
@@ -96,7 +97,6 @@
 .place {
     width: 10vw;
     margin: 2vh;
-    margin-left: -5vw;
     padding: 15px;
     margin-top: 2%;
   font-size: 18px;
@@ -139,7 +139,7 @@ p .p{
 
 .cnt1{
     margin-top: 2%;
-      width: fit-content;
+      width: 20vw;
 }
 .table{
   overflow-y: auto;
@@ -147,6 +147,7 @@ p .p{
   height: 67vh;
 }
 .icon{
+  margin-right: 3vw;
   color: #FAD05B;
 }
 
@@ -248,7 +249,19 @@ p .p{
   /* border: 2px solid red; */
   align-items: center;
 }
+.back{
+  margin-left: 6vw;
+}
+.title{
+  margin-left:20.5vw;
+  font-size: 18px;
+  color: #292F33;
+}
 
+.search{
+  margin-left: 15vw;
+
+}
 .body1 .box {
   text-align: center;
   margin:auto;
@@ -300,12 +313,13 @@ p .p{
 }
 
 .tab_container td img {
-  width: 30px;
-  height: 30px;
-  padding-bottom: 30px;
+ width: 11vw;
+height: 5vh;
+margin-top: -7%;
 }
 .inside_td .p {
   color: white;
+  margin-left: -88vw;
 
   font-size: 13px;
   line-height: 15px;
@@ -355,6 +369,7 @@ td{
 .inside_td{
   margin-left: -75vw;
   margin-top: 3vh;
+  height: 30px;
   margin-bottom: -150vh;
 }
 .total{
@@ -362,5 +377,75 @@ td{
 }
 .icon{
   color: #FAD05B;
+}
+tr{
+  height: 20px;
+}
+.title b{
+  width:1vw;
+}
+.place{
+  width: 200px;
+  margin-left: -20vw;
+}
+.inside_td{
+ margin-left: -88vw;
+}
+.index{
+  width: 25vw;
+  margin-top: 0.5vh;
+}
+.searching {
+    padding-top: 15vw;
+    text-align: justify;
+    list-style-type: none;
+    height: 91vh;
+width: 75vw;
+margin-left: -44vw;
+    display: flex;
+    position: absolute;
+    top: 0;
+    z-index: 5;
+    flex-direction: column;
+    transition: 0.5s ease-in-out;
+    text-align: center; 
+  }
+  .searching mat-icon{
+    height: fit-content;
+    color:black;
+    width: fit-content;
+  }
+  .searching .back{
+   padding-top: 0px;
+margin-top: 9vh;
+  }
+  .searching input{
+    color: black;
+    margin-left: 0;
+      width: 32vw;
+      height: 5vh;
+      border:1px solid #0000001a;
+  }
+  .searching .outer{
+    display: contents;
+    height: fit-content;
+    width: 100vw;
+    margin-left: 2vw;
+    padding: 3%;
+    margin-left:0%;
+
+  }
+  .searchbar{
+    display: block;
+    justify-content: space-around;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #0000001a;
+  }
+  .searching,.outer{
+    background-color: #ffffff;
+  }
+.searching {
+width: 79vw;
+height: 90vh;
 }
 }
