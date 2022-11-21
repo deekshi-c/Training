@@ -1,0 +1,118 @@
+
+
+.main{
+    margin-top: 5.66vh;
+    margin-left: 3.16vw;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    row-gap: 7vh;
+}
+img{
+    height:auto;
+    width: 155.55px;
+}
+
+p{
+
+    text-align: center;
+    color: white;
+    width: 34%;
+    font-size: 18px;
+    margin-top: 1.3vh;
+    margin-left:1.4vw;
+    margin-bottom: 0;
+    /* margin: auto; */
+}
+
+.display{
+    display: none;
+} 
+.navBar{
+    display: grid;
+    grid-template-columns: repeat(6,auto);
+    overflow-y: scroll;
+    border-bottom: 1px solid #2e6e9a;
+}
+
+
+.navBar .text{
+    margin: 0;
+    width: 100px;
+    height: 70px;
+    padding: auto;
+    display: flex;
+}
+
+.text{
+    cursor:pointer;
+}   
+.active{
+    background-color: #00aaff6e;
+}
+.text p{
+    margin: auto;
+    width: fit-content;
+}
+@media (max-width:1000px){
+    .text{
+         
+         width: 90px;
+    }
+    .text p{
+        margin: auto;
+        font-size: 14px;
+    }
+    .display{
+    display: none;
+} 
+}
+@media (max-width:700px){
+    .main{
+    margin-top: 1.66vh;
+    margin-left: 3.16vw;
+    display: grid;
+    grid-template-columns: auto auto ;
+    row-gap: 0.1vw  ;
+    column-gap:2vw;
+}
+    img{
+    height:17vw;
+    width: auto;
+}
+.navBar{
+    display: grid;
+    grid-template-columns: repeat(6,auto);
+    overflow-y: scroll;
+    border-bottom: 1px solid #2e6e9a;
+}
+
+
+.text p{
+    font-size: medium;
+    margin: auto;
+    width: fit-content;
+}
+.navBar::-webkit-scrollbar{
+    display: none;
+} 
+}
+@media (max-width:500px){
+    .navBar {
+margin-left: -21vw;
+margin-right: -21vw;
+}
+    .main{
+    margin-top: 3.66vh;
+    margin-left: 3.16vw;
+    display: grid;
+    grid-template-columns: auto auto ;
+    row-gap: 4vw;
+    column-gap:4vw;
+}
+    img{
+    height:82.8px;
+    width: auto;
+}
+
+}
+

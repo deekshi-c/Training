@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="show">
+    <div class="grid">
+      <div class="img">
+        <img src="https://source.unsplash.com/random?sig={{getRandomNumber()}}" alt="sdsa" />
+      </div>
+      <div class="details">
+        <div class="heading">
+          {{ details.name }}
+        </div>
+        <div class="scroll">
+          <div class="info">
+
+                    <div class="infos" ><div class="grey"> Classification&nbsp;:&nbsp;</div> <div>{{details.classification | titlecase}}</div></div>
+                    <div class="infos" ><div class="grey"> Designation&nbsp;:&nbsp;</div> <div>{{details.designation| titlecase}}</div></div>
+                    <div class="infos" ><div class="grey"> Average Lifespan&nbsp;:&nbsp;</div> <div>{{details.average_lifespan | titlecase }}</div></div>
+                    <div class="infos" ><div class="grey"> Language&nbsp;:&nbsp;</div> <div>{{details.language| titlecase}}</div></div>
+                    <div class="infos" ><div class="grey"> Hair colors &nbsp;:&nbsp;</div> <div>{{details.hair_colors| titlecase}}</div></div>
+                    <div class="infos" ><div class="grey"> Eye Color &nbsp;:&nbsp;</div> <div>{{details.eye_colors| titlecase}}</div></div>
+                    <div class="infos" ><div class="grey"> Hair colors &nbsp;:&nbsp;</div> <div>{{details.hair_colors| titlecase}}</div></div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+</div>

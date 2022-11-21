@@ -1,0 +1,39 @@
+<div class="details" *ngIf="detail" (click)="display()">
+  <router-outlet></router-outlet>
+</div>
+<div class="loading" *ngIf="loading">
+  <span>.</span>
+  <span>.</span>
+  <span>.</span>
+</div>
+
+<div class="list" *ngIf="list && notloading">
+  <app-navbar> </app-navbar>
+  <div class="container">
+    <div class="list">
+      <ul *ngFor="let val of details.results">
+        <li routerLink="/speciesdetails" (click)="Onclick(val)">
+          {{ val.name }}
+        </li>
+      </ul>
+    </div>
+    <div class="buton">
+      {{ check() }}
+      <button
+        (click)="previous()"
+        [class.disabled]="prepage"
+        [disabled]="prepage"
+      >
+        PREVIOUS
+      </button>
+      <button
+        class="next"
+        [class.disabled]="nextpage"
+        (click)="next()"
+        [disabled]="nextpage"
+      >
+        NEXT
+      </button>
+    </div>
+  </div>
+</div>

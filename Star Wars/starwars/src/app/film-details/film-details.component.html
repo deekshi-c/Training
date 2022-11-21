@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="show">
+    <!-- {{img()}} -->
+    <div class="grid">
+      <div class="img">
+        <img src="https://source.unsplash.com/random?sig={{getRandomNumber()}}"alt="sdsa" />
+      </div>
+      <div class="details">
+        <div class="heading">
+          {{ details.title }}
+        </div>
+        <div class="scroll">
+          <div class="info">
+                    <div class="infos" ><div class="grey"> Director&nbsp;:&nbsp;</div> <div>{{details.director | titlecase}}</div></div>
+                    <div class="infos" ><div class="grey"> Producer&nbsp;:&nbsp;</div> <div>{{details.producer | titlecase}}</div></div>
+                    <div class="infos" ><div class="grey"> Release Date&nbsp;:&nbsp;</div> <div>{{details.release_date | titlecase}}</div></div>
+                    <div class="infos" ><div class="grey"> Plot&nbsp;:&nbsp;</div> <div>{{details.opening_crawl }}</div></div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+</div>

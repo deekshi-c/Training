@@ -1,0 +1,107 @@
+.list {
+  margin: 0;
+}
+.container {
+  text-align: center;
+  height: 57vh;
+  /* border: 2px solid white; */
+  font-size: 20px;
+  line-height: 38px;
+}
+.list {
+  margin-top: 2.3vh;
+  cursor: pointer;
+  height: 48vh;
+  /* border: 2px solid white; */
+}
+ul {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 3.66vh;
+  list-style-type: none;
+}
+/* li{
+    margin-bottom: 3.66vh;
+} */
+.next {
+  margin-left: 2.5vw;
+}
+
+button {
+  height: 4.16vh;
+  border: none;
+  width: 170px;
+  border-radius: 0;
+  color: white;
+  background-color: #00aaff46;
+}
+.disabled {
+  color: #7792a9;
+}
+
+.buton > button:nth-child(2) {
+  margin-left: 2.5vw;
+}
+li:hover {
+  background-color: #00a8ff46;
+}
+ul {
+  margin: 0;
+}
+.list {
+  margin: 0;
+}
+.loading span{
+  display: inline-block;
+  animation: animate 1s infinite;
+
+}
+.loading span:nth-child(1){
+  animation-delay: 0.1s;
+}
+.loading span:nth-child(2){
+  animation-delay: 0.2s;
+}
+.loading span:nth-child(3){
+  animation-delay: 0.3s;
+}
+.loading{
+  text-align: center;
+  margin: auto;
+  margin-top: 22vh;
+font-size: 84px;
+}
+
+@keyframes animate {
+  0%,100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(25px);
+    color: aqua;
+    }
+  }
+
+@media (max-width: 700px) {
+  .container {
+    text-align: center;
+    height: 74vw;
+    /* border: 2px solid white; */
+  }
+  ul {
+    margin: 0;
+  }
+  .list {
+    height: 45vh;
+    font-size: 20px;
+    /* border: 2px solid white; */
+  }
+  button {
+    width: 100px;
+  }
+}
+@media (max-width: 500px) {
+  button {
+    width: 75px;
+  }
+}

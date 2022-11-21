@@ -1,0 +1,26 @@
+html{
+    margin: 0%;
+    padding: 0%;
+    
+}
+.head{
+    text-align: center;
+}
+.logo{
+   height: 8vh;
+width: auto;
+margin-top: 6.66vh;
+margin-bottom: 2.5vh;
+}
+hr{
+    margin-top: 0;
+    margin-bottom: 0;
+    border: 1px solid #2e6e9a;
+    width:57.81vw
+}
+@media(max-width:500px)
+{
+    hr{
+        width: 90vw;
+    }
+}

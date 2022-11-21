@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="show">
+    <div class="grid">
+      <div class="img">
+        <img src="https://source.unsplash.com/random?sig={{getRandomNumber()}}" alt="sdsa" />
+      </div>
+      <div class="details">
+        <div class="heading">
+          {{ details.name }}
+        </div>
+        <div class="scroll">
+          <div class="info">
+
+                    <div class="infos" ><div class="grey"> Rotation Period&nbsp;:&nbsp;</div> <div>{{details.rotation_period | titlecase}}</div></div>
+                    <div class="infos" ><div class="grey"> Orbital Period&nbsp;:&nbsp;</div> <div>{{details.orbital_period | titlecase}}</div></div>
+                    <div class="infos" ><div class="grey"> Diameter&nbsp;:&nbsp;</div> <div>{{details.diameter| titlecase}}</div></div>
+                    <div class="infos" ><div class="grey"> Climate&nbsp;:&nbsp;</div> <div>{{details.climate | titlecase}}</div></div>
+                    <div class="infos" ><div class="grey"> Gravity&nbsp;:&nbsp;</div> <div>{{details.orbital_period | titlecase}}</div></div>
+                    <div class="infos" ><div class="grey"> Terrain&nbsp;:&nbsp;</div> <div>{{details.terrain | titlecase}}</div></div>
+                    <div class="infos" ><div class="grey"> Population&nbsp;:&nbsp;</div> <div>{{details.population | titlecase}}</div></div>
+                    <div class="infos" ><div class="grey"> Surface Water&nbsp;:&nbsp;</div> <div>{{details.surface_water | titlecase}}</div></div>
+
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+</div>
