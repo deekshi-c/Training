@@ -1,19 +1,30 @@
 .container{
+    /* border:1px solid white; */
     height:18vh;
+    /* display: flex;
+    align-self: center;
+    justify-content: center; */
     color:white;
     position: fixed;
+    
     left:0;
     right:0;
     bottom: 0;
+    
     border-top: 1px solid #054979;
 }
 .img-item{
     display: flex;
     margin-top: 5px;
+    /* height:9vh; */
+    /* height:10vh; */
+    /* flex-wrap: wrap; */
+    /* max-width: 1000px; */
     width:75%;
     margin:auto;
     align-self: center;
     justify-content: center; 
+    /* border:1px solid red; */
 }
 
 
@@ -21,21 +32,27 @@
     width:15%;
     height:7vh;
     margin-top:2rem;
+    /* background-color: black;
+    border: 1px solid orange; */
     display: flex;
+    /* align-items: center; */
+    /* justify-content: center; */
    }
    .img img{
        width:100%;
    }
 .first{
     margin-left:9rem;
+    /* border:1px solid white; */
 }
 .footer-item, .last,.last2{
     margin-top:2.2rem;
     color:#1B6BA2;
     font-size:0.9rem;
     margin-left: 3%;
+    /* width:12%; */
+    /* border:1px solid white; */
 }
-
 .copyright{
     font-size: 0.9rem;
     color:#49586B;
@@ -56,14 +73,16 @@
     /* border: 1px solid; */
     width:70%
 }
-@media(min-width:770px) and (max-width:940px){
+@media(min-width:770px) and (max-width:940px){ 
+    }
     .footer-item, .last,.last2{
         height:34%;
+        /* border:1px solid white; */
         color:#1B6BA2;
         font-size:0.9rem;
         margin-left: 2%;
     }
-}
+
 @media(max-width:500px){
     .container{
         height:25vh;
@@ -127,6 +146,7 @@
         .container{
             width:90%;
             margin:auto;
+            /* border: 1px solid white;; */
         }
         .img{
             display: none;
@@ -136,11 +156,13 @@
            display: none;
         }
         .last{
+            /* width:11% */
             display: flex;
             flex-wrap: wrap;
         }
         .footer-item-3,.footer-item-2{
             margin-top:1.2rem;
+            /* border: 1px solid white; */
             width:80%;
             margin-left:auto;
             margin-right: auto;
@@ -154,13 +176,17 @@
             display: flex;
             
             justify-content: space-between;
+            /* border: 1px solid white; */
             color:#1B6BA2; 
+            /* color:white; */
         }
         .item2{
             margin-left: 2rem;
+            /* width:40%; */
             
         }
         .item3{
+            /* border: 1px solid white; */
             width:60%;
             margin-right:1rem;
         }
@@ -168,7 +194,10 @@
             display:block;
             display: flex;
             justify-content: space-between;
+            /* width:70%; */
             margin-top:-0.1rem;
+            /* margin-left:1rem; */
+            /* margin-right: auto; */
         }
         .copyright{
             font-size: 0.9rem;

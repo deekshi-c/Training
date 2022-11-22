@@ -30,7 +30,7 @@ p{
 .navBar{
     display: grid;
     grid-template-columns: repeat(6,auto);
-    overflow-y: scroll;
+    overflow-x: scroll;
     border-bottom: 1px solid #2e6e9a;
 }
 
@@ -65,6 +65,9 @@ p{
     .display{
     display: none;
 } 
+.navBar{
+    overflow-y: hidden;
+}
 }
 @media (max-width:700px){
     .main{
@@ -82,8 +85,8 @@ p{
 .navBar{
     display: grid;
     grid-template-columns: repeat(6,auto);
-    overflow-y: scroll;
     border-bottom: 1px solid #2e6e9a;
+    overflow-x: scroll;
 }
 
 

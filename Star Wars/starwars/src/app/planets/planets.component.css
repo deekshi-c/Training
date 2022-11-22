@@ -1,5 +1,6 @@
 .list {
   margin: 0;
+  overflow: auto;
 }
 .container {
   text-align: center;
@@ -27,6 +28,7 @@ ul {
   margin-left: 2.5vw;
 }
 
+
 button {
   height: 4.16vh;
   border: none;
@@ -45,8 +47,11 @@ button {
 li:hover {
   background-color: #00a8ff46;
 }
+
 ul {
+  font-weight: 600;
   margin: 0;
+
 }
 .list {
   margin: 0;

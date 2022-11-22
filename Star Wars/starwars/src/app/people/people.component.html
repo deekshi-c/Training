@@ -7,13 +7,11 @@
   <span>.</span>
 </div>
 
-<div class="list" *ngIf="list && notloading">
-  <app-navbar> 
-  </app-navbar>
+<div class="clist" *ngIf="list && notloading">
   <div class="container">
     <div class="list">
       <ul *ngFor="let val of details.results">
-        <li routerLink="/display" (click)="Onclick(val)">{{ val.name }}</li>
+        <li routerLink="/display" (click)="Onclick(val)">{{ val.name  | uppercase }}</li>
       </ul>
     </div>
     <div class="buton">

@@ -12,6 +12,7 @@
   margin-top: 2.3vh;
   cursor: pointer;
   height: 48vh;
+  overflow: auto;
   /* border: 2px solid white; */
 }
 ul {
@@ -46,6 +47,7 @@ li:hover {
   background-color: #00a8ff46;
 }
 ul {
+  font-weight: 600;
   margin: 0;
 }
 .list {

@@ -23,6 +23,7 @@ ul {
 } */
 .next {
   margin-left: 2.5vw;
+  
 }
 
 button {
@@ -43,12 +44,14 @@ li:hover {
 }
 ul {
   margin: 17px 0;
+  font-weight: 600;
 }
 .disabled{
   color:#7792a9;
 }
   .list{
     margin: 0;
+    overflow: auto;
   }
 .loading span{
   display: inline-block;
