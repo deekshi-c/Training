@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="top">
+  <div class="header">
+    <div class="logo">
+      <img src="assets/logo_web.png" alt="" />
+    </div>
+    <div>
+      <input class="search"  placeholder="Seach City" #name/>
+        <mat-icon class="icon" (click)="find(name.value)">search</mat-icon>
+    
+    </div>
+    </div>
+    <div class="navbar">
+      <div class="menu">
+          <div class="item" routerLinkActive="active"  routerLink="/detail">HOME</div>
+          <div class="item"  routerLinkActive="active" routerLink="/fav">FAVOURITE</div>
+          <div class="item" routerLinkActive="active"  routerLink="/recent">RECENT SEARCH</div>
+      </div>
+      <div class="date">{{ time | date:'EEE, dd MMM'}}
+      {{ time | date: "h.mm a" }}</div>
+    </div>
+    <hr>
+</div>
+<div class="body">
+    <router-outlet></router-outlet>
+</div>
+  </div>

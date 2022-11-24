@@ -1,0 +1,42 @@
+<div class="body">
+  <div class="container1" *ngIf="notavail">
+    <img src="assets/icon_nothing.png" alt="" />
+    <div class="info1">No Recent Search</div>
+  </div>
+  <div class="container2" *ngIf="avail">
+    <div class="detail">
+      <div class="text">Recently searched for</div>
+      <div class="clear">
+        <b (click)="clear()">Remove All</b>
+      </div>
+    </div>
+    <div class="list">
+      <ul *ngFor="let det of recent">
+        <li >
+          <!-- (click)="search(det.data.name)") -->
+          <div class="item">
+            <div class="place" >{{det.data.name}},{{det.data.sys.country}}</div>
+            <div class="weather">
+              <div>
+                <img src="http://openweathermap.org/img/wn/{{ det.data.weather[0].icon}}.png" alt="" />
+              </div>
+              <div class="temp">
+                <p><span>{{ val(det.data) | number: "2.0-0" }}</span>&deg;C</p>
+              </div>
+              <div class="condition">{{det.data.weather[0].main}}</div>
+            </div>
+            <div>
+              {{check(det.data)}}
+             <div class="fav" class *ngIf="added" (click)="remove(det.data)">
+                <div><mat-icon class="yellow">favorite</mat-icon></div>
+              </div>
+              <div class="fav" *ngIf="add" (click)="addToFav(det.data)">
+                <div><mat-icon class="white">favorite_border</mat-icon></div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

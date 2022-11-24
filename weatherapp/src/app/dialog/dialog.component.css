@@ -1,0 +1,25 @@
+*{
+    color: black;
+}
+.container{
+    color:black;
+    padding: 50px;
+    text-align: center;
+}
+.button{
+    margin: 0 auto;
+    margin-top: 25px;
+}
+button{
+    border: none;
+    background-color: white;
+    height: 4.5vh;
+width: 9vw;
+}
+button:hover{
+    background-color:#F76B1C;
+    color: rgb(255, 255, 255);
+}
+.one:focus{
+    outline: none;
+}

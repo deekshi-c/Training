@@ -1,0 +1,107 @@
+.body {
+  margin: 0 5.583vw;
+}
+.title {
+  margin-top: 7.72vh;
+}
+
+.place {
+  font-size: 20px;
+}
+.fav {
+  margin-top: 2.03vh;
+  display: flex;
+  align-items: center;
+}
+.yellow {
+  color: #fad05b;
+}
+.fav span {
+  font-size: 15px;
+  margin-left: 0.7vh;
+}
+.active {
+  background-color: white;
+  color: red;
+}
+.contain2 {
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+  align-items: center;
+}
+.detail {
+  margin-top: 3.93vh;
+}
+.detail img {
+  width: auto;
+  height: auto;
+  margin-bottom: 0px;
+}
+.temp {
+  display: flex;
+  margin-top: -3vh;
+  /* width: 30%;
+    margin: 0 auto; */
+  justify-content: center;
+}
+.temp .value {
+  font-size: 64px;
+  padding: auto;
+}
+.choice {
+  margin-left: 5px;
+  display: flex;
+  justify-content: center;
+}
+.box {
+  width: 36.35px;
+  height: 32px;
+  border: 1px solid white;
+}
+.content {
+  margin-top: 6px;
+}
+.weather {
+    margin-top: 1.5vh;
+    font-size: 22px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  margin-left: 5.4vw;
+  width: 89.2vw;
+  left: 0;
+  margin-bottom: 2.4vh;
+  overflow-x: scroll;
+  /* border: 1px solid rgb(194, 75, 75); */
+  height: 95px;
+  border-top: 1px solid white;
+}
+.boxing {
+  font-size: 19px;
+  margin-top: 5.2vh;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  column-gap: 2.5vw;
+  height: auto;
+}
+.box1 .logo {
+  height: fit-content;
+}
+.box1 {
+  height: 20px;
+  display: flex;
+  width: 130px;
+  margin-left: 15px;
+}
+.text {
+  margin-left: 15px;
+}
+
+@media(max-height:700px){
+  .title {
+margin-top: 1.72vh;
+}
+}
