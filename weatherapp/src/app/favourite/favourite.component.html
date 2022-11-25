@@ -1,35 +1,62 @@
-<div class="body">
-  <div class="container1" *ngIf=" notavail || fav.length < 1 ">
-    <img src="assets/icon_nothing.png" alt="" />
-    <div class="info1">No Favourites added</div>
-  </div>
-  <div class="container2" *ngIf="avail && fav.length > 0">
-    <div class="detail">
-      <div class="text">{{fav.length}}  cities added to favourite</div>
-      <div class="clear" (click)="open()" >
-        <b>Remove All</b>
+<div class="mob">
+  <div class="block">
+    <div class="top">
+      <div class="mobNav">
+        <div class="back">
+          <mat-icon routerLink="/detail">arrow_back</mat-icon>
+          <span class="title"> Favourite </span>
+        </div>
+        <div class="search">
+          <mat-icon>search</mat-icon>
+        </div>
+      </div>
       </div>
     </div>
-    <div class="list">
-      <ul *ngFor="let dat of fav">
-        <li (click)="search(dat.name)">
-          <div class="item">
-            <div class="place" >{{dat.name}},{{dat.sys.country}}</div>
-            <div class="weather">
+  </div>
+  <div class="body">
+    <div class="container1" *ngIf="notavail || fav.length < 1">
+      <img src="assets/icon_nothing.png" alt="" />
+      <div class="info1">No Favourites added</div>
+    </div>
+    <div class="container2" *ngIf="avail && fav.length > 0">
+      <div class="detail">
+        <div class="text">{{ fav.length }} cities added to favourite</div>
+        <div class="clear" (click)="open()">
+          <b>Remove All</b>
+        </div>
+      </div>
+      <div class="list">
+        <ul *ngFor="let dat of fav">
+          <li>
+            <div class="item">
+              <div class="place" (click)="search(dat.name)">
+                {{ dat.name }},{{ dat.sys.country }}
+              </div>
+              <div class="weather">
+                <div>
+                  <img
+                    src="http://openweathermap.org/img/wn/{{
+                      dat['weather'][0].icon
+                    }}.png"
+                    alt=""
+                  />
+                </div>
+                <div class="temp">
+                  <p>
+                    <span>{{ val(dat) | number: "2.0-0" }}</span
+                    >&deg;C
+                  </p>
+                </div>
+                <div class="condition">{{ dat.weather[0].main }}</div>
+              </div>
               <div>
-                <img src="http://openweathermap.org/img/wn/{{dat['weather'][0].icon}}.png" alt="">
+                <mat-icon class="yellow" (click)="remove(dat)"
+                  >favorite</mat-icon
+                >
               </div>
-              <div class="temp">
-                <p><span>87</span>&deg;C</p>
-              </div>
-              <div class="condition">{{dat.weather[0].main}}</div>
             </div>
-            <div>
-              <mat-icon class="yellow" (click)="remove(dat)" >favorite</mat-icon>
-            </div>
-          </div>
-        </li>
-      </ul>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>

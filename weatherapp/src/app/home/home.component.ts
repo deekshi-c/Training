@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-
+import { Location } from '@angular/common';
 import { environment } from 'src/environments/environment';
 
 const API_KEY = environment.API_KEY;
@@ -15,30 +15,23 @@ export class HomeComponent implements OnInit {
   time: any;
   detail: any;
   recent: any = [];
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(private router: Router, private http: HttpClient,private loc:Location) {}
   ngOnInit(): void {
     this.time = new Date();
   }
 
   find(item: any) {
-    localStorage.setItem('city', JSON.stringify(item));
-    let curr: any = [];
-    this.http
-      .get(`${API_URL}/weather?q=${item}&appid=${API_KEY}`)
-      .subscribe((data) => {
-        this.detail = data;
-        this.recent = localStorage.getItem('recent');
-        this.recent = JSON.parse(this.recent) || [];
-        console.log(this.recent);
-
-        for (let item of this.recent) {
-            if ((this.detail.name).toLowerCase() != (item.data.name).toLowerCase())
-            curr.push(item);
-        }
-        curr.unshift({data});
-        console.log(curr);
-        localStorage.setItem('recent', JSON.stringify(curr));
-      });
-      this.router.navigateByUrl('/detail');
+    this.http.get(`${API_URL}/weather?q=${item}&appid=${API_KEY}`).subscribe(
+      (data) => {
+        localStorage.setItem('city', JSON.stringify(item));
+        window.location.reload();
+      },
+      (err) => {
+        alert('city not found');
+      }
+    );
+      // this.router.navigateByUrl("/detail",{skipLocationChange:true}).then(()=>{
+      //   this.router.navigate([decodeURI(this.loc.path())]);
+      // });
   }
 }

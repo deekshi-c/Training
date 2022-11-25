@@ -1,3 +1,18 @@
+<div class="mob">
+  <div class="block">
+    <div class="top">
+      <div class="mobNav">
+        <div class="back">
+          <mat-icon routerLink="/detail">arrow_back</mat-icon>
+          <span class="title"> Recent Search </span>
+        </div>
+        <div class="search">
+          <mat-icon>search</mat-icon>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
 <div class="body">
   <div class="container1" *ngIf="notavail">
     <img src="assets/icon_nothing.png" alt="" />
@@ -15,7 +30,7 @@
         <li >
           <!-- (click)="search(det.data.name)") -->
           <div class="item">
-            <div class="place" >{{det.data.name}},{{det.data.sys.country}}</div>
+            <div class="place"  (click)="search(det.data.name)">{{det.data.name}},{{det.data.sys.country}}</div>
             <div class="weather">
               <div>
                 <img src="http://openweathermap.org/img/wn/{{ det.data.weather[0].icon}}.png" alt="" />
@@ -27,7 +42,7 @@
             </div>
             <div>
               {{check(det.data)}}
-             <div class="fav" class *ngIf="added" (click)="remove(det.data)">
+             <div class="fav" class="white" *ngIf="added" (click)="remove(det.data)">
                 <div><mat-icon class="yellow">favorite</mat-icon></div>
               </div>
               <div class="fav" *ngIf="add" (click)="addToFav(det.data)">

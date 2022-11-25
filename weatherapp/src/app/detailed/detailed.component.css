@@ -1,3 +1,7 @@
+.mob{
+  display: none;
+}
+
 .body {
   margin: 0 5.583vw;
 }
@@ -103,5 +107,54 @@
 @media(max-height:700px){
   .title {
 margin-top: 1.72vh;
+}
+}
+@media(max-width:500px){
+  .mob{
+    display:block;  
+}
+.title{
+  margin-top: 0;
+}
+.mob{
+  margin: 0 4vw;
+}
+.mobNav {
+  display: flex;
+  justify-content: space-between;
+margin-top: 3vh;
+}
+.ham img{
+  margin-left: 32px;
+}
+.date{
+  margin-top: 4vh;
+  text-align: center;
+  margin: 0 10.72vw;
+  font-size: 16px;
+  opacity: 0.6;
+}
+.mob > div:nth-child(2) {
+   margin-top: 4vh;
+}
+.title{
+  text-align: center;
+}
+.place{
+  margin-top: 1.5vh;
+}
+.iicon{
+  text-align: center;
+}
+.fav{
+margin-top: 3vh;
+ display: flex;
+  justify-content: center;
+}
+.footer {
+margin: 0px;
+width: 100vw;
+background-color: rgba(255, 255, 255, 0.179);
+
 }
 }

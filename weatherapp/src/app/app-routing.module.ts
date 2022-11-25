@@ -4,6 +4,9 @@ import { DetailedComponent } from './detailed/detailed.component';
 import { FavouriteComponent } from './favourite/favourite.component';
 import { RecentComponent } from './recent/recent.component';
 const routes: Routes = [
+  {
+    path:'', redirectTo: 'detail',pathMatch:'full'
+  },
   { path: 'detail', component: DetailedComponent },
   { path: 'fav', component: FavouriteComponent },
   { path: 'recent', component: RecentComponent }

@@ -4,6 +4,7 @@ import { DialogComponent } from '../dialog/dialog.component';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Location } from '@angular/common';
 const API_KEY = environment.API_KEY;
 const API_URL = environment.API_URL;
 
@@ -17,10 +18,14 @@ export class FavouriteComponent implements OnInit {
   notavail = false;
   avail = true;
   temp: any;
-  detail:any;
-  recent:any;
-  constructor(private dialog: MatDialog,private router:Router,
-    private http:HttpClient) {}
+  detail: any;
+  recent: any;
+  constructor(
+    private dialog: MatDialog,
+    private router: Router,
+    private http: HttpClient,
+    private loc: Location
+  ) {}
 
   ngOnInit(): void {
     this.fav = localStorage.getItem('fav');
@@ -32,9 +37,11 @@ export class FavouriteComponent implements OnInit {
       this.avail = true;
       this.notavail = false;
     }
+    console.log(this.fav);
+    
   }
   val(curr: any) {
-    return (this.temp = this.fav.main.temp - 273);
+    return (this.temp = curr.main.temp - 273);
   }
   open() {
     this.dialog.open(DialogComponent);
@@ -47,6 +54,7 @@ export class FavouriteComponent implements OnInit {
     console.log(curr);
 
     localStorage.setItem('fav', JSON.stringify(curr));
+    console.log("Rolo");
     window.location.reload();
   }
   search(item: any) {

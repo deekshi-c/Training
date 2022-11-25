@@ -66,6 +66,7 @@ export class RecentComponent implements OnInit {
   }
   clear() {
     localStorage.removeItem('recent');
+    location.reload();
   }
   check(detail: any) {
     this.fav = localStorage.getItem('fav');

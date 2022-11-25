@@ -4,5 +4,7 @@ body{
     padding: 0;
     color: white;
 }
-html, body { height: 100%; }
+html, body { height: 100%;
+/* overflow: clip;  */
+}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

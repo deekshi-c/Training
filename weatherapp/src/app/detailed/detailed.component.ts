@@ -12,6 +12,7 @@ const API_URL = environment.API_URL;
 })
 export class DetailedComponent implements OnInit {
   add = true;
+  recent:any;
   added = false;
   celclass = true;
   city: any;
@@ -23,18 +24,34 @@ export class DetailedComponent implements OnInit {
   icon: any;
   fav: any;
   flag: any;
+  def:any;
+  date:any;
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
+    this.date = new Date();
     this.city = localStorage.getItem('city');
     this.city = JSON.parse(this.city);
+    let curr: any = [];
     this.http
       .get(`${API_URL}/weather?q=${this.city}&appid=${API_KEY}`)
       .subscribe((data) => {
         this.detail = data;
-        console.log(this.detail);
-        this.icon = `http://openweathermap.org/img/wn/${this.detail['weather'][0].icon}@4x.png`;
-      });
+        this.icon = `http://openweathermap.org/img/wn/${this.detail['weather'][0].icon}@4x.png`
+        this.recent = localStorage.getItem('recent');
+        this.recent = JSON.parse(this.recent) || [];
+        console.log(this.recent);
+
+        for (let item of this.recent) {
+          if (this.detail.name.toLowerCase() != item.data.name.toLowerCase())
+            curr.push(item);
+        }
+        curr.unshift({ data });
+        console.log(curr);
+        localStorage.setItem('recent', JSON.stringify(curr));
+      },err=>{
+      alert("city not found")
+    });
   }
 
   addToFav() {
@@ -72,25 +89,45 @@ export class DetailedComponent implements OnInit {
     
     localStorage.setItem('fav', JSON.stringify(curr));
   }
+  default(){
+    this.def=localStorage.getItem('default')
+    this.def=JSON.parse(this.def)
+    if(!this.def){
+      localStorage.setItem('default', JSON.stringify("celcius"));
+      this.celclass = true;
+      this.farenclass = false;
+    }
+    else{
+    if(this.def == "celcius"){
+      this.celclass = true;
+    this.farenclass = false;
+    }
+    else{
+        this.celclass = false;
+        this.farenclass = true;
+    }
+    }
+  }
 
   celc() {
-    this.celclass = true;
-    this.farenclass = false;
+    localStorage.setItem('default', JSON.stringify('celcius'));
+    this.celclass = false;
+    this.farenclass = true;
   }
   faren() {
+    localStorage.setItem('default', JSON.stringify('faren'));
     this.celclass = false;
     this.farenclass = true;
   }
   val() {
     this.temp = this.detail.main.temp - 273;
-
     if (this.celclass) {
       this.maxtemp = this.detail.main.temp_max - 273;
       this.mintemp = this.detail.main.temp_min - 273;
       return this.temp;
     } else {
-      this.maxtemp = (this.maxtemp * 9) / 5 + 32;
-      this.mintemp = (this.mintemp * 9) / 5 + 32;
+      this.maxtemp = (this.temp * 9) / 5 + 32;
+      this.mintemp = (this.temp * 9) / 5 + 32;
       return (this.temp * 9) / 5 + 32;
     }
   }

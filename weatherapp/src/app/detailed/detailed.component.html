@@ -1,88 +1,104 @@
-<div class="body">
-  <div class="title">
-    <div class="place">{{detail.name}},{{detail.sys.country}}</div>
-    <!--  -->
-    <div >
-      {{check()}}
-    <div class="fav" *ngIf="added" (click)="remove()">
-      <div><mat-icon class="yellow">favorite</mat-icon></div>
-      <div><span class="yellow">Added to Favourite</span></div>
+<div class="mob">
+  <div class="mobNav">
+    <div class="ham">
+      <mat-icon>menu </mat-icon>
+      <img src="assets/logo_web.png" alt="" />
     </div>
-    <div class="fav" *ngIf="add" (click)="addToFav()">
-      <div><mat-icon>favorite_border</mat-icon></div>
-      <div><span>Add to Favourite</span></div>
+    <div class="search">
+      <mat-icon>search</mat-icon>
     </div>
   </div>
+  <div class="date">
+    {{ date | date: "EEE , dd MMM YYYY" | uppercase }}&nbsp;&nbsp;
+    {{date | date: "h.mm a"}}
   </div>
-  <div class="contain2">
-    <div class="detail">
-      <div>
-        <img [src]="icon" alt="asdas" />
-        <div class="temp">
-          <div class="value">{{ val() | number: "2.1-2" }}</div>
-          <div class="choice">
-            <div class="box" [class.active]="celclass" (click)="celc()">
-              <div class="content" [class.active]="celclass">&deg;C</div>
+  </div>
+  <div class="body">
+    <div class="title">
+      <div class="place">{{ detail.name }},{{ detail.sys.country }}</div>
+      <!--  -->
+      <div class="iicon">
+        {{ check() }}
+        <div class="fav" *ngIf="added" (click)="remove()">
+          <div><mat-icon class="yellow">favorite</mat-icon></div>
+          <div><span class="yellow">Added to Favourite</span></div>
+        </div>
+        <div class="fav" *ngIf="add" (click)="addToFav()">
+          <div><mat-icon>favorite_border</mat-icon></div>
+          <div><span>Add to Favourite</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="contain2">
+      <div class="detail">
+        <div>
+          <img [src]="icon" alt="weather_icon" />
+          <div class="temp">
+            {{ default() }}
+            <div class="value">{{ val() | number: "2.1-2" }}</div>
+            <div class="choice">
+              <div class="box" [class.active]="celclass" (click)="celc()">
+                <div class="content" [class.active]="celclass">&deg;C</div>
+              </div>
+              <div class="box" [class.active]="farenclass" (click)="faren()">
+                <div class="content" [class.active]="farenclass">&deg;F</div>
+              </div>
             </div>
-            <div class="box" [class.active]="farenclass" (click)="faren()">
-              <div class="content" [class.active]="farenclass">&deg;F</div>
+          </div>
+        </div>
+        <div class="weather">{{ detail.weather[0].main }}</div>
+      </div>
+      <div class="footer">
+        <div class="boxing">
+          <div class="box1">
+            <div class="logo">
+              <img src="assets/footer/icon_temp.png" alt="temp" />
+            </div>
+            <div class="text">
+              <div class="head">Min - Max</div>
+              <div class="detailfooter">
+                {{ mintemp | number: "2.0-0" }} &deg;-
+                {{ maxtemp | number: "2.0-0" }} &deg;
+              </div>
+            </div>
+          </div>
+          <div class="box1">
+            <div class="logo">
+              <img src="assets/footer/icon_precipitation.png" alt="temp" />
+            </div>
+            <div class="text">
+              <div class="head">Pressure</div>
+              <div class="detailfooter">{{ detail.main.pressure }}</div>
+            </div>
+          </div>
+          <div class="box1">
+            <div class="logo">
+              <img src="assets/footer/icon_humidity.png" alt="temp" />
+            </div>
+            <div class="text">
+              <div class="head">Humidity</div>
+              <div class="detailfooter">{{ detail.main.humidity }}%</div>
+            </div>
+          </div>
+          <div class="box1">
+            <div class="logo">
+              <img src="assets/footer/icon_wind.png" alt="temp" />
+            </div>
+            <div class="text">
+              <div class="head">Wind</div>
+              <div class="detailfooter">{{ detail.wind.speed }} mph</div>
+            </div>
+          </div>
+          <div class="box1">
+            <div class="logo">
+              <img src="assets/footer/icon_visibility.png" alt="temp" />
+            </div>
+            <div class="text">
+              <div class="head">Visibility</div>
+              <div class="detailfooter">{{ detail.visibility }} m</div>
             </div>
           </div>
         </div>
       </div>
-      <div class="weather">{{ detail.weather[0].main }}</div>
-    </div>
-    <div class="footer">
-      <div class="boxing">
-        <div class="box1">
-          <div class="logo">
-            <img src="assets/footer/icon_temp.png" alt="temp" />
-          </div>
-          <div class="text">
-            <div class="head">Min - Max</div>
-            <div class="detailfooter">
-              {{ mintemp | number: "2.0-0" }} &deg;-
-              {{ maxtemp | number: "2.0-0" }} &deg;
-            </div>
-          </div>
-        </div>
-        <div class="box1">
-          <div class="logo">
-            <img src="assets/footer/icon_precipitation.png" alt="temp" />
-          </div>
-          <div class="text">
-            <div class="head">Pressure</div>
-            <div class="detailfooter">{{ detail.main.pressure }}</div>
-          </div>
-        </div>
-        <div class="box1">
-          <div class="logo">
-            <img src="assets/footer/icon_humidity.png" alt="temp" />
-          </div>
-          <div class="text">
-            <div class="head">Humidity</div>
-            <div class="detailfooter">{{ detail.main.humidity }}%</div>
-          </div>
-        </div>
-        <div class="box1">
-          <div class="logo">
-            <img src="assets/footer/icon_wind.png" alt="temp" />
-          </div>
-          <div class="text">
-            <div class="head">Wind</div>
-            <div class="detailfooter">{{ detail.wind.speed }} mph</div>
-          </div>
-        </div>
-        <div class="box1">
-          <div class="logo">
-            <img src="assets/footer/icon_visibility.png" alt="temp" />
-          </div>
-          <div class="text">
-            <div class="head">Visibility</div>
-            <div class="detailfooter">{{ detail.visibility }} m</div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
-</div>
