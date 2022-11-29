@@ -1,0 +1,160 @@
+.display {
+  margin: 0 17.3vw;
+  height: 72vh;
+  /* border: 2px solid yellow; */
+  position: relative;
+}
+.detail{
+  background: linear-gradient(180deg, rgba(33, 33, 33, 0.301) 0%, #212121 100%);
+}
+.display .img {
+  width: 65vw;
+  height: 72vh;
+}
+.mobview {
+  display: none;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.video{
+  width: 66vw;
+height: 72vh;
+  border: 1px solid yellow;
+}
+
+.embed{
+  width: 66vw;
+height: 72vh;
+}
+
+
+.detail {
+  position: absolute;
+  font-size: 15px;
+  top: 2vh;
+  left: 2vw;
+  right: 0px;
+left: 0.133px;
+padding-left: 10px;
+width: 63.5vw;
+}
+.heading {
+  display: flex;
+  justify-content: space-between;
+  width: 63vw;
+}
+.options {
+  display: flex;
+  margin-left: 11vw;
+}
+
+.fav {
+  margin-top: 10px;
+  margin-right: 20px;
+}
+.fav mat-icon {
+  transform: scale(1.24);
+}
+.zoom button {
+  color: #7a0022;
+  height: 40px;
+  width: 60px;
+  margin: 0 2px;
+  border: none;
+}
+.zoom button mat-icon {
+  transform: scale(1.24);
+}
+.profile {
+  display: flex;
+  align-items: center;
+}
+.dp {
+  margin-right: 1vw;
+}
+@media (max-width: 1100px) {
+  .fav mat-icon {
+    transform: scale(1);
+  }
+  .zoom button {
+    color: #7a0022;
+    height: 40px;
+    width: 40px;
+    margin: 2px 2px;
+    border: none;
+  }
+  .zoom button mat-icon {
+    transform: scale(1);
+  }
+}
+@media (max-width: 500px) {
+  .mobview {
+    height: 80px;
+    width: 100vw;
+    background-color: #212121;
+    display: block;
+    padding-top: 20px;
+  }
+.heading1{
+    margin-top: 30px;
+    color: white;
+    display:flex;
+    justify-content: space-between;
+    padding: 0 16px;
+
+  }
+  .video {
+width: 100vw;
+height: 84vh;
+}
+.embed{
+  width:100vw
+}
+  .display {
+    margin: 0;
+  }
+.text,
+  .zoom {
+    display: none;
+  }
+  .img {
+    width: 100vw;
+    height: 85vh;
+  }
+  .display {
+    height: 85vh;
+  }
+  .display .img {
+    width: 100vw;
+    height: 85vh;
+  }
+  .detail {
+    transform: scaleY(-1);
+    background: linear-gradient(180deg, rgba(33, 33, 33, 0) 0%, #212121 100%);
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+  }
+  .profile{
+    transform: scaleY(-1);
+    padding: 21px 31px 20px 20px;
+
+  }
+  .options{
+    display: block;
+  }
+  .heading1 .text{
+    color: white;
+  }
+  .fav{
+     transform: scaleY(-1);
+     position: absolute;
+     left: auto;
+right: 17px;
+top: 12px;
+  }
+}

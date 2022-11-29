@@ -1,0 +1,29 @@
+<app-header></app-header>
+<div>
+  <div  class="container1" *ngIf="display">
+    <app-nav-bar></app-nav-bar>
+  </div>
+  <div class="container">
+    <div class="grid">
+      <div *ngFor="let i of fav">
+      <div class="box" >
+        <img class="og" src="{{img(i)}}" alt="" />
+        <div class="detail">
+          <div class="fav">
+            <div><mat-icon style="color:red" (click)="remove(i)">favorite</mat-icon></div>
+          </div>
+          <div class="owner" (click)="getDetail(i)">
+            <div class="dp">
+              <img src="assets/Oval Copy 5.png" alt="" />
+            </div>
+            <div class="username">{{name(i)}}</div>
+          </div>
+        </div>
+      </div>
+      </div> 
+    </div>
+    <app-footer></app-footer>
+
+  </div>
+</div>
+

@@ -1,0 +1,22 @@
+.footer{
+    height: 89px;
+  width: 100vw;
+  background-color: #F2F2F2;
+  box-shadow: 0 1px 0 0 #A7A8A9;
+  color: #BABABA;
+  text-align: center;
+  position: relative;
+  bottom:0;
+  left: 0;
+}
+.footercontent{
+    display: flex;
+    justify-content: space-around;
+    padding: 31px;
+}
+
+@media (max-width:500px){
+    .footer{
+        display: none;
+    }
+}

@@ -1,0 +1,235 @@
+.smallHeader{
+  color: blue;
+}
+.container {
+
+  width: 100vw;
+  height: 356px;
+  background-image: url(src/assets/Mask.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.smallHeader{
+height: 100px;
+background-color: #F3F3F3;
+background-image:none
+}
+
+.img {
+  margin-left: 17.4vw;
+}
+.img img{
+    margin-top: 4vh;
+}
+
+.descrip {
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 35px;
+  text-align: center;
+  margin-top: 6.56vh;
+}
+.inside {
+    font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  margin-top: 10px;
+}
+p {
+  margin: 0;
+}
+.search {
+    text-align: center;
+    color: #2F2F2F;
+  font-family: Roboto;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+.search input {
+ padding-left: 8px;
+width: 756px;
+height: 44px;
+}
+.mob{
+  display: none;
+}
+
+.searchbtn{
+    height: 40px;
+    width: 87px;
+    font-size: 16px;
+    border: none;
+    background-color: #560014;
+    margin-left: -91px;
+    margin-top: 12px;
+    color: white
+}
+.containerOne{
+    height: 100px;
+    margin: 0 17.3vw;
+    /* border: 2px solid #560014; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .searchOne{
+    display: flex;
+  }
+  .searchOne input{
+    height: 44px;
+  width: 29vw;
+  }
+  .searchOne button{
+    height: 40px;
+    width: 87px;
+    font-size: 16px;
+    border: none;
+    background-color: #560014;
+    margin-left: -91px;
+    margin-top: 4px;
+    color: white
+  }
+
+
+
+
+
+
+
+
+@media (max-width: 1200px){
+  .img{
+    margin-left:9.4vw
+  }
+}
+@media (max-width: 900px){
+  .descrip{
+font-size: 26px;
+margin: 0px 21vw;
+}
+.inside {
+font-size: 16px;
+}
+.search  input {
+width: 515px;
+}
+.img img{
+  margin-top: 2vh;
+margin-bottom: 6vh;
+}
+
+}
+@media (max-width: 800px){
+
+
+  .searchOne input {
+width: 26vw;
+height: 25px;
+}
+.searchOne button{
+  height: 20px;
+  width: 60px;
+  font-size: 14px;
+  border: none;
+  margin-left: -66px;
+margin-top: 5px;
+}
+
+}
+@media (max-width: 600px){
+  .containerOne{
+    margin: 0 7.3vw;
+  }
+  .descrip{
+font-size: 24px;
+}
+.inside {
+font-size: 14px;
+}
+.search  input {
+width: 393px;
+
+}
+}
+@media (max-width: 500px){
+  .pc{display: none;}
+  .mob{
+    display: block  ;
+  }
+  
+
+  .containerOne{
+    height: 360px;
+    padding-top: 40px;
+  }
+  .search  input {
+height: 48px;
+width: 320px;
+border-radius: 4px;
+background-color: #FFFFFF;
+}
+.img > img:nth-child(1) {
+width: 131px;
+}
+.descrip{
+font-size: 22px;
+}
+.inside {
+font-size: 12px;  
+}
+button{
+  display: none ;
+}
+.containerMob{
+padding-top: 40px;
+}
+.searchmob{
+  position: absolute;
+   right: 6vw;
+top: 8vh;
+color: #FFFFFF;
+}
+.smallHeader{
+  background-color: #212121;
+}
+.containerMob > div:nth-child(1) > img:nth-child(1) {
+width: 120px;
+height: 32px;
+margin-top: 2vh;
+margin-left: 4vw;
+}
+div.container:nth-child(1) {
+height: 50vh;
+}
+}
+
+@media (max-width: 350px){
+  .search  input {
+width: 80vw;
+height: 34px;
+margin-top: 21px;
+border-radius: 4px;
+background-color: #FFFFFF;
+box-shadow: inset 0 0.5px 0 0 rgba(255,255,255,0.8), 0 2px 2px 0 rgba(0,0,0,0.24), 0 0 2px 0 rgba(0,0,0,0.12);
+}
+.descrip{
+  margin: 0 12vw;
+  height: 84px;
+  width: 257px;
+  color: #FFFFFF;
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 28px;
+  text-align: center;
+}
+.inside {
+font-size: 11px;
+}
+button{
+  display: none ;
+}
+} 

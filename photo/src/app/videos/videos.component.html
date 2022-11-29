@@ -1,0 +1,31 @@
+<app-header></app-header>
+<div>
+  <div  class="container1" *ngIf="display">
+    <app-nav-bar></app-nav-bar>
+  </div>
+  <div class="container">
+    <div class="grid">
+      <div *ngFor="let i of videos">
+      <div class="box" >
+        <img class="og" src="{{i.image}}" alt="" />
+        <div class="detail">
+          <div class="fav">
+           {{check(i)}}
+            <div *ngIf="!filled"><mat-icon class="yellow" (click)="add(i)"     >favorite_border</mat-icon></div>
+            <div *ngIf="filled"><mat-icon style="color:red" (click)="remove(i)">favorite_</mat-icon></div>
+          </div>
+          <div class="owner" (click)="getDetail(i)">
+            <div class="dp">
+              <img src="assets/Oval Copy 5.png" alt="" />
+            </div>
+            <div class="username">{{i.user.name}}</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <app-footer></app-footer>
+
+  </div>
+</div>
+

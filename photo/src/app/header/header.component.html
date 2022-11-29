@@ -1,0 +1,38 @@
+<div class="smallHeader" *ngIf="headerChange">
+  <div class="pc">
+    <div class="containerOne">
+      <div class="logoOne">
+        <img src="assets/Logo(1).png" alt="" />
+      </div>
+      <div class="searchOne">
+        <input type="text" />
+        <button>SEARCH</button>
+      </div>
+    </div>
+  </div>
+  <div class="mob">
+    <div class="containerMob">
+      <div class="logoOne">
+        <img src="assets/Logo.png" alt="" />
+      </div>
+      <div class="searchmob">
+        <mat-icon>search</mat-icon>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!headerChange" class="container">
+  <div class="img">
+    <img src="assets/Logo.png" alt="logo" />
+  </div>
+  <div class="descrip">
+    <p>Discover the world's best photos & videos</p>
+    <div class="inside">
+      <p>Best memories online</p>
+    </div>
+  </div>
+  <div class="search">
+    <input type="text" placeholder="Search" #name />
+    <button class="searchbtn" (click)="search(name.value)">SEARCH</button>
+  </div>
+</div>
