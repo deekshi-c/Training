@@ -3,11 +3,9 @@
         <div class="logoOne">
           <img src="assets/Logo(1).png" alt="">
         </div>
-        <div class="searchOne">
-          <input type="text">
-          <button>
-            SEARCH
-          </button>
+        <div class="searchOne"(ngSubmit)="handleS($event,name.value)">
+        <input type="text"  placeholder="Search" #name  (keyup)="handleKey($event,name.value)">
+        <button (click)="search(name.value)">SEARCH</button>
         </div>
     </div>
   </div>

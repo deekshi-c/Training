@@ -13,25 +13,33 @@ export class VideosComponent implements OnInit {
   constructor(public router: Router, private service: PexelService) {}
   display = true;
   flag: any;
+  old:any
   search: any;
   videos: any;
   ngOnInit(): void {
     this.search = localStorage.getItem('item');
-    this.search = JSON.parse(this.search).toLowerCase();
+    this.search = JSON.parse(this.search).toLowerCase()||" ";
     this.fav = localStorage.getItem('fav');
     this.fav = JSON.parse(this.fav) || [];
-    console.log('In');
-    if (localStorage.getItem('videos')) {
+    this.old = localStorage.getItem('old');
+    this.old = JSON.parse(this.old);
+    console.log(this.search + '---' + this.old);
+    if (this.old == this.search) {
       this.videos = localStorage.getItem('videos');
       this.videos = JSON.parse(this.videos);
-    } else {
-      this.service.getDataV(this.search).subscribe((data) => {
-        console.log(data);
-        console.log('Error');
-        this.videos = data.videos;
-        localStorage.setItem('videos', JSON.stringify(this.videos));
-      });
+    } else{
+            localStorage.setItem('old', JSON.stringify(this.old));
+            this.service.getDataV(this.search).subscribe(
+              (data) => {
+                this.videos = data.videos;
+                localStorage.setItem('videos', JSON.stringify(this.videos));
+              },
+              (err) => {
+                alert('No Match found');
+              }
+            );
     }
+
   }
   getDetail(curr: any) {
     this.display = false;

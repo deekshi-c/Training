@@ -1,0 +1,84 @@
+<div class="parent">
+    <div class="child">
+        <div class="left">
+            <div class="leftimg">
+                <img src="assets/bgImg/img_onboarding_illustration3.png" alt="illust">
+            </div>
+            <div class="heading">
+                Seamless Workflow
+            </div>
+            <div class="detail">
+                Sync rosters, create and assign impactful video experiences, enrich your flipped classroom, and
+                streamline tedious
+                grading.
+            </div>
+            <p> . . .</p>
+
+        </div>
+        <div class="right">
+            <div class="log">
+                <img src="assets/logo/img_virtuallearn logo_splash 2.png" alt="">
+            </div>
+            <div class="box">
+                <div class="heading">
+                    Welcome Back!
+                </div>
+                <div class="details">
+                    Easy to learn anytime and anywhere. Login to your account
+                </div>
+                <div class="logButton">
+                    <div>
+                        <button class="options">
+                            <img src="assets/logo/facebook.png" alt="">
+                        </button>
+                    </div>
+                    <div>
+                        <button class="options">
+                            <img src="assets/logo/google.png" alt="">
+                        </button>
+                    </div>
+                </div>
+                <form [formGroup]="loginForm">
+                <div class="input">
+                    <mat-form-field (click)="toggle();">
+                        <input matInput type="text" formControlName="name" placeholder="Username"/>
+                        <mat-icon matSuffix *ngIf="in" [ngStyle]="{'color':status ? 'green' : 'red'}">check_circle</mat-icon>
+                    </mat-form-field>
+                    <div *ngIf="loginForm.get('name')?.touched">
+                        <div class="error" *ngIf="loginForm.get('name')?.errors?.['required']">Username required
+                        </div>
+                        <div class="error" *ngIf="loginForm.get('name')?.errors?.['pattern']">Username cannot be in
+                            numbers</div>
+                        </div>
+                    </div>
+                <div class="input">
+                        <mat-form-field>
+                            <input matInput type="Password"
+                            formControlName="password" placeholder="Password"/>
+                        </mat-form-field>
+                        <div class="error" *ngIf="loginForm.get('password')?.touched">
+                            <div class="error" *ngIf="loginForm.get('password')?.errors?.['required']">Password required
+                            </div>
+                            <div class="error" *ngIf="loginForm.get('password')?.errors?.['minlength']">Min  length 6
+                            </div>
+                        </div>
+                </div>
+                <div class="submit">
+                    <button (click)="logIn()" [disabled]="loginForm.invalid">Login</button>
+                </div>
+                </form>
+            </div>
+            <div class="reg">
+                <p class="p5">Don't have a account?<span> Register </span></p>
+            </div>
+            <div class="response" *ngIf="errorFlag">
+                <div>
+                   <mat-icon class="errorIcon">error</mat-icon>
+                </div>
+                <div >
+                    {{errorText}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

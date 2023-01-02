@@ -7,7 +7,17 @@
     <div class="grid">
       <div *ngFor="let i of fav">
       <div class="box" >
-        <img class="og" src="{{img(i)}}" alt="" />
+        {{checkImage(i)}}
+        <div class="img" *ngIf="image">
+        <img class="og" src="{{i.src.original}}" alt="" />
+        </div>
+        <div class="video" *ngIf="!image">
+        <video  class="og" controls>
+          
+          <source src="{{i.url}}" type="video/mp4">
+          <source src="{{i.url}}" type="video/ogg">
+    </video>
+        </div>
         <div class="detail">
           <div class="fav">
             <div><mat-icon style="color:red" (click)="remove(i)">favorite</mat-icon></div>

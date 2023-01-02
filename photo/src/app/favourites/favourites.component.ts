@@ -10,7 +10,7 @@ import { PexelService } from '../service/pexel.service';
 export class FavouritesComponent implements OnInit {
   fav: any;
   constructor(public router: Router, private service: PexelService) {}
-
+  image = true;
   display = true;
   ngOnInit(): void {
     this.fav = localStorage.getItem('fav');
@@ -21,8 +21,8 @@ export class FavouritesComponent implements OnInit {
     this.display = false;
     localStorage.setItem('current', JSON.stringify(curr));
     this.router.navigate(['/detail']);
-     if (curr.image)  localStorage.setItem('type', JSON.stringify('video'));
-     else localStorage.setItem('type', JSON.stringify('photo'));;
+    if (curr.image) localStorage.setItem('type', JSON.stringify('video'));
+    else localStorage.setItem('type', JSON.stringify('photo'));
   }
   img(item: any) {
     if (item.image) return item.image;
@@ -45,5 +45,14 @@ export class FavouritesComponent implements OnInit {
     console.log(curr);
     localStorage.setItem('fav', JSON.stringify(curr));
     window.location.reload();
+  }
+  checkImage(item: any) {
+    if (item.src) {
+      this.image = true;
+     }
+      else  this.image = false;
+  }
+  out(item: any) {
+    console.log(item.url);
   }
 }

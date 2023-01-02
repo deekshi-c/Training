@@ -4,9 +4,14 @@
       <div class="logoOne">
         <img src="assets/Logo(1).png" alt="" />
       </div>
-      <div class="searchOne">
-        <input type="text" />
-        <button>SEARCH</button>
+      <div class="searchOne" (ngSubmit)="handleS($event, name.value)">
+        <input
+          type="text"
+          placeholder="Search"
+          #name
+          (keyup)="handleKey($event, name.value)"
+        />
+        <button (click)="search(name.value)">SEARCH</button>
       </div>
     </div>
   </div>
@@ -15,9 +20,22 @@
       <div class="logoOne">
         <img src="assets/Logo.png" alt="" />
       </div>
-      <div class="searchmob">
+      <div class="searchmob" (click)="openSearch()">
         <mat-icon>search</mat-icon>
       </div>
+    </div>
+  </div>
+  <div [class.searchingMenu]="openMenu" *ngIf="openMenu">
+    <div (ngSubmit)="handleS($event, name.value)">
+      <input
+        class="smallIn"
+        placeholder="SEARCH"
+        type="text"
+        (keyup)="handleKey($event, name.value)"
+      />
+    </div>
+    <div class="backbutton">
+      <mat-icon class="backbutton"  (click)="back()" >arrow_back</mat-icon>
     </div>
   </div>
 </div>
@@ -31,8 +49,15 @@
       <p>Best memories online</p>
     </div>
   </div>
-  <div class="search">
-    <input type="text" placeholder="Search" #name />
+  <div class="search" (ngSubmit)="handleS($event, name.value)">
+
+    <input
+      type="text"
+      placeholder="Search"
+      #name
+      (keyup)="handleKey($event, name.value)"
+    />
+    <mat-icon class="searchbtn1 black">search</mat-icon>
     <button class="searchbtn" (click)="search(name.value)">SEARCH</button>
   </div>
 </div>

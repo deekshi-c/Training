@@ -1,0 +1,36 @@
+<mat-toolbar>
+    <div class="toolbar">
+        <div class="logo">
+            <img src="assets/logo/Group 118.png" alt="">
+        </div>
+        <div class="search">
+                <mat-icon class="searchIcon">search</mat-icon>
+                <input class="searchBar" type="text" placeholder="Search">
+        </div>
+        <div class="profile">
+                <div class="noti">
+                    <mat-icon>notifications</mat-icon>
+                </div>
+                <div class="setings">
+                    <mat-icon >settings</mat-icon>
+                    <div class="dialogue" *ngIf="show">
+                            <div>
+                                <mat-icon>school</mat-icon>My Course
+                            </div>
+                            <div>
+                                <mat-icon>account_circle</mat-icon>My Profile
+                            </div>
+                            <div>
+                                <mat-icon>logout</mat-icon>Logout
+                            </div>
+                    </div>
+
+                </div>
+                <div (click)="open()" class="logo">
+                    <img src="" alt="logo">
+                </div>
+        </div>
+
+
+    </div>
+</mat-toolbar>

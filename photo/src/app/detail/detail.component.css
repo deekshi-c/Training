@@ -23,14 +23,13 @@
 .video{
   width: 66vw;
 height: 72vh;
-  border: 1px solid yellow;
+  /* border: 1px solid yellow;   */
 }
 
 .embed{
   width: 66vw;
-height: 72vh;
+height: 80vh;
 }
-
 
 .detail {
   position: absolute;
@@ -39,17 +38,8 @@ height: 72vh;
   left: 2vw;
   right: 0px;
 left: 0.133px;
-padding-left: 10px;
-width: 63.5vw;
-}
-.heading {
-  display: flex;
-  justify-content: space-between;
-  width: 63vw;
-}
-.options {
-  display: flex;
-  margin-left: 11vw;
+margin: 0 1.2vw;
+width: 63.8vw;
 }
 
 .fav {
@@ -76,6 +66,35 @@ width: 63.5vw;
 .dp {
   margin-right: 1vw;
 }
+.heading{
+  display: flex;
+  justify-content: space-between;
+
+}
+.options{
+  display: flex;
+}
+.mobzoom{
+  display:none;
+}
+.options {
+width: 153px;
+}
+.mobbutton{
+  display: none;
+}
+.background{
+object-fit: fill;
+height: 100%;
+width: 100%;
+}
+.photo{
+  overflow: scroll  ;
+}
+.zoomIn{
+  transform: scale(2);
+}
+
 @media (max-width: 1100px) {
   .fav mat-icon {
     transform: scale(1);
@@ -91,6 +110,24 @@ width: 63.5vw;
     transform: scale(1);
   }
 }
+@media (max-width: 700px) {
+.text {
+width: 39vw;
+}
+.fav {
+margin-right: 10px;
+}
+.detail {
+padding-left: 6px;
+}
+.detail {
+margin-left: 1vw;
+margin-right: 1vw;
+padding-left: 0px;
+width: 62.8vw;
+} 
+}
+
 @media (max-width: 500px) {
   .mobview {
     height: 80px;
@@ -137,12 +174,11 @@ height: 84vh;
     background: linear-gradient(180deg, rgba(33, 33, 33, 0) 0%, #212121 100%);
     top: 0px;
     left: 0px;
-    width: 100vw;
+    width: 97vw;
   }
   .profile{
     transform: scaleY(-1);
     padding: 21px 31px 20px 20px;
-
   }
   .options{
     display: block;
@@ -157,4 +193,28 @@ height: 84vh;
 right: 17px;
 top: 12px;
   }
+  .mobbutton{
+    display: block;
+  position: fixed;
+  top: auto;
+left: 36vw;
+bottom: 4vh;
+width: fit-content;
+  /* border: 2px solid  navajowhite; */
+  }
+  .display {
+background-color: black;
+}
+.mobbottom{
+    height: 40px;
+  width: 60px;
+  border-radius: 4px 0 0 4px;
+  background-color: #FFFFFF;
+  margin: 0 5px;
+}
+.mobbottom mat-icon{
+    height: 23.63px;
+  width: 23.63px;
+  color: #7A0022;
+}
 }

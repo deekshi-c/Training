@@ -10,34 +10,44 @@ import { PexelService } from '../service/pexel.service';
 export class PhotosComponent implements OnInit {
   flag: any;
   constructor(public router: Router, private service: PexelService) {}
-  set = [1, 2, 3, 4, 5, 6, 7, 68, 9, 51, 52, 79];
   display = true;
   search: any;
   photos: any;
   filled = false;
   fav: any;
+  old: any;
   ngOnInit(): void {
     this.fav = localStorage.getItem('fav');
     this.fav = JSON.parse(this.fav) || [];
     this.search = localStorage.getItem('item');
-    this.search = JSON.parse(this.search).toLowerCase();
-    console.log('In');
-    if (localStorage.getItem('photos')) {
+    this.search = JSON.parse(this.search)|| " ";
+    this.old = localStorage.getItem('old');
+    this.old = JSON.parse(this.old);
+    console.log(this.search + '---' + this.old);
+    if (this.old == this.search) {
       this.photos = localStorage.getItem('photos');
       this.photos = JSON.parse(this.photos);
     } else {
-      this.service.getDataP(this.search).subscribe((data) => {
-        console.log(data);
-        console.log('Error');
-        this.photos = data.photos;
-        localStorage.setItem('photos', JSON.stringify(this.photos));
-      });
+      console.log('not equal');
+      this.old = this.search;
+      localStorage.setItem('old', JSON.stringify(this.old));
+      console.log(this.old);
+      this.service.getDataP(this.search).subscribe(
+        (data) => {
+          this.photos = data.photos;
+          localStorage.setItem('photos', JSON.stringify(this.photos));
+        },
+        (err) => {
+          alert('No Match found');
+        }
+      );
     }
+    
   }
   getDetail(curr: any) {
     this.display = false;
     localStorage.setItem('current', JSON.stringify(curr));
-    localStorage.setItem('type', JSON.stringify("photo"));
+    localStorage.setItem('type', JSON.stringify('photo'));
     this.router.navigate(['/detail']);
   }
   add(item: any) {

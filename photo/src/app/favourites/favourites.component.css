@@ -59,6 +59,7 @@
 .detail {
   top: 0.33px;
 }
+
 @media (max-width: 1400px) {
   .grid {
     display: grid;
@@ -89,6 +90,7 @@
 @media (max-width: 800px) {
   .grid {
     grid-template-columns: auto auto;
+    margin: 0 7.3vw;
   }
   .container1 {
     margin: 0 7.3vw;

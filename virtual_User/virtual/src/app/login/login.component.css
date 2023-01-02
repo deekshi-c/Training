@@ -1,0 +1,227 @@
+.parent {
+  background: rgb(255, 255, 255);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.child {
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+  background: rgb(255, 255, 255);
+  width: 75vw;
+  display: flex;
+  margin: auto 0;
+}
+.left {
+  /* border: 2px solid rgb(187, 118, 118); */
+  width: 70%;
+  align-items: center;
+  text-align: center;
+}
+.right {
+  background-color: #092963;
+  width: 45%;
+  min-height: 250px;
+  align-items: center;
+  text-align: center;
+}
+.red{
+  color: red;
+}
+
+.green{
+  color: green;
+  
+}
+
+.leftimg {
+  height: 41vh;
+  width: 41vw;
+  /* border: 2px solid black; */
+  margin: 9% auto 3% auto;
+}
+img {
+  height: 100%;
+  width: 100%;
+}
+.heading {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 35px;
+  text-align: center;
+  color: #2b2b2b;
+}
+
+.left .detail {
+  width: 27vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+  color: #7a7a7a;
+}
+.left p {
+  margin-top: 4.5%;
+  margin-bottom: 5%;
+  font-size: 50px;
+  color: #7a7a7a;
+}
+.log {
+  width: 140px;
+  height: 84.23px;
+  margin: 40px auto;
+  margin-bottom: 0px;
+}
+.right .heading {
+  color: white;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 35px;
+  text-align: center;
+}
+.right .details {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 26px;
+  text-align: center;
+  color: #ffffff;
+  opacity: 0.6;
+  margin: 10px 0;
+  margin-bottom: 20px;
+}
+
+.box {
+  width: 22vw;
+  margin: 30px auto;
+  margin-top: 20px;
+}
+.logButton {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logButton button {
+  border: none;
+  background-color: #ffffff;
+  border: 1px solid rgba(119, 134, 158, 0.297312);
+  border-radius: 6px;
+  width: 10vw;
+  height: 44px;
+}
+.logButton img {
+  width: 19.42px;
+  height: 22px;
+}
+.input {
+  width: 300px;
+  margin: 0;
+  width: 100%;
+  padding-top: 10px;
+}
+
+.input > .mat-form-field {
+  width: 100%;
+  color: #fff;
+  font-size: 16px;
+}
+::ng-deep .mat-focused .mat-form-field-label,
+::ng-deep .mat-form-field-label {
+  opacity: 0.5;
+  color: white !important;
+}
+
+::ng-deep .mat-form-field-underline,
+::ng-deep .mat-focused .mat-form-field-ripple {
+  opacity: 0.5;
+  background-color: rgb(243, 242, 242) !important;
+}
+.submit button {
+  width: 100%;
+  height: 44px;
+  background: #ee5c4d;
+  border-radius: 6px;
+  color: #ffffff;
+  font-weight: 700;
+  margin-top: 3%;
+  font-size: 18px;
+  border: 0;
+}
+.p5 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 26px;
+  text-align: center;
+  color: #ffffff;
+}
+.errorIcon {
+}
+.p5 span {
+  color: #ee5c4d;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.response {
+  width: 100%;
+  height: 41px;
+  background-color: #ee5c4d;
+  position: relative;
+  color: #ffffff;
+  bottom: 0px;
+  display: flex;
+  justify-content: center;
+  padding-top: 4%;
+}
+
+.error {
+  color: red;
+}
+@media (max-width: 1200px) {
+  .right {
+    width: 82%;
+  }
+  .left {
+    width: 50%;
+  }
+  .leftimg {
+    height: 32vh;
+    width: 34vw;
+  }
+  .box {
+    width: 26vw;
+  }
+  .logButton button {
+    width: 12vw;
+  }
+}
+@media (max-width: 800px) {
+  .left {
+    display: none;
+  }
+  .right {
+    width: 100%;
+  }
+  .box {
+    width: 47vw;
+  }
+  .logButton .options {
+    width: 21vw;
+  }
+}
+@media (max-height: 800px) {
+  .leftimg {
+    width: 337px;
+    height: 239px;
+    margin-bottom: 13%;
+  }
+  .detail {
+margin-bottom: 30px;
+height: 153px;
+}
+}

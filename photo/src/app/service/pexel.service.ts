@@ -24,7 +24,7 @@ export class PexelService {
     console.log(item);
     const urlv =
       'https://api.pexels.com/videos/search?query='+item+
-      '&per_page=16';
+      '&per_page=10';
     return this.http.get<any>(urlv, httpOptions);
   }
 }

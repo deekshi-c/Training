@@ -5,6 +5,14 @@
 .container1 {
   margin: 0 17.3vw;
 }
+.playbox{
+/* border: 1px solid brown; */
+position: absolute;
+left: 50%;
+top: 22%;
+height: 67px;
+width: 14vh;
+}
 .grid {
   margin: 0 17.3vw;
   display: grid;
@@ -23,6 +31,9 @@
 .box {
   /* border: 1px solid blue; */
   position: relative;
+}
+.fav{
+  display: flex;
 }
 .box .og {
   width: 200px;

@@ -7,8 +7,8 @@
       <mat-icon class="yellow">arrow_back</mat-icon>
     </div>
     <div class="text1">
-      {{text}}
-      </div>
+      {{ text }}
+    </div>
     <div class="dots">
       <mat-icon class="yellow">more_vert</mat-icon>
     </div>
@@ -16,38 +16,63 @@
 </div>
 <div class="display">
   <div class="photo" *ngIf="photo">
-  <img class="img" src="{{ detail.src.original}}" alt="" />
-  <div class="detail">
-    <div class="heading">
-      <div class="text">
-       {{text}}
-      </div>
-      <div class="options">
-        <div class="fav">
-          {{check()}}
-            <div *ngIf="!filled"><mat-icon class="yellow" (click)="add(i)"     >favorite_border</mat-icon></div>
-            <div *ngIf="filled"><mat-icon style="color:red" (click)="remove(i)">favorite_</mat-icon></div>
-        <div class="zoom" *ngIf="true">
-          <button><mat-icon class="yellow">zoom_out</mat-icon></button>
-          <button><mat-icon class="yellow">zoom_in</mat-icon></button>
+    <div class="img" [style.transform]="scaleXY" >
+      <img class="background"   src="{{ detail.src.original }}" alt="" />
+    </div>
+    
+    <div class="detail">
+      <div class="heading">
+        <div class="text">{{ text }}</div>
+        <div class="options">
+          <div class="fav">
+             {{check()}}
+             <div *ngIf="!filled"><mat-icon class="yellow" (click)="add()">favorite_border</mat-icon></div>
+             <div *ngIf="filled"><mat-icon style="color:red" (click)="remove()">favorite_</mat-icon></div>
+          </div>
+          <div class="zoom" *ngIf="true">
+            <button (click)="zoomOut()" ><mat-icon class="yellow" >zoom_out</mat-icon></button>
+            <button (click)="zoomIn()" ><mat-icon class="yellow">zoom_in</mat-icon></button>
+          </div>
+
         </div>
       </div>
-    </div>
-    <div class="profile">
-      <div class="dp">
-        <img src="assets/Oval Copy 5.png" alt="" />
+      <div class="profile">
+        <div class="dp">
+          <img src="assets/Oval Copy 5.png" alt="" />
+        </div>
+        <div class="name">{{ detail.photographer }}</div>
       </div>
-      <div class="name">{{detail.photographer}}</div>
     </div>
-  </div>
+    <div class="mobbutton">
+       <button class="mobbottom"   (click)="zoomOut()"><mat-icon class="yellow">zoom_out</mat-icon></button>
+            <button class="mobbottom" (click)="zoomIn()"><mat-icon class="yellow">zoom_in</mat-icon></button>
+
+    </div>
   </div>
   <div class="video" *ngIf="!photo">
-    <video  class="embed" controls>
-      <source src="assets/output.mp4" type="video/mp4">
-      <source src="assets/output.mp4" type="video/ogg">
+    <video class="embed" controls>
+      <source src="https://www.youtube.com/watch?v=aFbmqtM41KY" type="video/mp4" />
+      <source src="assets/output.mp4" type="video/ogg" />
     </video>
-  </div >
-  
+    <div class="detail">
+      <div class="heading">
+        <div class="text">{{ text }}</div>
+        <div class="options">
+          <div class="fav">
+             {{check()}}
+             <div *ngIf="!filled"><mat-icon class="yellow" (click)="add()">favorite_border</mat-icon></div>
+             <div *ngIf="filled"><mat-icon style="color:red" (click)="remove()">favorite_</mat-icon></div>
+          </div>
+        </div>
+      </div>
+      <div class="profile">
+        <div class="dp">
+          <img src="assets/Oval Copy 5.png" alt="" />
+        </div>
+        <div class="name">{{detail.user.name}}</div>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="footer">
   <app-footer></app-footer>
