@@ -1,0 +1,66 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+    <p class="pageTitle">My Course</p>
+    <div class="notavail" *ngIf="!courseFlag" routerLink="/home">
+        <img src="assets/bgImg/img_my-course_empty.png" alt="">
+        <div>
+            <b>What will you learn first?</b>
+            <p>Your courses will go here</p>
+        </div>
+    </div>
+    <div *ngIf="courseFlag">
+        <div class="innernav">
+            <div [class.active]="activeFlag" class="item" (click)="activeO()">Ongoing</div>
+            <div [class.active]="!activeFlag" class="item" (click)="activeC()">Completed </div>
+        </div>
+        <div class="gridBox" *ngIf="activeFlag">
+            <div class="item" *ngFor="let course of onGoing;index as i" (click)="goOverview(course)" >
+                <div class="bgImage">
+                    <img [src]=course.url>
+                </div>
+                <div class="details" >
+                    <div class="status">
+                        Ongoing
+                    </div>
+                    <div class="bottom">
+                        <div class="courseTitle">
+                            {{course.title}}
+                        </div>
+                        <div class="completion">
+                           {{course.chaptersCompleted}} / {{course.totalChapters}}   Chapters
+                        </div>
+                        <div class="next">
+                                <button (click)="goCourse(course)">Continue</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="gridBox" *ngIf="!activeFlag">
+            <div class="item" *ngFor="let course of completeCourse;index as i">
+                <div class="bgImage">
+                    <img [src]=course.image>
+                </div>
+                <div class="details">
+                    <div class="status">
+                        Completed
+                    </div>
+                    <div class="bottom">
+                        <div class="courseTitle">
+                            {{check(course.title)}}
+                        </div>
+                        <div class="completion">
+                               {{course.approvalRate}}% Approval Rate
+                        </div>
+                        <div class="next">
+                                <button (click)="getCertificate(course.title)">View Certificate</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

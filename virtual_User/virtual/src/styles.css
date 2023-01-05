@@ -20,4 +20,21 @@ body { margin: 0;
 }
 button{
     cursor: pointer;
+    border-radius: 7px;
+}
+vg-play-pause.play:before{
+    content: '\f144';
+    font-family: FontAwesome;
+    font-size: 30px;
+    color: white;
+}
+vg-play-pause.pause:before{
+    content: '\f28b';
+    font-family: FontAwesome;
+    font-size: 30px;
+}
+
+.vg-icon-fullscreen:before {
+    font-family: FontAwesome;
+    content: "\f10c";
 }

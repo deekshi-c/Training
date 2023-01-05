@@ -1,7 +1,10 @@
 <mat-toolbar>
     <div class="toolbar">
-        <div class="logo">
+        <div class="logo" routerLink="/home">
             <img src="assets/logo/Group 118.png" alt="">
+        </div>
+        <div class="logo2" routerLink="/home">
+            <img src="assets/Group 117.png" alt="">
         </div>
         <div class="search">
                 <mat-icon class="searchIcon">search</mat-icon>
@@ -13,24 +16,24 @@
                 </div>
                 <div class="setings">
                     <mat-icon >settings</mat-icon>
-                    <div class="dialogue" *ngIf="show">
-                            <div>
-                                <mat-icon>school</mat-icon>My Course
-                            </div>
-                            <div>
-                                <mat-icon>account_circle</mat-icon>My Profile
-                            </div>
-                            <div>
-                                <mat-icon>logout</mat-icon>Logout
-                            </div>
-                    </div>
-
+                    
                 </div>
-                <div (click)="open()" class="logo">
-                    <img src="" alt="logo">
+                <div (click)="open()" class="dp">
+                    <img [src]=profile alt="logo">
                 </div>
-        </div>
-
-
+                <div class="dialogue" *ngIf="show">
+                        <div (click)="goMyCourse()">
+                            <mat-icon>school</mat-icon>My Course
+                            <hr>
+                        </div>
+                        <div>
+                            <mat-icon>account_circle</mat-icon>My Profile
+                            <hr>
+                        </div>
+                        <div>
+                            <mat-icon>logout</mat-icon>Logout
+                        </div>
+                </div>
+            </div>
     </div>
 </mat-toolbar>

@@ -1,1 +1,60 @@
 <app-nav-bar></app-nav-bar>
+<div class="container">
+    <div class="hello">
+        <p>
+            Hello!
+        </p>
+        <p class="name">
+            {{name.fullName}}
+        </p>
+    </div>
+    <div class="collections">
+        <div class="order display" *ngFor="let head of headCourse">
+            <img src="{{head.courseImage}}" alt="">
+            <p class="p0"> {{head.category | titlecase}}
+            </p>
+        </div>
+    </div>
+    <div class="division">
+        <div class="title">
+            Ongoing Courses
+            <b routerLink="/myCourse">See All</b>
+        </div>
+        <div class="ongoing-courses">
+
+            <div class="order" *ngFor="let data of onGoing" (click)="goOverview(data)">
+                <img src="{{data.url}}" alt="">
+                <div class="bottom">
+                    <div class="bottom-text">
+                        <p class="ti">{{data.title| titlecase}}</p>
+                        <p class="p">{{data.chaptersCompleted}}/{{data.totalChapters}} Chapters</p>
+                    </div>
+                    <div class="buttononGoing">
+                        <button class="pointer" (click)="goCourse(data)">Continue</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="division">
+        <div class="title">
+            Categories
+            <b>See All</b>
+        </div>
+    </div>
+    <div class="category">
+        <div class="chips">
+            <mat-chip-list aria-label="category selection" *ngFor="let category of categories; let i = index">
+                <mat-chip>
+                    <img matChipAvatar [src]="image[i]" alt="" />
+                    {{category}}
+                </mat-chip>
+            </mat-chip-list>
+        </div>
+    </div>
+
+
+
+
+</div>

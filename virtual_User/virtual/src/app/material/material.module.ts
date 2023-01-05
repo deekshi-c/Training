@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog'; 
 
 const material = [
   CommonModule,
@@ -15,6 +16,7 @@ const material = [
   MatChipsModule,
   MatCardModule,
   FormsModule,
+  MatDialogModule
 ];
 
 @NgModule({

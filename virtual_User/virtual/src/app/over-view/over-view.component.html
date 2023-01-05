@@ -1,0 +1,221 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+    <div class="header">
+        <div class="blue" *ngIf="overview"><span routerLink="/myCourse">My&nbsp;course</span>&nbsp;&#10095;&nbsp;<small>Ongoing</small></div>
+        <!--chapter-->
+        <div class="blue" *ngIf="!overview"><span routerLink="/myCourse">My&nbsp;course</span>&nbsp;&#10095;&nbsp;<span (click)="overView()">Ongoing</span>&nbsp;&#10095;&nbsp;<small>{{title}}</small>
+        </div>
+    </div>
+    <!---->
+    <div class="bottom">
+        <div class="left">
+                <div class="video-overview">
+                    <!-- <video class="video" controls>
+                                        <source src="{{videoSource}}"
+                                            type="video/mp4">
+                                    </video> -->
+                
+                    <vg-player class="video">
+                
+                        <vg-buffering></vg-buffering>
+                        <vg-scrub-bar>
+                            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                            <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+                        </vg-scrub-bar>
+                        <vg-controls [vgAutohide]="true" [vgAutohideTime]="1.0">
+                            <vg-play-pause ></vg-play-pause>
+                            <vg-playback-button></vg-playback-button>
+                            <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+                
+                            <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+                            <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+                            <vg-track-selector></vg-track-selector>
+                
+                            <vg-volume></vg-volume>
+                
+                        </vg-controls>
+                        <video [vgMedia]="$any(media)" #media  type="video/mp4" id="singleVideo" preload="auto"
+                            crossorigin >
+                
+                            <track kind="subtitles" label="English" src="http://static.videogular.com/assets/subs/pale-blue-dot.vtt"
+                                srclang="en" default>
+                
+                        </video>
+                    </vg-player>
+                    <div class="videoButton" *ngIf="onGo && !overview" (click)="onGoClick()">
+                        <button>Continue Chapter  Lesson</button>
+                    </div>
+                    <div class="playButton" *ngIf="videoclick !overview">
+                        <div class="btnline">Your lesson paused at 1.21
+                            Do you want to continue watching?</div>
+                        <div class="watch">
+                            <button (click)="close()">Continue&nbsp;watching</button>
+                        </div>
+                        <div class="pause">
+                            <button (click)="close()">Watch&nbsp;from&nbsp;beginning</button>
+                        </div>
+                    </div>
+                
+                </div>
+                <div class="details">
+                    <div class="video-title">
+                        <p class="p2">{{title | titlecase}}
+                        </p>
+                        <p class="p3">{{chapters?.listOfChapters.courseContent.totalChapters}} Chapter |
+                            {{chapters?.listOfChapters.courseContent.totalLessons}} lessons</p>
+                    </div>
+                
+                    <div class="video-category">
+                        {{courseDetails?.courseOverview.category}}
+                    </div>
+                </div>
+                
+                <hr>
+                <!-- *ngIf="overView" -->
+                <div *ngIf="overview"> 
+                    <div class="synopsis">
+                        {{courseDetails?.courseOverview.overViewId.previewThisCourse.description}}
+                    </div>
+                    
+                    <div class="synopsis-detail">
+                        {{courseDetails?.courseOverview.overViewId.description}}
+                    </div>
+                </div>
+                <div *ngIf="false" class="comp">
+                        <div>
+                            <div class="res">Course&nbsp;Result</div>
+                            <div class="nine">90%</div>
+                            <div class="rate">approval&nbsp;rate</div>
+                        </div>
+                        <div class="sline"></div>
+                        <div class="join">
+                            <div>
+                                <div class="joined">Joined</div>
+                                <div class="date">02/04/2021</div>
+                            </div>
+                            <div>
+                                <div class="joined">Completed</div>
+                                <div *ngIf="" class="date">--/--/--</div>
+                                <div  *ngIf=" " class="date">--/--/--</div>
+                            </div>
+                            <div>
+                                <div class="joined">Duration</div>
+                                <div class="date">4h&nbsp;30m</div>
+                            </div>
+                        </div>
+                        <div class="sline"></div>
+                        <div class="certi">
+                    
+                            <div class="certiImg">
+                                <div class="down">
+                                    <div class="cocerti">Course Certificate</div>
+                                    <mat-icon class="csave">save_alt</mat-icon>
+                                </div>
+                                <img src="/assets/certificate-of-completion-_Virtuallearn2 1.png">
+                            </div>
+                    
+                        </div>
+                    </div>
+                </div>
+        <div class="right">
+                <div class="head">
+                    <button class="button" [class.active]="overview" type="button"
+                        (click)="onOverview()">Overview</button>
+                    <button class="Button" [class.active]="!overview" type="button" (click)="onChapter()">Chapters</button>
+                </div>
+                <div class="OverView" *ngIf="overview" #overView>
+                    <div class="course-includes">
+                        <p class="p4">Course Includes</p>
+                
+                
+                        <div class="include-list">
+                
+                            <div class="div">
+                                <img src="assets/MicrosoftTeams-image (3).png">
+                                <div class="include-para">
+                                    <p class="p7"> {{chapters?.listOfChapters.courseContent.totalDuration /3600| number : '1.0-2'}} total hours video</p>
+                                </div>
+                            </div>
+                            <div class="div">
+                                <img src="assets/MicrosoftTeams-image (2).png ">
+                                <div class="include-para">
+                                    <p class="p7"> Support Files</p>
+                                </div>
+                            </div>
+                            <div class="div">
+                                <img src="assets/MicrosoftTeams-image (1).png">
+                                <div class="include-para">
+                                    <p class="p7"> {{chapters?.listOfChapters.courseContent.totalTests}} Module Test
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="div">
+                                <img src="assets/MicrosoftTeams-image (4).png">
+                                <div class="include-para">
+                                    <p class="p7"> Full lifetime access</p>
+                                </div>
+                            </div>
+                            <div class="div">
+                                <img src="assets/MicrosoftTeams-image.png">
+                                <div class="include-para">
+                                    <p class="p7"> Access on mobile, desktop and tv</p>
+                                </div>
+                            </div>
+                            <div class="div">
+                                <img src="assets/MicrosoftTeams-image (5).png">
+                                <div class="include-para">
+                                    <p class="p7"> Certificate of Completion</p>
+                                </div>
+                            </div>
+                        </div>
+                
+                    </div>
+                
+                    <div class="learn">
+                
+                        <p class="p5">What you'll learn </p>
+                
+                        <div class="list">
+                
+                            <div class="div" *ngFor="let outcome of courseDetails?.courseOverview.overViewId?.whatYouWillLearn">
+                                <img src="assets/Combined-Shape.png">
+                                <div class="para">
+                                    <p class="p6"> {{outcome}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="requirement">
+                        <p class="p7">Requirements</p>
+                
+                        <div class="div" *ngFor="let points of courseDetails?.courseOverview.overViewId?.requirements">
+                            <p class="po">.</p>
+                            <div class="para">
+                                <p class="p6"> {{points}}</p>
+                            </div>
+                        </div>
+                
+                    </div>
+                
+                
+                    <div class="instructor">
+                        <p class="p8">Instructor</p>
+                
+                        <div class="profile">
+                            <img src="{{courseDetails?.courseOverview.overViewId?.instructor.instructorImage}}">
+                            <div class="profile-detail">
+                                <p class="p9">{{courseDetails?.courseOverview.overViewId?.instructor.name}}</p>
+                                <p class="p10">{{courseDetails?.courseOverview.overViewId?.instructor.designation}}&nbsp;
+                                    | &nbsp;{{courseDetails?.courseOverview.overViewId?.instructor.url}}</p>
+                            </div>
+                        </div>
+                
+                        <div class="overviews">
+                            <p class="p11">{{courseDetails?.courseOverview.overViewId?.instructor.description}}</p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

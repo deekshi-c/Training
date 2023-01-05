@@ -46,8 +46,10 @@ export class LoginComponent implements OnInit {
       next: (data) => {
         this.in=true;
         this.loginResponse=data.body;
-        console.log(this.loginResponse.body);
-        if (this.loginResponse.access_token)sessionStorage.setItem('token', this.loginResponse.access_token);
+        if (this.loginResponse.access_token){
+          sessionStorage.setItem('token', this.loginResponse.access_token);
+          this.router.navigateByUrl('/home')
+        }
         else {
             if (this.loginResponse.message == 'No user found') this.status=false;
             else this.status = true;
@@ -61,7 +63,7 @@ export class LoginComponent implements OnInit {
       },
       error: (data) => {
         console.log(data);
-      },
+      }
     });
     
   }

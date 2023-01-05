@@ -11,8 +11,26 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthserviceInterceptor } from './auth.service';
 import { HomeComponent } from './home/home.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { MyCourseComponent } from './my-course/my-course.component';
+import { VgCoreModule } from '@videogular/ngx-videogular/core';
+
+import { VgControlsModule } from '@videogular/ngx-videogular/controls';
+
+import { VgOverlayPlayModule } from '@videogular/ngx-videogular/overlay-play';
+
+import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
+import { OverViewComponent } from './over-view/over-view.component';
+import { PauseDialogComponent } from './pause-dialog/pause-dialog.component';
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent, NavBarComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    HomeComponent,
+    NavBarComponent,
+    MyCourseComponent,
+    OverViewComponent,
+    PauseDialogComponent,
+  ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -21,13 +39,18 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthserviceInterceptor,
       multi: true,
-    }],
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
