@@ -1,0 +1,52 @@
+<app-nav-bar></app-nav-bar>
+<div class="bgcolor">
+    <div class="main">
+        <p class="bg">Module test 1</p>
+        <div class="toFlex">
+            <div class="vnumber">{{result?.correctlyAnsweredInHundred}}</div>
+            <div class="course">
+
+                <div>
+                    <div class="chapterName">Chapter {{chapterNumber}}: {{chapterName}}</div>
+                    <div class="courseName">{{courseName}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="container">
+                <div>
+                    <p class="heading">Passing Grade</p>
+                    <p class="score">{{result?.passingGrade}}</p>
+                </div>
+                <div>
+                    <p class="heading">Correct</p>
+                    <p class="score">{{result?.correctlyAnswered}}</p>
+                </div>
+                <div>
+                    <p class="heading">Wrong</p>
+                    <p class="score">{{result?.wronglyAnswered}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main">
+    <p class="questions" (click)="solutions()">List of Questions</p>
+</div>
+<div class="main">
+    <div class="ques" *ngFor="let question of result?.questions;index as i">
+        <div>
+            <div class="qNo">{{question}}</div>
+            <div class="status"
+                *ngIf="result?.selectedAndActualAnswerSet[i][0]==result?.selectedAndActualAnswerSet[i][1]">Correct Answer
+            </div>
+            <div class="statusW"
+                *ngIf=" result?.selectedAndActualAnswerSet[i][0]!=result?.selectedAndActualAnswerSet[i][1] && result?.selectedAndActualAnswerSet[i][0]!=null ">
+                Wrong Answer</div>
+            <div class="notAnswered" *ngIf="result?.selectedAndActualAnswerSet[i][0] == null  ">Not answered</div>
+        </div>
+        <div class="arrow">
+            <mat-icon (click)=particularQ(i)>arrow_forward_ios</mat-icon>
+        </div>
+    </div>
+</div>

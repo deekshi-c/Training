@@ -1,0 +1,86 @@
+<app-nav-bar></app-nav-bar>
+<div class="main-main">
+    <div class="main">
+        <div class="main-module">
+            <div class="module-test">
+                <div class="module-testt">Module Test 2</div>
+                <mat-icon (click)="close()">close</mat-icon>
+            </div>
+
+            <div class="question-count-flex">
+                <div class="question-count">
+                    Question {{ j+1 }} of {{questions?.totalQuestions}}
+                </div>
+
+                <div class="flex-timer">
+                    <div class="timer"><img src="./assets/Group 183.svg" alt="" /></div>
+                    <div class="min-remainn">
+                        <p class="min-remain">{{counter | time}}  remaining</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-container">
+                <div class="quiz-question">
+                    <p>Question {{questions?.questions[j]}}</p>
+                </div>
+                <div class="quiz-options">
+                    <div class="each-options" *ngFor="let choice of questions?.options[j];index as i">
+
+                        <div (click)="selectedChoice(i)" class="each-op"
+                            [style.background-color]="rowClicked == i || answersArr[j] == i ? '#EC5D52' : 'transparent'"
+                            [style.color]="rowClicked == i || answersArr[j] == i ? 'white' : 'black'" (click)="changeTableRowColor(i)">
+                            <div class="choiceIcon" *ngIf="(chosenIndex!=i || clicked==false) && answersArr[j] != i">
+                                <mat-icon>radio_button_unchecked </mat-icon>
+                            </div>
+
+                            <div class="selectedchoiceIcon" *ngIf="(chosenIndex==i && clicked==true) || answersArr[j] == i">
+                                <mat-icon>check_circle</mat-icon>
+                            </div>
+
+                            <div>
+                                <div class="choiceContent">{{choice}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="flex-button-div">
+                        <div class="flex-second-div">
+                            <div class="first-flex">
+                                <p>Chapter No :{{chapterNumber}}</p>
+                                <p>{{chapterName}}</p>
+                            </div>
+                            <div class="flex-button">
+                                <div (click)="goBack()" *ngIf="this.j" class="prev-div">
+                                    <img src="./assets/Shape (1).png" alt="" />
+                                </div>
+                                <div  *ngIf="! this.j" class="prev-div">
+                                    <img src="" alt="" />
+                                </div>
+                                <div>
+
+                                </div>
+                                <div (click)="goNext()" *ngIf="!(this.j+1==questions?.totalQuestions)"
+                                    class="next-div">
+                                    <img src="./assets/Shape.png" alt="" />
+                                </div>
+
+
+
+
+                                <div (click)="submit()" *ngIf="this.j+1==questions?.totalQuestions"
+                                    class="submit-div">
+                                    <button class="submit-buttonn">submit</button>
+                                 </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

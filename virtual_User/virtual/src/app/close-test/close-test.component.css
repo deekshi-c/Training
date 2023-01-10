@@ -1,0 +1,27 @@
+p{
+    margin-top: 5%;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+}
+.selected{
+    margin-top: 5%;
+    background-color:  #EE5C4D;
+    color: white;
+    border: 1px solid #E4E4E4;
+    width: 25%;
+    padding: 10px;
+}
+.none{
+    margin-top: 5%;
+    background-color: white;
+    color: black;
+    border: none;
+    width: 25%;
+    padding: 10px;
+}
+.align{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}

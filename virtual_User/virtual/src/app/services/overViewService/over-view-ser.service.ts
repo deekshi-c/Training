@@ -23,7 +23,6 @@ export class OverViewSerService {
 
   updateProgress(body: any) {
     console.log(body);
-
     return this.http.post(baseUrl + 'updateProgress', body);
   }
 
@@ -42,9 +41,17 @@ export class OverViewSerService {
     return this.http.post(baseUrl + 'getVideoData', body);
   }
   gettestService() {
+    let testid = sessionStorage.getItem('testId');
     const body = {
-      testId: sessionStorage.getItem('testid'),
+      testId: testid,
     };
     return this.http.post(baseUrl + 'getTestStatus', body);
+  }
+  testStatus() {
+    let testid = sessionStorage.getItem('testId');
+    let body = {
+      testId: testid,
+    };
+    return this.http.post(baseUrl + `getTestStatus`, body);
   }
 }

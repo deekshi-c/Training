@@ -21,6 +21,13 @@ import { VgOverlayPlayModule } from '@videogular/ngx-videogular/overlay-play';
 import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
 import { OverViewComponent } from './over-view/over-view.component';
 import { PauseDialogComponent } from './pause-dialog/pause-dialog.component';
+import { TestComponent } from './test/test.component';
+import { SubmitComponent } from './submit/submit.component';
+import { CloseTestComponent } from './close-test/close-test.component';
+import { CongratsComponent } from './congrats/congrats.component';
+import { TimePipe } from './time.pipe';
+import { ProgressScreenComponent } from './progress-screen/progress-screen.component';
+import { TestResultComponent } from './test-result/test-result.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +37,13 @@ import { PauseDialogComponent } from './pause-dialog/pause-dialog.component';
     MyCourseComponent,
     OverViewComponent,
     PauseDialogComponent,
+    TestComponent,
+    SubmitComponent,
+    CloseTestComponent,
+    CongratsComponent,
+    TimePipe,
+    ProgressScreenComponent,
+    TestResultComponent,
   ],
   imports: [
     BrowserModule,

@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="gridBox" *ngIf="!activeFlag">
-            <div class="item" *ngFor="let course of completeCourse;index as i">
+            <div class="item" *ngFor="let course of completeCourse;index as i" (click)="goOverview(course)">
                 <div class="bgImage">
                     <img [src]=course.image>
                 </div>

@@ -1,0 +1,9 @@
+<p class = head>Do you want to end the test?</p>
+<p>You still have {{remTime | time}} &nbsp;remaining</p>
+<p>Time is running out!</p>
+<p> If you want to check your answer again, press cancel button. If you want to end the test and submit your answers you
+    can press submit button.</p>
+<div class="align">
+    <button class="none" mat-dialog-close>Cancel</button>
+    <button class="selected" (click)="submitTest()" mat-dialog-close>Submit</button>
+</div>

@@ -1,0 +1,121 @@
+.course{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:1rem;
+    background-color: #092963;
+    padding-bottom: 4rem;
+}
+.bg{
+   
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+    padding-top: 2%;
+}  
+.toFlex{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 5rem;
+    position: relative;
+}
+.bgcolor{
+    background-color: #092963;
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+.vnumber{
+    background-color: #FCBE4B;
+    color: white;
+    padding: 12px 12px;
+    width: 4rem;
+    text-align: center;
+    font-size: 33px;
+    font-weight: 500;
+}
+.chapterName{
+    color: white;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 5px;
+}
+.courseName{
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    width: 25%;
+    margin: auto;
+    gap: 1rem;
+    align-items: center;
+    background-color: white;
+    font-size: 10px;
+    font-weight: 500;
+      padding: 1.5rem;
+    border-radius: 5px;
+    margin-top: 1%;
+    position: absolute;
+    top: 170px;
+    left: 39%;
+}
+.heading{
+    color:black;
+}
+.score{
+    color: #2BB5F4;
+    text-align: center;
+}
+.questions{
+    font-size: 12px;
+    font-weight: 400;
+    color: #7A7A7A;
+    margin-top: 8rem;
+    text-align: center;
+    width: 61%;
+    cursor: pointer;
+}
+.ques{
+    display: flex;
+   margin: auto;
+   justify-content: space-between;
+   align-items: center;
+    width: 48%;
+    margin-top: 1rem;
+    border-bottom: 1px solid #7A7A7A;
+}
+.qNo{
+    font-size: 16px;
+    font-weight: 580;
+    line-height: 25px;
+}
+.status{
+    font-size: 10px;
+    font-weight: 400;
+    color: green;
+    line-height: 25px;
+    padding-bottom: 10%;
+}
+.statusW{
+    color:red;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 25px;
+    padding-bottom: 10%;
+}
+.notAnswered{
+    color:#b3abab;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 25px;
+    padding-bottom: 10%;
+}
+.arrow mat-icon{
+    color:  #b3abab;;
+}

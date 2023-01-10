@@ -1,109 +1,74 @@
-<div class="chapterTitle">
-                                        <p class="p14">Chapter {{chapterList.chapterNumber}} -
-                                            {{chapterList.chapterTitle}}</p>
+<div class="fill">
+        <div >
+        <div class="align">
+            <div class="module">{{quizDetails.test.testTitle}}</div>
+            <mat-icon class="clean" (click)="openClose()">clear</mat-icon>
+        </div>
+        <div class="questions">
+            <div class="align">
+                <div class="qn">Question&nbsp;{{qIndex+1}}&nbsp;of&nbsp;{{totalQuestion}}</div>
+                <div class="clock">
+                    <mat-icon class="alarm">alarm</mat-icon>
+                    <div class="module">{{counter | time}}&nbsp;remaining</div>
+                </div>
+            </div>
+            <div>
+                <!-- <div class="qnName">How to create dot-matrix in Figma without doing it dot-by-dot?</div> -->
+                <div class="qnName">{{questions[qIndex]}}</div>
+                <!-- <div class="option" *ngFor="let option of options[qIndex];index as i">
+                    <div class="opt-1"  (click)="onSelect(i)"  [class.select]="select[i]">
+                        <mat-icon *ngIf="!select[i]"  class="first">radio_button_unchecked</mat-icon>
+                        <mat-icon *ngIf="select[i]" class="second">check_circle</mat-icon>
+                        <div>{{option}}</div>
+                    </div>
+                   
+                </div> -->
+<!---->
+<div *ngFor="let choice of options[qIndex];index as i">
+<div (click)="selectedChoice(i)" class="choice"
+[style.background-color]="show == i || answers[qIndex] == i ? '#EC5D52' : 'transparent'"
+[style.color]="show == i || answers[qIndex] == i ? '#fff' : 'red'" 
+(click)="changeTableRowColor(i)">
 
-                                        <mat-icon *ngIf="array[i]" class="add-remove" (click)="openDropdown(i)">add
-                                        </mat-icon>
+    <div class="choiceIcon" *ngIf="(chooseIndex!=i || click==false) && answers[qIndex] != i">
 
-                                        <mat-icon *ngIf=" !array[i]" class="add-remove" (click)="openDropdown(i)">remove
-                                        </mat-icon>
-                                    </div>
-
-                                    <div class="popup" *ngIf="!array[i]">
-
-
-                                        <div class="arrange">
-
-                                            <div class="popup-content" id="popUp"
-                                                *ngFor="let lessonList of chapterList.lessons; let x = index"
-                                                (click)="show(lessonList)">
-
-                                                <div class="progessBar" >
-                                                    {{check(lessonList.serialNumberOfLesson)}}
-
-                                                    <img aria-hidden="false" class="image"
-                                                        id="{{lessonList.serialNumberOfLesson}}" [src]="srcURL">
-                                                </div>
-
-                                                <div class="line"></div>
-
-                                                <p class="number">{{lessonList.serialNumberOfLesson}}</p>
-                                                <div class="lesson-details">
-                                                    <p class="lessonP">{{lessonList.title}}</p>
-                                                    <p class="lesson-duration">{{lessonList.duration/60| number : '1.0-2'}} mins</p>
-                                                </div>
-                                                <mat-icon class="pause" *ngIf="icon"
-                                                    (click)="onClickPlaylistVideo(lessonList.url, i, x, lessonList.serialNumberOfLesson)"
-                                                    [class.selected]="lessonList.url === activeVideo">
-                                                    play_circle_outline</mat-icon>
-
-                                                <mat-icon class="pause" style="color: rgba(255, 0, 0, 0.548)"
-                                                    *ngIf="!icon"
-                                                    (click)="onClickPlaylistVideo(lessonList.url, i, x, lessonList.serialNumberOfLesson)"
-                                                    [class.selected]="lessonList.url === activeVideo">
-                                                    play_circle_outline</mat-icon>
-                                            </div>
-
-                                            <div class="test pointer" *ngIf="chapterList.test">
-                                                <div class="progessBar">
-                                                </div>
-                                                <img src="  assets/moduletest.svg">
-                                                <div class="test-text" >
-                                                    <p>Module Test 2</p>
-                                                    <p class="pp">{{(chapterList.test.totalTimeAlloted)/60}} mins || {{chapterList.test.totalQuestions}} Questions</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+        <mat-icon>radio_button_unchecked </mat-icon>
+     </div>
+     <div class="selectedchoiceIcon" *ngIf="(chooseIndex==i && click==true) || answers[qIndex] == i">
+        <mat-icon>check_circle</mat-icon>
+     </div>
+     <div>
+        <div class="choiceContent" [class.color]="(chooseIndex==i && click==true) || answers[qIndex] == i">{{choice}}</div>
+     </div>
 
 
 
+</div>
+</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-               <div class="video-overview">
-                    <!-- <video class="video" controls>
-                                        <source src="{{videoSource}}"
-                                            type="video/mp4">
-                                    </video> -->
-                
-                    <vg-player class="video">
-                
-                        <vg-buffering></vg-buffering>
-                        <vg-scrub-bar>
-                            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
-                            <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
-                        </vg-scrub-bar>
-                        <vg-controls [vgAutohide]="true" [vgAutohideTime]="1.0">
-                            <vg-play-pause (click)="getPauseTime()"></vg-play-pause>
-                            <vg-playback-button></vg-playback-button>
-                            <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
-                
-                            <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
-                            <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
-                            <vg-track-selector></vg-track-selector>
-                
-                            <vg-volume></vg-volume>
-                
-                        </vg-controls>
-                        <video [vgMedia]="$any(media)" #media [src]="activeVideo" type="video/mp4" id="singleVideo" preload="auto"
-                            crossorigin (ended)="videoEnd(currentLessonIndex)">
-                
-                            <track kind="subtitles" label="English" src="http://static.videogular.com/assets/subs/pale-blue-dot.vtt"
-                                srclang="en" default>
-                
-                        </video>
-                    </vg-player>
-                
-                </div> 
+<!---->
+                <div>
+                    <div class="buttons">
+                        <div class="chapName">
+                            <div>Chapter {{quizDetails.chapterNumber}}</div>
+                                <div>{{quizDetails.chapterTitle}}</div>
+                        </div>
+                        <div *ngIf="this.qIndex">
+                            <mat-icon (click)="previous()">arrow_back</mat-icon>
+                        </div>
+                        <div *ngIf="!(this.qIndex+1 == totalQuestion)">
+                            <mat-icon (click)="next()" >arrow_forward</mat-icon>
+                           
+                        </div>
+                        <div *ngIf="this.qIndex+1 == totalQuestion">
+                         <button  (click)="submitTest()">Submit</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+      </div>
+</div>

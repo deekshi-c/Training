@@ -1,0 +1,548 @@
+.main-main {
+  padding-bottom: 20px;
+}
+.module-test {
+  display: flex;
+  justify-content: space-between;
+}
+.main {
+  margin: auto;
+  width: 85%;
+  height: auto;
+  margin-top: 30px;
+}
+
+.module-testt {
+  font-family: "Biko";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  color: #2bb5f4;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+.question-count {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #7a7a7a;
+  margin-top: 10px;
+}
+.question-count-flex {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 13px;
+}
+.min-remain {
+  padding-top: 10px;
+  padding-left: 10px;
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: right;
+  color: #2bb5f4;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+.flex-timer {
+  display: flex;
+  align-items: center;
+}
+.flex-button {
+  width: 35%;
+  display: flex;
+justify-content: space-around;
+  align-items: center;
+}
+.quiz-container {
+  margin-top: 15px;
+}
+.center{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+.flex-button-div {
+  width: 542px;
+  height: 102px;
+  background: #2bb5f4;
+  border-radius: 6px;
+  
+  margin-top: 35px;
+}
+.flex-second-div {
+display: flex;
+justify-content: center;
+}
+.first-flex {
+  width: 50%;
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  padding-top: 15px;
+  color: #ffffff;
+}
+#html {
+}
+.each-options {
+  margin-top: 28px;
+  padding-left: 10px;
+}
+.quiz-question {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #2b2b2b;
+}
+.quiz-options {
+  width: 97%;
+  margin: auto;
+}
+.option-span {
+  padding-left: 10px;
+}
+.main-module {
+  height: auto;
+  min-height: 400px;
+}
+.each-op {
+  display: flex;
+  width: 60%;
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+  padding: 21px 0px;
+  padding-left: 18px;
+  background-color: transparent;
+  align-items: center;
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  border-radius: 6px;
+  cursor: pointer;
+
+  color: #2b2b2b;
+}
+.timer {
+  width: 20px;
+}
+.timer img {
+  width: 100%;
+}
+
+::-webkit-scrollbar,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track {
+  width: 4px;
+}
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-track-piece,
+::-webkit-scrollbar-corner,
+::-webkit-resizer {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  background-color: grey;
+}
+
+::-webkit-scrollbar-track {
+  background-image: url("https://i.imgur.com/GvV1R30.png");
+  opacity: 90%;
+  background-repeat: repeat-y;
+  background-size: contain;
+  background-color: transparent;
+}
+.choiceIcon {
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
+  color: rgb(213, 211, 211);
+}
+.selectedchoiceIcon {
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
+}
+.empty-div {
+  width: 10px;
+}
+
+.submit-buttonn {
+  background: #ec5d52;
+  outline: none;
+  border: none;
+  width: 78px;
+  height: 30px;
+  border-radius: 6px;
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.prev-div {
+  position: sticky;
+  margin-right: 10px;
+}
+.empty-div {
+  width: 30px;
+}
+.prev-div {
+  width: 30px;
+  cursor: pointer;
+}
+.next-div {
+  width: 30px;
+  cursor: pointer;
+
+}
+.submit-div {
+  width: 30px;
+  cursor: pointer;
+}
+@media(max-width: 650px) {
+  .first-flex{
+font-size: 15px;
+line-height: 20px;
+padding-top: 0;
+}
+.flex-button-div{
+margin-top: 10%;
+}
+.each-op {
+width: 90%;
+}
+
+.flex-second-div{
+margin-top: 4%;
+}
+}
+@media(max-width: 460px) {
+.each-op {
+padding: 15px 0px;
+width: 90%;
+}
+.question-count-flex{   
+    display: block;
+}
+
+.first-flex{
+width: 100%;
+text-align: center;
+font-size: 16px;
+}
+.flex-button-div{
+height: 129px;
+margin-top: 15%;
+}
+.flex-second-div {
+display: block;
+}
+.flex-button{
+    width: 100%;
+justify-content: center;
+gap: 24px;
+}
+.empty-div {
+  display: none;
+}
+}
+
+
+<app-nav-bar></app-nav-bar>
+<div class="main-main">
+    <div class="main">
+        <div class="main-module">
+            <div class="module-test">
+                <div class="module-testt">Module Test 2</div>
+                <mat-icon (click)="close()">close</mat-icon>
+            </div>
+
+            <div class="question-count-flex">
+                <div class="question-count">
+                    Question {{ singleQuestion?.questionNumber }} of {{ finalArray.length }}
+                </div>
+
+                <div class="flex-timer">
+                    <div class="timer"><img src="./assets/Group 183.svg" alt="" /></div>
+                    <div class="min-remainn">
+                        <p class="min-remain">{{ display }} mins remaining</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-container">
+                <div class="quiz-question">
+                    <p>Question {{ singleQuestion.questionNumber }}</p>
+                </div>
+                <div class="quiz-options">
+                    <div class="each-options" *ngFor="let option of singleQuestion.options; let i = index">
+
+                        <div class="each-op" [style.background-color]="option.isSelcted ? '#EC5D52' : 'transparent'"
+                            [style.color]="option.isSelcted ? 'white' : 'black'" (click)="saveAnswer(option)">
+
+                            <div class="choiceIcon" *ngIf=!option.isSelcted>
+                                <mat-icon>radio_button_unchecked </mat-icon>
+                            </div>
+
+                            <div class="selectedchoiceIcon" *ngIf=option.isSelcted>
+                                <mat-icon>check_circle</mat-icon>
+                            </div>
+
+                            <div>
+                                <div class="choiceContent">{{ option.value }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="flex-button-div">
+                        <div class="flex-second-div">
+                            <div class="first-flex">
+                                <p>Chapter 3</p>
+                                <p>Setting up a new project</p>
+                            </div>
+                            <div class="flex-button">
+                                <!-- <div class="empty-div"></div> -->
+                                <div (click)="prev()" *ngIf="singleQuestion.questionNumber!=1" class="prev-div">
+                                    <img src="./assets/Shape (1).png" alt="" />
+                                </div>
+                                <div (click)="next()" *ngIf="singleQuestion.questionNumber!=finalArray.length"
+                                    class="next-div">
+                                    <img src="./assets/Shape.png" alt="" />
+                                </div>
+
+
+
+
+                                <div (click)="opensubmit()" *ngIf="singleQuestion.questionNumber==finalArray.length"
+                                    class="submit-div">
+                                    <button class="submit-buttonn">submit</button>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginServiceService } from '../services/login/login-service.service';
+import { TestService } from '../services/test/test.service';
+import { CloseTestComponent } from '../close-test/close-test.component';
+import { SubmitComponent } from '../submit/submit.component';
+
+@Component({
+  selector: 'app-test',
+  templateUrl: './test.component.html',
+  styleUrls: ['./test.component.css'],
+})
+export class TestComponent implements OnInit {
+  questins: any;
+  options: any;
+  selctedOptions = [null, null, null, null, null];
+  index: any = 0;
+  totquest: any;
+  ifcircle: boolean = true;
+  tikcircle: boolean = false;
+
+  questionToshow: any;
+  optionToShow: any;
+  isButtonDisabled: boolean = false;
+  isDisabledBackBtn: boolean = false;
+  myAnswer: any;
+  // answerArray: any = [];
+  rowClicked: any;
+  display: any;
+  public timerInterval: any;
+  chosenIndex: any;
+  clicked: boolean = true;
+  coun = 1;
+  myOptions: any = [];
+  finalArray: any = [];
+  singleQuestion: any;
+  optionRequestForApi: any = [];
+
+  constructor(private service: TestService, private md: MatDialog) {}
+
+  ngOnInit(): void {
+    sessionStorage.setItem('quizStarted', 'true');
+
+    this.service.courseTests().subscribe((data) => {
+      console.log('quizzz', data);
+      this.totquest = data;
+      // this.questins = data;
+      // this.options = this.questins.options;
+      // this.questins = this.questins.questions;
+      // this.questionToshow = this.questins[this.index];
+      // this.optionToShow = this.options[this.index];
+      this.modifyQuestionData();
+      this.singleQuestion = this.finalArray[this.index];
+      console.log(this.singleQuestion);
+      this.start();
+    });
+  }
+
+  close() {
+    this.md.open(CloseTestComponent, { height: '25%', width: '50%' });
+  }
+
+  modifyQuestionData() {
+    for (let i = 0; i < this.totquest.questions.length; i++) {
+      console.log('gvdfg', this.totquest.questions.length);
+      this.myOptions = [];
+      let question = {
+        questionName: this.totquest.questions[i],
+        questionNumber: i + 1,
+        options: this.modifyOptions(this.totquest.options[i]),
+      };
+      this.finalArray.push(question);
+    }
+    console.log('final Array', this.finalArray);
+  }
+
+  modifyOptions(options: any): any {
+    for (let j = 0; j < options.length; j++) {
+      let opt = {
+        value: options[j],
+        isSelcted: false,
+        index: j,
+      };
+      this.myOptions.push(opt);
+    }
+    return this.myOptions;
+  }
+
+  start() {
+    this.timer(this.totquest?.totalTimeAlloted);
+    // this.timer(3000);
+  }
+  stop() {
+    clearInterval(this.timerInterval);
+  }
+
+  timer(minute: any) {
+    // console.log('min', minute);
+
+    // let minute = 1;
+    let seconds: number = minute;
+    let textSec: any = '0';
+    let statSec: number = 60;
+
+    const prefix = minute < 10 ? '0' : '';
+
+    this.timerInterval = setInterval(() => {
+      seconds--;
+      if (statSec != 0) statSec;
+      else statSec = 59;
+
+      if (statSec < 10) {
+        textSec = '0' + statSec;
+      } else textSec = statSec;
+
+      this.display = `${prefix}${Math.floor(seconds / 60)}:${textSec}`;
+      sessionStorage.setItem('sec', this.display);
+
+      if (seconds == 0) {
+        console.log('finished');
+        clearInterval(this.timerInterval);
+        this.opensubmit();
+      }
+    }, 1000);
+  }
+
+  saveAnswer(opt: any) {
+    console.log(opt);
+    let options = this.singleQuestion.options;
+    console.log(options);
+    options.map((el: any) => {
+      if (el.index == opt.index) {
+        el.isSelcted = true;
+        // this.optionRequestForApi.push(opt.index)
+      } else {
+        el.isSelcted = false;
+        // this.optionRequestForApi.push(null)
+      }
+    });
+    console.log(options);
+    console.log(this.finalArray);
+  }
+
+  prev() {
+    console.log(this.index);
+    this.index = this.index - 1;
+    this.singleQuestion = this.finalArray[this.index];
+    console.log(this.singleQuestion);
+    console.log(this.finalArray);
+  }
+
+  next() {
+    console.log(this.index);
+    this.index = this.index + 1;
+    this.singleQuestion = this.finalArray[this.index];
+    console.log(this.singleQuestion);
+    console.log(this.finalArray);
+  }
+
+  opensubmit() {
+    console.log(this.finalArray);
+    for (let i = 0; i < this.finalArray.length; i++) {
+      console.log(this.finalArray[i].questionName);
+      for (let j = 0; j < this.finalArray[i].options.length; j++) {
+        let a = this.finalArray[i].options.filter(
+          (el: any) => el.isSelcted == true
+        );
+        console.log('a', a);
+        if (a.length > 0) {
+          if (this.finalArray[i].options[j].isSelcted == true) {
+            this.optionRequestForApi.push(this.finalArray[i].options[j].index);
+          }
+        } else {
+          this.optionRequestForApi.push(null);
+          break;
+        }
+        console.log(this.finalArray[i].options[j]);
+      }
+      console.log(this.optionRequestForApi);
+    }
+    this.stop();
+    // <<<<<<< HEAD
+    //     const dialogRef = this.md.open(SubmitDilogComponent, {
+    //       width: '900px',
+    //       height: '300px',
+    const dialogRef = this.md.open(SubmitComponent, {
+      width: '948px',
+      height: '312px',
+      // >>>>>>> 2f5385094bbc5d721b66465138fbec400d2009cd
+    });
+    console.log(this.selctedOptions);
+    sessionStorage.setItem('store', JSON.stringify(this.optionRequestForApi));
+    console.log(this.optionRequestForApi);
+  }
+}

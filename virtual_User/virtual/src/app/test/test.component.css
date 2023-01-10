@@ -1,0 +1,267 @@
+.main-main {
+  padding-bottom: 20px;
+}
+.module-test {
+  display: flex;
+  justify-content: space-between;
+}
+.main {
+  margin: auto;
+  width: 85%;
+  height: auto;
+  margin-top: 30px;
+}
+
+.module-testt {
+  font-family: "Biko";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  color: #2bb5f4;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+.question-count {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #7a7a7a;
+  margin-top: 10px;
+}
+.question-count-flex {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 13px;
+}
+.min-remain {
+  padding-top: 10px;
+  padding-left: 10px;
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: right;
+  color: #2bb5f4;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+.flex-timer {
+  display: flex;
+  align-items: center;
+}
+.flex-button {
+  width: 35%;
+  display: flex;
+justify-content: space-around;
+  align-items: center;
+}
+.quiz-container {
+  margin-top: 15px;
+}
+.center{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+.flex-button-div {
+  width: 542px;
+  height: 102px;
+  background: #2bb5f4;
+  border-radius: 6px;
+  
+  margin-top: 35px;
+}
+.flex-second-div {
+display: flex;
+justify-content: center;
+}
+.first-flex {
+  width: 50%;
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  padding-top: 15px;
+  color: #ffffff;
+}
+#html {
+}
+.each-options {
+  margin-top: 28px;
+  padding-left: 10px;
+}
+.quiz-question {
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #2b2b2b;
+}
+.quiz-options {
+  width: 97%;
+  margin: auto;
+}
+.option-span {
+  padding-left: 10px;
+}
+.main-module {
+  height: auto;
+  min-height: 400px;
+}
+.each-op {
+  display: flex;
+  width: 60%;
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+  padding: 21px 0px;
+  padding-left: 18px;
+  background-color: transparent;
+  align-items: center;
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  border-radius: 6px;
+  cursor: pointer;
+
+  color: #2b2b2b;
+}
+.timer {
+  width: 20px;
+}
+.timer img {
+  width: 100%;
+}
+
+::-webkit-scrollbar,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track {
+  width: 4px;
+}
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-track-piece,
+::-webkit-scrollbar-corner,
+::-webkit-resizer {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  background-color: grey;
+}
+
+::-webkit-scrollbar-track {
+  background-image: url("https://i.imgur.com/GvV1R30.png");
+  opacity: 90%;
+  background-repeat: repeat-y;
+  background-size: contain;
+  background-color: transparent;
+}
+.choiceIcon {
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
+  color: rgb(213, 211, 211);
+}
+.selectedchoiceIcon {
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
+}
+.empty-div {
+  width: 10px;
+}
+
+.submit-buttonn {
+  background: #ec5d52;
+  outline: none;
+  border: none;
+  width: 78px;
+  height: 30px;
+  border-radius: 6px;
+  font-family: "Proxima Nova Soft";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.prev-div {
+  position: sticky;
+  margin-right: 10px;
+}
+.empty-div {
+  width: 30px;
+}
+.prev-div {
+  width: 30px;
+  cursor: pointer;
+}
+.next-div {
+  width: 30px;
+  cursor: pointer;
+
+}
+.submit-div {
+  width: 30px;
+  cursor: pointer;
+}
+@media(max-width: 650px) {
+  .first-flex{
+font-size: 15px;
+line-height: 20px;
+padding-top: 0;
+}
+.flex-button-div{
+margin-top: 10%;
+}
+.each-op {
+width: 90%;
+}
+
+.flex-second-div{
+margin-top: 4%;
+}
+}
+@media(max-width: 460px) {
+.each-op {
+padding: 15px 0px;
+width: 90%;
+}
+.question-count-flex{   
+    display: block;
+}
+
+.first-flex{
+width: 100%;
+text-align: center;
+font-size: 16px;
+}
+.flex-button-div{
+height: 129px;
+margin-top: 15%;
+}
+.flex-second-div {
+display: block;
+}
+.flex-button{
+    width: 100%;
+justify-content: center;
+gap: 24px;
+}
+.empty-div {
+  display: none;
+}
+}
