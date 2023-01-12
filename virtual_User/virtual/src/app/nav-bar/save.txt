@@ -1,0 +1,63 @@
+<div (click)="open()" class="dp">
+                    <img [src]=profile alt="logo">
+                </div>
+                <div class="dialogue" *ngIf="show">
+                        <div (click)="goMyCourse()">
+                            <mat-icon>school</mat-icon>My Course
+                            <hr>
+                        </div>
+                        <div>
+                            <mat-icon>account_circle</mat-icon>My Profile
+                            <hr>
+                        </div>
+                        <div>
+                            <mat-icon>logout</mat-icon>Logout
+                        </div>
+                </div>
+
+                .logo img {
+  width: 196px;
+  height: 42px;
+  margin-left: 24px;
+  margin-top: 7%;
+}
+
+.dialogue {
+    z-index: 2;
+  position: absolute;
+  width: 220px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 180px;
+  top: 0;
+  background: #ffffff;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  top: 60px;
+  right: 30px;
+  color: black;
+  text-align: left;
+}
+.dialogue div {
+  margin-top: 8%;
+  margin-left: 6%;
+}
+.dialogue hr {
+  margin-top: 6px;
+  opacity: 0.1;
+  border: 1px solid #042c5c;
+}
+.dialogue mat-icon {
+  margin-right: 9%;
+  position: relative;
+  top: 7px;
+}
+.dp{
+   height: 39px;
+   width: 40px;
+}
+.dp img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+}

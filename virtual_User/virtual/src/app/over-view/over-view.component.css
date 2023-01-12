@@ -2,7 +2,9 @@
   margin: 0 12.5vw;
   width: 75%;
 }
-
+vg-play-pause {
+  color: #1eab0d;
+}
 .header .blue {
   font-weight: 400;
   font-weight: 400;
@@ -51,10 +53,10 @@
   width: 100%;
 }
 .videoButton {
- margin: auto;
- position: relative;
- bottom: 290px;
-
+  z-index: 55 !important;
+  margin: auto;
+  position: relative;
+  bottom: 290px;
 }
 .videoButton button {
   padding: 0 1vw;
@@ -580,28 +582,57 @@ hr {
   z-index: 1;
 }
 
+.i1{
+  margin-left: 2%;
+}
 .green {
   color: #1eab0d;
 }
 .green-border {
   border: 1px solid #1eab0d;
 }
+.comp {
+border-radius: 10px;
+}
+@media (max-width: 1668px) {
+  .nine {
+    font-size: 2.1rem;
+  }
+  .comp {
+    gap: 10px;
+  }
+  .date {
+    font-size: 14px;
+  }
+  .join {
+    width: 69%;
+    gap: 1px;
+  }
+}
+@media (max-width: 1668px) {
+  .date {
+    font-size: 11px;
+  }
+  .joined {
+    font-size: 14px;
+  }
+}
 
 @media (max-width: 1200px) {
   .playButton {
-left: 35vw;
-margin-bottom: 0px;
-bottom: 387.25px;
-top: 176.75px;
-height: 15.25rem;
-}
-.playButton button{
-  font-size: 1rem;
-width: 13rem; 
-}
+    left: 35vw;
+    margin-bottom: 0px;
+    bottom: 387.25px;
+    top: 176.75px;
+    height: 15.25rem;
+  }
+  .playButton button {
+    font-size: 1rem;
+    width: 13rem;
+  }
   .videoButton {
     bottom: 213px;
-}
+  }
   .left {
     width: 100%;
   }
@@ -631,85 +662,155 @@ width: 13rem;
     left: 6rem;
   }
   .vertical {
-height: 140px;
-}
-.vertical1 {
-top: -135.9px;
-height: 140px;
-}
+    height: 140px;
+  }
+  .vertical1 {
+    top: -135.9px;
+    height: 140px;
+  }
+  .join {
+    width: 100%;
+  }
+  .date {
+    font-size: 15px;
+  }
+  .joined {
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 800px) {
-.vertical {
-  height: 126px;
-}
-.videoButton {
-/* left: 26vw; */
-}
+  .vertical {
+    height: 126px;
+  }
+  .join {
+    width: 100%;
+  }
+  .date {
+    font-size: 15px;
+  }
+  .joined {
+    font-size: 14px;
+  }
+  .nine {
+    font-size: 29px;
+  }
+  .res {
+    font-size: 14px;
+  }
+  .nine {
+    width: fit-content;
+    margin-right: 0px;
+  }
+  .comp {
+    gap: 3px;
+  }
 }
 
 @media (max-width: 750px) {
-.vertical {
-  height: 126px;
-}
-.btnline{
-font-size: 1.375rem;
-line-height: 1.625rem;
-font-size: 19px;
-line-height: 24px;
-}
-.playButton button{
-font-size: 1rem;
-width: 13rem;
-font-size: 16px;
-width: 11rem;
-}
-.videoButton {
-/* top: 337px;
+  .vertical {
+    height: 126px;
+  }
+  .btnline {
+    font-size: 1.375rem;
+    line-height: 1.625rem;
+    font-size: 19px;
+    line-height: 24px;
+  }
+  .playButton button {
+    font-size: 1rem;
+    width: 13rem;
+    font-size: 16px;
+    width: 11rem;
+  }
+  .videoButton {
+    /* top: 337px;
 left: 29vw; */
-}
-.videoButton button{
-  font-size: 1.14rem;
-}
+  }
+  .videoButton button {
+    font-size: 1.14rem;
+  }
+  .cocerti {
+    font-size: 14px;
+  }
+  .down {
+    justify-content: space-around;
+  }
+  .certiImg img {
+    width: 94%;
+  }
 }
 
-@media(max-width:600px){
+@media (max-width: 600px) {
+  .comp {
+    display: block;
+  }
+  .rate {
+    text-align: center;
+    padding-bottom: 3%;
+    font-size: 19px;
+    font-weight: 600;
+  }
+  .nine {
+    font-size: 34px;
+  }
+  .certiImg {
+margin: auto;
+margin-top: 20px;
+}
+.cocerti{
+  font-size: 26px;  
+}
+  .join {
+    width: 95%;
+  }
+  .join {
+    margin: auto;
+  }
+
+  .res {
+    font-size: 20px;
+    font-weight: 800;
+  }
   .playButton {
-width: 38%;
-}
-  .btnline{
-font-size: 1rem;
-line-height: 1.125rem;
-font-size: 16px;
-line-height: 19px;
-}
-.playButton button{
-font-size: 14px;
-width: 38vw;
-font-size: 13px;
-width: 8rem;
-}
+    width: 38%;
+  }
+  .nine {
+    text-align: center;
+    width: auto;
+    display: block;
+  }
+  .btnline {
+    font-size: 1rem;
+    line-height: 1.125rem;
+    font-size: 16px;
+    line-height: 19px;
+  }
+  .playButton button {
+    font-size: 14px;
+    width: 38vw;
+    font-size: 13px;
+    width: 8rem;
+  }
 }
 
-
-
-@media(max-width:500px){
+@media (max-width: 500px) {
   /* .videoBut
 } */
-.videoButton button{
-  width: 171px;
-  line-height: 2.12rem;
-}
-.btnline{
-font-size: 1rem;
-line-height: 1.125rem;
-font-size: 16px;
-line-height: 19px;
-}
-.playButton button{
-font-size: 1rem;
-width: 13rem;
-font-size: 16px;
-width: 8rem;
-}
+  .videoButton button {
+    width: 171px;
+    line-height: 2.12rem;
+  }
+  .btnline {
+    font-size: 1rem;
+    line-height: 1.125rem;
+    font-size: 16px;
+    line-height: 19px;
+  }
+  .playButton button {
+    font-size: 1rem;
+    width: 13rem;
+    font-size: 16px;
+    width: 8rem;
+  }
 }

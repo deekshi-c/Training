@@ -54,4 +54,20 @@ export class OverViewSerService {
     };
     return this.http.post(baseUrl + `getTestStatus`, body);
   }
+  getresult() {
+    let testid = sessionStorage.getItem('testId');
+    let body = {
+      testId: testid,
+    };
+    return this.http.post(baseUrl + `getCompletedTestResultData`, body);
+  }
+  getCertificate() {
+    const body: any = {
+      courseId: sessionStorage.getItem('courseId'),
+    };
+    return this.http.post(baseUrl + 'completedCourses/viewCertificate', body);
+  }
+  download(url:any){
+    return this.http.get(url,{ responseType:'blob'})
+  }
 }

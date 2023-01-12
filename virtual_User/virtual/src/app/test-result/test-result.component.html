@@ -1,1 +1,43 @@
-<p>test-result works!</p>
+<div class="container" *ngIf="displayAll" mat-dialog-close>
+
+    <div class="item" *ngFor="let question of solutions.questions;index as i">
+        <div class="heading" *ngIf="i==index || index==null">
+            <p class="question">{{question}}</p>
+            <!-- {{solutions.selectedAndActualAnswerSet[i][0]}} -->
+            <!-- {{solutions.selectedAndActualAnswerSet[i][1]}} -->
+            <p class="crctstatus"
+                *ngIf="solutions.selectedAndActualAnswerSet[i][0]==solutions.selectedAndActualAnswerSet[i][1]">Correct
+                Answer
+            </p>
+            <p class="wrongstatus"
+                *ngIf="solutions.selectedAndActualAnswerSet[i][0]!=solutions.selectedAndActualAnswerSet[i][1] && !(solutions.selectedAndActualAnswerSet[i][0]==null) ">
+                Wrong Answer
+            </p>
+            <p class="notAnswered" *ngIf="solutions.selectedAndActualAnswerSet[i][0]==null">Not Answered</p>
+        </div>
+        <div *ngIf="i==index || index==null">
+
+            <div class="choice" *ngFor="let choice of solutions.options[i];index as selectedOption"
+                [ngClass]="{ 'crct' :  choice==solutions.selectedAndActualAnswerSet[i][1] , 'wrong' :  choice==solutions.selectedAndActualAnswerSet[i][0] && choice != solutions.selectedAndActualAnswerSet[i][1]}">
+
+
+                <div class="choiceIcon"
+                    *ngIf="choice!=solutions.selectedAndActualAnswerSet[i][0] && choice!=solutions.selectedAndActualAnswerSet[i][1]">
+                    <mat-icon>radio_button_unchecked </mat-icon>
+                </div>
+                <div class="cancelIcon"
+                    *ngIf="choice==solutions.selectedAndActualAnswerSet[i][0] && choice != solutions.selectedAndActualAnswerSet[i][1]">
+                    <mat-icon>cancel </mat-icon>
+                </div>
+                <div class="checkIcon" *ngIf="choice==solutions.selectedAndActualAnswerSet[i][1]">
+                    <mat-icon>check_circle</mat-icon>
+                </div>
+                <div class="choiceContent">{{choice}}</div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>

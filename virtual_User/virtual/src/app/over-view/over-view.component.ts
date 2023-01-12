@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { OverViewSerService } from '../services/overViewService/over-view-ser.service';
+import { CertificateComponent } from '../certificate/certificate.component';
 
 @Component({
   selector: 'app-over-view',
@@ -9,9 +10,12 @@ import { OverViewSerService } from '../services/overViewService/over-view-ser.se
   styleUrls: ['./over-view.component.css'],
 })
 export class OverViewComponent implements OnInit {
+  @ViewChild('scroll') scroll: ElementRef;
+
   btnShow: any;
-  completionDate:any=[];
-  completed:any;
+  completionDate: any = [];
+  joiningDate: any = [];
+  completed: any;
   hour: any;
   chapter_completed: any;
   length: any;
@@ -26,62 +30,92 @@ export class OverViewComponent implements OnInit {
   videoStatus: any;
   testArray: any;
   testMessage: any;
-  constructor(private service: OverViewSerService, private router: Router) {}
+  constructor(
+    private service: OverViewSerService,
+    private router: Router,
+    private dialog: MatDialog
+  ) {}
   overview: any;
   title: any;
   isReadMore = true;
   videoclick = false;
   onGo: any;
+  temp: any;
+  tchap: any;
   courseDetails: any;
   chapters: any;
+  currPage: any;
+  c:any
   ngOnInit(): void {
+    this.c=0 ;
+    sessionStorage.removeItem('timer');
+    this.currPage = localStorage.getItem('currPage');
     this.title = sessionStorage.getItem('courseName');
     this.overview = sessionStorage.getItem('Overview');
     this.overview = JSON.parse(this.overview);
     this.getOverView();
     this.getChapt();
     this.getProgress();
-    this.activeVideo =
-      this.courseDetails?.courseOverview.overViewId.previewThisCourse.videoLink;
+    this.setpreview();
+    
+  }
+  setpreview() {
+    this.service.getOverview().subscribe({
+      next: (data) => {
+        this.temp = data;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        this.activeVideo =
+          this.temp.courseOverview.overViewId.previewThisCourse.videoLink;
+      },
+    });
   }
   overView() {
     this.overview = true;
+    this.setpreview();
   }
   close() {
     this.videoclick = false;
+    this.onGo = false;
   }
   onGoClick() {
     this.onGo = false;
-    // console.log(this.chapters?.isEnrolled.ongoingSerialNumber);
+    this.overview = false;
     let pos = this.chapters?.isEnrolled.ongoingVideo.chapterNo - 1;
     let lIndex = this.chapters?.isEnrolled.ongoingVideo.lessonNo - 1;
-    this.activeVideo =
+
+    let val =
       this.chapters.listOfChapters.totalChapters[0].chapters[pos].lessons[
         lIndex
-      ].url;
-
-    // this.show.splice(pos,1,'true');
-    // console.log(this.show);
+      ];
+    this.onPlayClick(val, lIndex, pos);
+    this.show[pos] = false;
   }
   getOverView() {
     this.service.getOverview().subscribe({
       next: (data) => {
         this.courseDetails = data;
-        console.log(data);
+        // console.log(this.courseDetails);
+        this.tchap =
+          this.courseDetails.courseOverview.courseContent.totalChapters;
         let string = this.courseDetails.isEnrolled.dateOfCompletion;
         this.testArray = this.courseDetails.isEnrolled.testApprovalRate;
-        if (this.courseDetails.isEnrolled.ongoingSerialNumber > 0) {
+        if (this.courseDetails?.isEnrolled.ongoingSerialNumber > 0 && this.c < 1) {
           this.onGo = true;
+          this.c++;
         }
-        if(this.courseDetails.isEnrolled.approvalRate == '0') this.completed=true;
-        else{ 
-          this.completed=false;
-          string=string.substring(0, string.indexOf('T'));
-          this.completionDate=string.split('-')
+        if (this.courseDetails.isEnrolled.approvalRate == '0')
+          this.completed = true;
+        else {
+          this.completed = false;
+          string = string.substring(0, string.indexOf('T'));
+          sessionStorage.setItem('CDate', string);
+          this.completionDate = string.split('-');
           console.log(this.completionDate);
-          
         }
-        
       },
       error: (data) => {
         console.log(data);
@@ -92,6 +126,10 @@ export class OverViewComponent implements OnInit {
     this.service.getChapters().subscribe({
       next: (data) => {
         this.chapters = data;
+        console.log(
+          this.chapters.listOfChapters.totalChapters[0].chapters.length
+        );
+
         this.hour = (
           this.chapters.listOfChapters.courseContent.totalDuration / 3600
         ).toFixed(2);
@@ -158,20 +196,31 @@ export class OverViewComponent implements OnInit {
       next: (data) => {
         this.onGoing = data;
         console.log(data);
-        this.getChapt();
-        this.getChapt();
       },
       error: (data) => {
         console.log(data);
         this.getProgress();
         alert(data.error.message + ':Finish the Test');
       },
+      complete: () => {
+        this.getChapt();
+        this.getOverView();
+        this.getProgress();
+        this.next();
+      },
     });
   }
 
-  onPlayClick(item: any) {
+  onPlayClick(item: any, a: any, b: any) {
     this.onGo = false;
+    console.log(item);
+    localStorage.setItem('cIndex', b);
+    localStorage.setItem('lIndex', a);
     this.getProgress();
+
+    console.log(b);
+    console.log(a);
+
     // console.log(item);
     this.videoclick = false;
     let currserialNum = item.serialNumberOfLesson;
@@ -180,20 +229,17 @@ export class OverViewComponent implements OnInit {
     if (currserialNum <= this.onGoingSerial) {
       this.activeVideo = item.url;
       this.serialNum = currserialNum;
-      console.log(this.videoStatus);
       if (this.videoStatus.length > 0) {
         for (let val of this.videoStatus) {
           if (val.serialNumber == item.serialNumberOfLesson) {
             this.videoclick = true;
             this.pauseTime = val.pauseTime;
-            // console.log(this.pauseTime);
           }
         }
       }
-      console.log('Present');
     } else {
       this.getProgress();
-      alert('First Finish video ' + this.onGoingSerial + ' to continue');
+      // alert('First Finish video ' + this.onGoingSerial + ' to continue');
     }
   }
 
@@ -201,8 +247,10 @@ export class OverViewComponent implements OnInit {
     this.service.getProgress().subscribe({
       next: (data) => {
         this.onGoing = data;
-        // console.log(data);
-
+        let string = this.onGoing?.enrolledOn;
+        string = string.substring(0, string.indexOf('T'));
+        sessionStorage.setItem('jDate', string);
+        this.joiningDate = string.split('-');
         this.videoStatus = sessionStorage.setItem(
           'status',
           (JSON.stringify(this.onGoing.allVideoStatus) as any) || []
@@ -246,24 +294,93 @@ export class OverViewComponent implements OnInit {
   }
 
   test(item: any, chapter: any) {
-    sessionStorage.setItem('chapNo', chapter.chapterNumber);
-    sessionStorage.setItem('chapName', chapter.chapterTitle);
-    sessionStorage.setItem('testId', item._id);
-    sessionStorage.setItem('chap_id', chapter._id);
-    this.service.gettestService().subscribe({
+    console.log(item.testNumber);
+    console.log(this.chapters.isEnrolled.testApprovalRate);
+    if (
+      this.chapters.isEnrolled.testApprovalRate[item.testNumber - 2] != 0 ||
+      item.testNumber == 1
+    ) {
+      sessionStorage.setItem('chapNo', chapter.chapterNumber);
+      sessionStorage.setItem('chapName', chapter.chapterTitle);
+      sessionStorage.setItem('testId', item._id);
+      sessionStorage.setItem('chap_id', chapter._id);
+      this.service.gettestService().subscribe({
+        next: (data) => {
+          let temp: any = data;
+          if (temp.message == 'true') {
+            if (confirm(' Test already Taken: Go to Result'))
+              this.router.navigate(['congrats']);
+            else this.router.navigate(['overview']);
+          } else {
+            sessionStorage.removeItem('answers');
+            sessionStorage.removeItem('timer');
+            this.router.navigate(['test']);
+          }
+        },
+        error: (data) => {
+          console.log(data);
+        },
+      });
+    } else alert('Complete Test :' + this.index());
+  }
+
+  index() {
+    let i = 0;
+    for (let item of this.chapters.isEnrolled.testApprovalRate) {
+      if (item == 0) break;
+      else i++;
+    }
+    return i + 1;
+  }
+  testresult() {
+    this.service.getresult().subscribe({
       next: (data) => {
         console.log(data);
       },
-      error: (data) => {
-        console.log(data);
-      },
-      complete: () => {
-        console.log(this.testMessage);
-        if (this.testMessage == 'true') {
-        } else {
-          this.router.navigate(['test']);
-        }
+      error: (x) => {
+        console.log(x);
       },
     });
+  }
+  getCertificate() {
+    this.dialog.open(CertificateComponent, {
+      height: '60%',
+      width: '60%',
+    });
+  }
+
+  next() {
+    let cIndex = Number(localStorage.getItem('cIndex')) || 0;
+    let lIndex = Number(localStorage.getItem('lIndex')) || 0;
+    let noOfLesson =
+      this.chapters.listOfChapters.totalChapters[0].chapters[cIndex]
+        .numberOfLessons;
+    if (lIndex + 1 < noOfLesson) {
+      let val =
+        this.chapters.listOfChapters.totalChapters[0].chapters[cIndex].lessons[
+          lIndex + 1
+        ];
+      console.log(val);
+
+      this.onPlayClick(val, lIndex + 1, cIndex);
+    } else {
+      
+      if (cIndex + 1 < this.tchap) {
+        console.log('4dfdfssdf');
+        lIndex = 0;
+        console.log(cIndex);
+        let val =
+          this.chapters.listOfChapters.totalChapters[0].chapters[cIndex+1]
+            .lessons[lIndex];
+        console.log(val);
+        this.onPlayClick(val, lIndex, cIndex + 1);
+      } else {
+        let val =
+          this.chapters.listOfChapters.totalChapters[0].chapters[cIndex]
+            .lessons[lIndex];
+        console.log(val);
+        this.onPlayClick(val,lIndex, cIndex);
+      }
+    }
   }
 }

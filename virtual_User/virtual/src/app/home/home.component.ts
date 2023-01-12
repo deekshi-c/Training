@@ -56,6 +56,7 @@ export class HomeComponent implements OnInit {
   showName() {
     this.service.getProfileName().subscribe((data) => {
       this.name = JSON.parse(data);
+      localStorage.setItem('name', this.name.fullName);
     });
   }
   goOverview(a: any) {

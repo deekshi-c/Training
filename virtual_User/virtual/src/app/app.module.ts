@@ -28,6 +28,8 @@ import { CongratsComponent } from './congrats/congrats.component';
 import { TimePipe } from './time.pipe';
 import { ProgressScreenComponent } from './progress-screen/progress-screen.component';
 import { TestResultComponent } from './test-result/test-result.component';
+import { CertificateComponent } from './certificate/certificate.component';
+import { PtimePipe } from './ptime.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +46,8 @@ import { TestResultComponent } from './test-result/test-result.component';
     TimePipe,
     ProgressScreenComponent,
     TestResultComponent,
+    CertificateComponent,
+    PtimePipe,
   ],
   imports: [
     BrowserModule,

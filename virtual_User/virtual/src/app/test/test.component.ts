@@ -50,11 +50,14 @@ export class TestComponent implements OnInit {
     this.service.courseTests().subscribe((data: any) => {
       this.questions = data;
       console.log(data);
-      this.remTime = this.questions.totalTimeAlloted;
-
+      if(sessionStorage.getItem('timer')){
+            this.remTime = sessionStorage.getItem('timer');
+      } else{
+              this.remTime = this.questions.totalTimeAlloted;
+      }
       this.answersArr = new Array(this.questions.totalQuestions).fill(null);
       console.log(this.answersArr);
-      // this.startCountdown();
+      this.startCountdown();
     });
   }
 
@@ -81,6 +84,7 @@ export class TestComponent implements OnInit {
     this.index = i;
     console.log();
     console.log(this.answersArr);
+    sessionStorage.setItem('answers', JSON.stringify(this.answersArr));
   }
 
   changeTableRowColor(idx: any) {
@@ -101,6 +105,7 @@ export class TestComponent implements OnInit {
     if (this.pause == false) {
       this.interval = setInterval(() => {
         this.counter--;
+        sessionStorage.setItem('timer',this.counter);
         if (this.counter <= 0) {
           this.submitTest();
           clearInterval(this.interval);
@@ -127,24 +132,23 @@ export class TestComponent implements OnInit {
     });
   }
   submitTest() {
-    // this.chose = true;
-    // this.notchose = false;
-    // // clearInterval(this.interval);
-    // let answers = JSON.parse(sessionStorage.getItem('answers') as any);
-    // this.service.submit().subscribe({
-    //   next: (data) => {
-    //     // console.log(data);
-    //     this.router.navigate(['/congratulations']);
-    //     let show = JSON.parse(data);
-    //     // alert(show.message);
-    //     if (show.message == 'You have already passed this test') {
-    //       this.router.navigate(['/congratulations']);
-    //     } else {
-    //       // alert('Test failed')
-    //       this.router.navigate(['/courseOverview']);
-    //     }
-    //   },
-    //   error: (e) => {},
-    // });
+    this.chose = true;
+    this.notchose = false;
+    // clearInterval(this.interval);
+    let answers = JSON.parse(sessionStorage.getItem('answers') as any);
+    this.service.submit().subscribe({
+      next: (data) => {
+        console.log(data);
+        let show: any = data;
+        alert(show.message);
+        
+        if (show.message == 'You have passed this test') {
+          this.router.navigate(['/congrats']);
+        } else {
+          this.router.navigate(['/overview']);
+        }
+      },
+      error: (e) => {},
+    });
   }
 }

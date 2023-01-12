@@ -1,39 +1,104 @@
 <mat-toolbar>
-    <div class="toolbar">
+    <div class="content">
         <div class="logo" routerLink="/home">
             <img src="assets/logo/Group 118.png" alt="">
         </div>
         <div class="logo2" routerLink="/home">
             <img src="assets/Group 117.png" alt="">
         </div>
+
         <div class="search">
-                <mat-icon class="searchIcon">search</mat-icon>
-                <input class="searchBar" type="text" placeholder="Search">
-        </div>
-        <div class="profile">
-                <div class="noti">
-                    <mat-icon>notifications</mat-icon>
-                </div>
-                <div class="setings">
-                    <mat-icon >settings</mat-icon>
-                    
-                </div>
-                <div (click)="open()" class="dp">
-                    <img [src]=profile alt="logo">
-                </div>
-                <div class="dialogue" *ngIf="show">
-                        <div (click)="goMyCourse()">
-                            <mat-icon>school</mat-icon>My Course
-                            <hr>
-                        </div>
-                        <div>
-                            <mat-icon>account_circle</mat-icon>My Profile
-                            <hr>
-                        </div>
-                        <div>
-                            <mat-icon>logout</mat-icon>Logout
-                        </div>
+
+
+            <mat-icon ><i class="fa fa-search search-icon pointer" *ngIf="!dropdown"></i></mat-icon>
+
+            <form [formGroup]="inputForm">
+                <input id="input" placeholder="Search" type="text" (click)="onClick()" formControlName="search"
+                    (keyup)="enterLetter(inputForm.value.search)" value="{{value}}" (keydown)="onEnter($event)" />
+            </form>
+            <div class="end" *ngIf="dropdown">
+                <div class="focus" (click)="bySearch(inputForm.value.search)">
+                    <mat-icon><i class="fa fa-search search-focused pointer"></i></mat-icon>
                 </div>
             </div>
+
+        </div>
+
+        <div class="options" *ngIf="!dropdown">
+            <mat-icon class="icon1 pointer">notifications_none</mat-icon>
+            <i class="fa fa-gear pointer"></i>
+            <div (click)="open()" class="dp">
+                <img [src]=profile alt="logo">
+            </div>
+            <div class="dialogue" *ngIf="show">
+                <div (click)="goMyCourse()">
+                    <mat-icon>school</mat-icon>My Course
+                    <hr>
+                </div>
+                <div>
+                    <mat-icon>account_circle</mat-icon>My Profile
+                    <hr>
+                </div>
+                <div routerLink="/" (click)="logOut()">
+                    <mat-icon >logout</mat-icon>Logout
+                </div>
+            </div>
+
+
+        </div>
+        <div class="close" *ngIf="dropdown">
+            <mat-icon (click)="close()">close</mat-icon>
+        </div>
     </div>
+
 </mat-toolbar>
+
+<div class="dropdown" *ngIf="dropdown" @show>
+    <div class="dropdown-content">
+        <div class="search-content" *ngIf="topSearch">
+            <p class="p1">Top Search</p>
+
+            <div class="search-result">
+                <div class="top-search pointer" *ngFor="let search of searches" (click)="appendValue(search)">
+                    {{search | titlecase}}
+                </div>
+            </div>
+        </div>
+
+        <div class="suggestion-list" *ngIf=searchList>
+
+            <div class="suggestion" *ngFor="let list of lists" (click)="getOverview(list._id, list.courseTitle)">
+
+                <img src="{{list?.courseImage}}">
+
+                <div class="suggestion-content">
+                    <p class="p11">{{list?.courseTitle}}</p>
+                    <p class="p12">{{list?.courseContent?.totalChapters}} Chapter</p>
+                    <div class="p13">{{list?.category}}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="noFound" *ngIf=notFound>
+            <p class="P">No matching course</p>
+            <p class="p">Try a different search or browse categories</p>
+        </div>
+
+        <div class="categories" *ngIf="category">
+            <p class="p2">Search from Categories</p>
+            <div class="chips">
+                <mat-chip-list aria-label="category selection" *ngFor="let category of categories; let i = index">
+                    <mat-chip (click)="appendValue(category)" (click)="clickOnCategory(category)">
+                        <img matChipAvatar [src]="image[i]" alt="" />
+                        {{category}}
+                    </mat-chip>
+                </mat-chip-list>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+</div>

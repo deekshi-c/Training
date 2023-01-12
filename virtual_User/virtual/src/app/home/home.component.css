@@ -109,7 +109,6 @@ border: 0;
     gap: 3.1rem;
      overflow-y: hidden;
     overflow-x: hidden; 
-    height: 27vh;
 }
 .collections .order>img,
 .ongoing-courses .order>img {
@@ -193,14 +192,5 @@ div.division:nth-child(3) {
 margin-top: 30px;
 }
 
-@media(max-width: 1799x){
-  .collections {
-        height: 300px;
-}
-  }
-
-@media(max-width: 1499x){
- 
-}
   
 

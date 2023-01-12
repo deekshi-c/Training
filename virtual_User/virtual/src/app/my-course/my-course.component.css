@@ -108,11 +108,18 @@ color: #FFFFFF;
 font-size: 18px;
 line-height: 30px;
 }
-.next{
-  margin-top: 98px;
+.item .next1{
+  position: relative;
+bottom: 255px;
+left: 19px;
+
 }
 
-.next button{
+.bottom{
+  margin-top: 100px;
+}
+
+.next button,.next1 button{
     font-weight: 500;
 font-size: 20px;
 line-height: 50px;

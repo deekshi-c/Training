@@ -14,11 +14,11 @@
             <div [class.active]="!activeFlag" class="item" (click)="activeC()">Completed </div>
         </div>
         <div class="gridBox" *ngIf="activeFlag">
-            <div class="item" *ngFor="let course of onGoing;index as i" (click)="goOverview(course)" >
+            <div class="item" *ngFor="let course of onGoing;index as i" (click)="goOverview(course,'Ongoing')">
                 <div class="bgImage">
                     <img [src]=course.url>
                 </div>
-                <div class="details" >
+                <div class="details">
                     <div class="status">
                         Ongoing
                     </div>
@@ -27,21 +27,21 @@
                             {{course.title}}
                         </div>
                         <div class="completion">
-                           {{course.chaptersCompleted}} / {{course.totalChapters}}   Chapters
+                            {{course.chaptersCompleted}} / {{course.totalChapters}} Chapters
                         </div>
                         <div class="next">
-                                <button (click)="goCourse(course)">Continue</button>
+                            <button (click)="goCourse(course,'Ongoing')">Continue</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="gridBox" *ngIf="!activeFlag">
-            <div class="item" *ngFor="let course of completeCourse;index as i" (click)="goOverview(course)">
-                <div class="bgImage">
+            <div class="item" *ngFor="let course of completeCourse;index as i">
+                <div class="bgImage" (click)="goOverview(course,'Completed')">
                     <img [src]=course.image>
                 </div>
-                <div class="details">
+                <div class="details" (click)="goOverview(course,'Completed')">
                     <div class="status">
                         Completed
                     </div>
@@ -50,13 +50,13 @@
                             {{check(course.title)}}
                         </div>
                         <div class="completion">
-                               {{course.approvalRate}}% Approval Rate
-                        </div>
-                        <div class="next">
-                                <button (click)="getCertificate(course.title)">View Certificate</button>
+                            {{course.approvalRate}}% Approval Rate
                         </div>
                     </div>
 
+                </div>
+                <div class="next1">
+                    <button (click)="getCertificate(course.title,course.courseId)">View Certificate</button>
                 </div>
 
             </div>

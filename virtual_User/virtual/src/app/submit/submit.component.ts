@@ -21,21 +21,21 @@ export class SubmitComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-   this.answers = sessionStorage.getItem('answers');
-   console.log(this.answers);
+    this.answers = sessionStorage.getItem('answers');
+    console.log(this.answers);
     this.remTime = sessionStorage.getItem('timer');
   }
   submitTest() {
     this.chose = true;
     this.notchose = false;
-     this.answers = JSON.parse(this.answers);
-    
+    this.answers = JSON.parse(this.answers);
+
     this.service.submit().subscribe({
       next: (data) => {
         console.log(data);
-        let show:any = data;
-        alert(show.message);
-        if (show.message == 'You have already passed this test') {
+        let show: any = data;
+        confirm(show.message);
+        if (show.message == 'You have passed this test') {
           this.router.navigate(['/congrats']);
         } else {
           this.router.navigate(['/overview']);

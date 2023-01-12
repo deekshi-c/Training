@@ -1,74 +1,1391 @@
-<div class="fill">
-        <div >
-        <div class="align">
-            <div class="module">{{quizDetails.test.testTitle}}</div>
-            <mat-icon class="clean" (click)="openClose()">clear</mat-icon>
+<div >
+
+    <app-nav-bar></app-nav-bar >
+    <div class="container" >
+        <div class="header">
+            <div class="blue" *ngIf="overview"><span
+                    routerLink="/myCourse">My&nbsp;course</span>&nbsp;&#10095;&nbsp;<small>{{currPage}}</small></div>
+            <!--chapter-->
+            <div class="blue" *ngIf="!overview"><span routerLink="/myCourse">My&nbsp;course</span>&nbsp;&#10095;&nbsp;<span
+                    (click)="overView()">{{currPage}}</span>&nbsp;&#10095;&nbsp;<small>{{title}}</small>
+            </div>
         </div>
-        <div class="questions">
-            <div class="align">
-                <div class="qn">Question&nbsp;{{qIndex+1}}&nbsp;of&nbsp;{{totalQuestion}}</div>
-                <div class="clock">
-                    <mat-icon class="alarm">alarm</mat-icon>
-                    <div class="module">{{counter | time}}&nbsp;remaining</div>
+        <!---->
+        <div class="bottom">
+            <div class="left" #scroll>
+                <div class="video-overview">
+                    <!-- <video class="video" controls>
+                                            <source src="{{videoSource}}"
+                                                type="video/mp4">
+                                        </video> -->
+    
+                    <vg-player class="video" (click)="close()">
+                        <vg-overlay-play *ngIf="!onGo" (click)="getPauseTime()"></vg-overlay-play>
+                        <vg-buffering></vg-buffering>
+                        <vg-scrub-bar>
+                            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                            <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+                        </vg-scrub-bar>
+                        <vg-controls [vgAutohide]="true" [vgAutohideTime]="1.0">
+                            <vg-play-pause (click)="getPauseTime()"></vg-play-pause>
+                            <vg-playback-button></vg-playback-button>
+                            <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+    
+                            <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+                            <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+                            <vg-track-selector></vg-track-selector>
+    
+                            <vg-volume></vg-volume>
+    
+                        </vg-controls>
+                        <video [vgMedia]="$any(media)" #media [src]="activeVideo" type="video/mp4" id="singleVideo"
+                            preload="auto" crossorigin (ended)="videoEnd()">
+    
+                            <track kind="subtitles" label="English"
+                                src="http://static.videogular.com/assets/subs/pale-blue-dot.vtt" srclang="en" default>
+    
+                        </video>
+                    </vg-player>
+    
+                    <div class="videoButton" *ngIf="onGo" (click)="onGoClick()">
+                        <button>Continue Chapter {{chapters?.isEnrolled.ongoingVideo.chapterNo}} Lesson
+                            {{chapters?.isEnrolled.ongoingVideo.lessonNo}}</button>
+                    </div>
+                    <div class="playButton" *ngIf="videoclick && !overview">
+                        <div class="btnline">Your lesson paused at {{pauseTime | ptime}} 
+                            Do you want to continue watching?</div>
+                        <div class="watch">
+                            <button (click)="close()">Continue&nbsp;watching</button>
+                        </div>
+                        <div class="pause">
+                            <button (click)="close()">Watch&nbsp;from&nbsp;beginning</button>
+                        </div>
+                    </div>
+    
+                </div>
+                <div class="details">
+                    <div class="video-title">
+                        <p class="p2">{{title | titlecase}}
+                        </p>
+                        <p class="p3">{{chapters?.listOfChapters.courseContent.totalChapters}} Chapter |
+                            {{chapters?.listOfChapters.courseContent.totalLessons}} lessons</p>
+                    </div>
+    
+                    <div class="video-category">
+                        {{courseDetails?.courseOverview.category}}
+                    </div>
+                </div>
+    
+                <hr>
+                <!-- *ngIf="overView" -->
+                <div *ngIf="overView">
+                    <div class="synopsis">
+                        {{courseDetails?.courseOverview.overViewId.previewThisCourse.description}}
+                    </div>
+    
+                    <div class="synopsis-detail">
+                        {{courseDetails?.courseOverview.overViewId.description}}
+                    </div>
+                </div>
+                <div *ngIf="!completed" class="comp" (click)="testresult()" >
+                    <div>
+                        <div class="res">Course&nbsp;Result</div>
+                        <div class="nine">{{courseDetails?.isEnrolled.approvalRate}}%</div>
+                        <div class="rate">approval&nbsp;rate</div>
+                    </div>
+                    <div class="sline"></div>
+                    <div class="join">
+                        <div>
+                            <div class="joined">Joined</div>
+                            <div class="date">{{joiningDate[2]}}/{{joiningDate[1]}}/{{joiningDate[0]}}</div>
+                        </div>
+                        <div>
+                            <div class="joined">Completed</div>
+                            <div class="date">{{completionDate[2]}}/{{completionDate[1]}}/{{completionDate[0]}}</div>
+                        </div>
+                        <div> 
+                                <div class="joined">Duration</div>
+                                <div class="date">4h&nbsp;30m</div>
+                            </div>
+                    </div>
+                    <div class="sline"></div>
+                    <div class="certi">
+                
+                        <div class="certiImg" (click)="getCertificate()">
+                            <div class="down">
+                                <div class="cocerti">Course Certificate</div>
+                                <mat-icon class="csave" >save_alt</mat-icon>
+                            </div>
+                            <img src="assets/Group 3179.png">
+                        </div>
+                
+                    </div>
                 </div>
             </div>
-            <div>
-                <!-- <div class="qnName">How to create dot-matrix in Figma without doing it dot-by-dot?</div> -->
-                <div class="qnName">{{questions[qIndex]}}</div>
-                <!-- <div class="option" *ngFor="let option of options[qIndex];index as i">
-                    <div class="opt-1"  (click)="onSelect(i)"  [class.select]="select[i]">
-                        <mat-icon *ngIf="!select[i]"  class="first">radio_button_unchecked</mat-icon>
-                        <mat-icon *ngIf="select[i]" class="second">check_circle</mat-icon>
-                        <div>{{option}}</div>
+            <div class="right" #scroll>
+                <div class="content-right">
+                    <div class="head">
+                        <button class="button" [class.active]="overview" type="button"
+                            (click)="onOverview()">Overview</button>
+                        <button class="Button" [class.active]="!overview" type="button"
+                            (click)="onChapter()">Chapters</button>
                     </div>
-                   
-                </div> -->
-<!---->
-<div *ngFor="let choice of options[qIndex];index as i">
-<div (click)="selectedChoice(i)" class="choice"
-[style.background-color]="show == i || answers[qIndex] == i ? '#EC5D52' : 'transparent'"
-[style.color]="show == i || answers[qIndex] == i ? '#fff' : 'red'" 
-(click)="changeTableRowColor(i)">
-
-    <div class="choiceIcon" *ngIf="(chooseIndex!=i || click==false) && answers[qIndex] != i">
-
-        <mat-icon>radio_button_unchecked </mat-icon>
-     </div>
-     <div class="selectedchoiceIcon" *ngIf="(chooseIndex==i && click==true) || answers[qIndex] == i">
-        <mat-icon>check_circle</mat-icon>
-     </div>
-     <div>
-        <div class="choiceContent" [class.color]="(chooseIndex==i && click==true) || answers[qIndex] == i">{{choice}}</div>
-     </div>
-
-
-
-</div>
-</div>
-
-<!---->
-                <div>
-                    <div class="buttons">
-                        <div class="chapName">
-                            <div>Chapter {{quizDetails.chapterNumber}}</div>
-                                <div>{{quizDetails.chapterTitle}}</div>
+                    <div class="OverView" *ngIf="overview" #overView>
+                        <div class="course-includes">
+                            <p class="p4">Course Includes</p>
+    
+    
+                            <div class="include-list">
+    
+                                <div class="div">
+                                    <img src="assets/MicrosoftTeams-image (3).png">
+                                    <div class="include-para">
+                                        <p class="p7"> {{chapters?.listOfChapters.courseContent.totalDuration /3600| number
+                                            : '1.0-2'}} total hours video</p>
+                                    </div>
+                                </div>
+                                <div class="div">
+                                    <img src="assets/MicrosoftTeams-image (2).png ">
+                                    <div class="include-para">
+                                        <p class="p7"> Support Files</p>
+                                    </div>
+                                </div>
+                                <div class="div">
+                                    <img src="assets/MicrosoftTeams-image (1).png">
+                                    <div class="include-para">
+                                        <p class="p7"> {{chapters?.listOfChapters.courseContent.totalTests}} Module Test
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="div">
+                                    <img src="assets/MicrosoftTeams-image (4).png">
+                                    <div class="include-para">
+                                        <p class="p7"> Full lifetime access</p>
+                                    </div>
+                                </div>
+                                <div class="div">
+                                    <img src="assets/MicrosoftTeams-image.png">
+                                    <div class="include-para">
+                                        <p class="p7"> Access on mobile, desktop and tv</p>
+                                    </div>
+                                </div>
+                                <div class="div">
+                                    <img src="assets/MicrosoftTeams-image (5).png">
+                                    <div class="include-para">
+                                        <p class="p7"> Certificate of Completion</p>
+                                    </div>
+                                </div>
+                            </div>
+    
                         </div>
-                        <div *ngIf="this.qIndex">
-                            <mat-icon (click)="previous()">arrow_back</mat-icon>
+    
+                        <div class="learn">
+    
+                            <p class="p5">What you'll learn </p>
+    
+                            <div class="list">
+    
+                                <div class="div"
+                                    *ngFor="let outcome of courseDetails?.courseOverview.overViewId?.whatYouWillLearn">
+                                    <img src="assets/Combined-Shape.png">
+                                    <div class="para">
+                                        <p class="p6"> {{outcome}}</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div *ngIf="!(this.qIndex+1 == totalQuestion)">
-                            <mat-icon (click)="next()" >arrow_forward</mat-icon>
-                           
+    
+                        <div class="requirement">
+                            <p class="p7">Requirements</p>
+    
+                            <div class="div" *ngFor="let points of courseDetails?.courseOverview.overViewId?.requirements">
+                                <p class="po">.</p>
+                                <div class="para">
+                                    <p class="p6"> {{points}}</p>
+                                </div>
+                            </div>
+    
                         </div>
-                        <div *ngIf="this.qIndex+1 == totalQuestion">
-                         <button  (click)="submitTest()">Submit</button>
+    
+    
+                        <div class="instructor">
+                            <p class="p8">Instructor</p>
+    
+                            <div class="profile">
+                                <img src="{{courseDetails?.courseOverview.overViewId?.instructor.instructorImage}}">
+                                <div class="profile-detail">
+                                    <p class="p9">{{courseDetails?.courseOverview.overViewId?.instructor.name}}</p>
+                                    <p class="p10">
+                                        {{courseDetails?.courseOverview.overViewId?.instructor.designation}}&nbsp;
+                                        | &nbsp;{{courseDetails?.courseOverview.overViewId?.instructor.url}}</p>
+                                </div>
+                            </div>
+    
+                            <div class="overviews">
+                                <p class="p11">
+                                    {{courseDetails?.courseOverview.overViewId?.instructor.description}}
+                                    <!-- <span (click)="showText()">
+                                    {{ isReadMore ? 'More..': 'Read Less' }}
+                                </span>  -->
+                                </p>
+                            </div>
                         </div>
-                        
+                    </div>
+                    <div *ngIf="!overview">
+                        <p class="p12">Course Content</p>
+                        <p class="p13">{{chapters?.listOfChapters.courseContent.totalChapters}} Chapter |
+                            {{chapters?.listOfChapters.courseContent.totalLessons}} lessons |
+                            {{chapters?.listOfChapters.courseContent.totalTests}} Assignment Test |
+                            {{hour}}h total length</p>
+                        <div class="chapter-height">
+    
+                            <div class="chapters-part"
+                                *ngFor="let chapter of chapters?.listOfChapters.totalChapters[0].chapters;index as i">
+                                <div class="chapters">
+                                    <p class="chapter-name" [class.green]="chapter.chapterNumber <= chapter_completed">
+                                        Chapter
+                                        {{chapter.chapterNumber}} - {{chapter.chapterTitle}}</p>
+                                    <mat-icon class="matIcon point" (click)="display(i)" *ngIf="this.show[i]">add</mat-icon>
+                                    <mat-icon class="matIcon point" *ngIf="!this.show[i]" (click)="display(i)">remove
+                                    </mat-icon>
+                                </div>
+                                <div class="chapter-data" *ngIf="!show[i]">
+                                    <div class="stepper">
+                                        <div class="sub-course">
+                                            <div class="select-icon" *ngFor="let lesson of chapter?.lessons;index as xyz"
+                                                (click)="onPlayClick(lesson)">
+                                                <div class="cirlce-image"
+                                                    [class.complete-course]="lesson.serialNumberOfLesson <= watch_chapter_number"
+                                                    [class.pending]="watch_chapter_number < lesson.serialNumberOfLesson">
+                                                    <img src="assets/Green Tick.svg" alt="" class="icon z-index"
+                                                        *ngIf="watch_chapter_number > lesson.serialNumberOfLesson">
+                                                    <img src="assets/Grey Dot.svg" alt="" class="icon z-index"
+                                                        *ngIf="watch_chapter_number < lesson.serialNumberOfLesson">
+                                                    <img src="assets/Group Dot.svg" alt="" class="icon z-index"
+                                                        *ngIf="watch_chapter_number == lesson.serialNumberOfLesson">
+                                                    <div class="vertical" *ngIf="(chapter.numberOfLessons-1) > xyz "
+                                                        [class.green-border]="(chapter.numberOfLessons-1) > xyz && watch_chapter_number > lesson.serialNumberOfLesson">
+                                                    </div>
+                                                </div>
+                                                <div class="sub-course-details">
+                                                    <div class="s-c-d">
+                                                        <p class="chapter-number margin">{{lesson.serialNumberOfLesson}}</p>
+                                                        <div class="couraseName">
+                                                            <p class="chapter-name1 "
+                                                                [class.lesson-completed]="lesson.serialNumberOfLesson <= watch_chapter_number">
+                                                                {{lesson.title}}</p>
+                                                            <p class="chapter-duration margin">{{lesson.duration /60 |
+                                                                number:'1.0-2'}}&nbsp;mins </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="image2 point">
+                                                        <img src="assets/Red Play.png" alt="" class="icon1"
+                                                            *ngIf="lesson.serialNumberOfLesson <= watch_chapter_number">
+                                                        <img src="assets/grey play.png" alt="" class="icon1"
+                                                            *ngIf="watch_chapter_number < lesson.serialNumberOfLesson">
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                            <div class="select-icon" *ngIf="chapter.test != null">
+                                                <div class="cirlce-image pending down">
+                                                    <div class="vertical1"
+                                                        [class.green-border]="!(this.testArray[chapter.test.testNumber-1]==0)">
+                                                    </div>
+                                                    <img src="assets/Green Tick.svg"
+                                                        *ngIf="!(this.testArray[chapter.test.testNumber-1]==0)" alt=""
+                                                        class="icon z-index">
+                                                    <img src="assets/Grey Dot.svg"
+                                                        *ngIf="this.testArray[chapter.test.testNumber-1]==0" alt=""
+                                                        class="icon z-index">
+    
+                                                    <!-- <div class = "vertical" *ngIf="(chapter.numberOfLessons-1) >= xyz" [class.complete-course-line]="watch_chapter_number > lesson.serialNumberOfLesson" [class.pending-line]="watch_chapter_number <= lesson.serialNumberOfLesson"></div> -->
+                                                </div>
+    
+                                                <div class="sub-course-details right" (click)="test(chapter.test,chapter)">
+                                                    <div class="s-c-d">
+                                                        <p class="chapter-number margin">
+                                                            <img src="assets/moduletest.svg" alt="">
+                                                        </p>
+                                                        <div class="couraseName">
+                                                            <p class="chapter-name chapter-name1 margin active-video">
+                                                                {{chapter.test.testTitle}}</p>
+                                                            <p class="chapter-duration margin">
+                                                                {{chapter.test.totalTimeAlloted}} |
+                                                                {{chapter.test.totalQuestions}} questions</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+    
+    
+    
+                                            </div>
+                                        </div>
+                                    </div>
+    
+    
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-   
-      </div>
 </div>
+
+.container {
+  margin: 0 12.5vw;
+  width: 75%;
+}
+vg-play-pause {
+  color: #1eab0d;
+}
+.header .blue {
+  font-weight: 400;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  color: #2bb5f4;
+  margin-block-end: 1%;
+  margin: 30px 0;
+}
+.header .blue small {
+  color: #7a7a7a;
+}
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.left {
+  /* border: 2px solid black; */
+  width: 63%;
+}
+
+.right {
+  width: 35%;
+  /* border: 2px solid black; */
+}
+.content-right {
+  /* border: 2px solid black; */
+  width: 90%;
+  margin: auto;
+}
+.video-overview {
+  width: 100%;
+  display: grid;
+}
+
+.video-overview .video {
+  width: 100% !important;
+  height: 500px;
+  /* height: 90% !important; */
+  border-radius: 8px;
+}
+
+#singleVideo {
+  width: 100%;
+}
+.videoButton {
+z-index: 55 !important;
+ margin: auto;
+ position: relative;
+ bottom: 290px;
+
+}
+.videoButton button {
+  padding: 0 1vw;
+  background: #ec5d52;
+  font-weight: 500;
+  font-size: 1.75rem;
+  line-height: 3.125rem;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+  border: none;
+}
+.playButton {
+  position: absolute;
+  top: 25%;
+  left: 23vw;
+  width: 30%;
+  height: 21.25rem;
+  background: #ffffff;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-block-end: 5%;
+}
+.btnline {
+  margin: 5%;
+  font-weight: 400;
+  font-size: 1.375rem;
+  line-height: 1.625rem;
+  text-align: center;
+
+  color: #111111;
+}
+.watch button {
+  font-weight: 500;
+  font-size: 1.75rem;
+  line-height: 3.125rem;
+
+  text-align: center;
+
+  color: #ffffff;
+  border: none;
+  background: #ec5d52;
+  border-radius: 6px;
+  margin-block-end: 5%;
+  cursor: pointer;
+  width: 20rem;
+}
+.pause button {
+  font-weight: 500;
+  font-size: 1.75rem;
+  line-height: 3.125rem;
+  text-align: center;
+
+  color: #ffffff;
+  border: none;
+  background: #072d5b;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 20rem;
+}
+.details {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 35px 0;
+  /* bottom: 70px; */
+}
+
+.p2 {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 30px;
+  color: #111111;
+}
+
+.p3 {
+  /* font-weight: 500; */
+  font-size: 16px;
+  line-height: 14px;
+  color: #111111;
+}
+
+.video-category {
+  width: auto;
+  height: 34px;
+  background: #fcbe4b;
+  mix-blend-mode: normal;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 0px;
+  color: #000000;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+hr {
+  opacity: 0.3;
+}
+
+.synopsis {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  color: #2bb5f4;
+  margin-top: 20px;
+}
+
+.synopsis-detail {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  text-align: justify;
+  color: #000000;
+  margin-top: 30px;
+}
+.comp {
+  background: #042c5c;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.join {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  width: 100%;
+  height: 5.625rem;
+}
+.certiImg img {
+  width: 100%;
+}
+.certiImg {
+  width: 90%;
+}
+.down {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sline {
+  border: 1px solid #194882;
+  width: 0;
+  height: 50%;
+}
+.res {
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.875rem;
+  text-align: center;
+
+  color: #ffffff;
+}
+.nine {
+  font-weight: 600;
+  font-size: 3.125rem;
+  line-height: 3rem;
+  display: flex;
+  align-items: center;
+
+  color: #1eab0d;
+}
+.rate {
+  color: #fff;
+}
+.joined {
+  font-family: "Proxima Nova";
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-align: center;
+
+  color: #111111;
+}
+.date {
+  font-family: "Proxima Nova";
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  text-align: center;
+  color: #2bb5f4;
+}
+.cocerti {
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.875rem;
+  color: #ffffff;
+}
+.csave {
+  color: #fff;
+}
+.head {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+.head button {
+  border-radius: 0;
+}
+
+.head .button {
+  width: 100px;
+  height: 45px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 50px;
+  color: #7a7a7a;
+  border: none;
+  background-color: #ffffff;
+  /* margin-top: 15px; */
+  cursor: pointer;
+}
+
+.head .Button {
+  width: 100px;
+  height: 45px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 50px;
+  color: #7a7a7a;
+  border: none;
+  background-color: #ffffff;
+  /* margin-top: 15px; */
+  margin-left: 20px;
+}
+.head .active {
+  color: #ec5d52;
+  border-top: #fcf9f9;
+  border-left: #ffffff;
+  border-right: #ffffff;
+  border-bottom: 2px solid #ec5d52;
+}
+.p4,
+.p12 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  color: #111111;
+  margin-top: 30px;
+}
+
+.course-includes {
+  height: auto;
+}
+
+.include-para .p7 {
+  font-style: normal;
+  font-size: 18px;
+  line-height: 20px;
+  color: #7a7a7a;
+  list-style-type: none;
+}
+
+.include-list .div {
+  display: flex;
+  width: 100%;
+
+  /* align-items: center; */
+}
+
+.include-list .div img {
+  height: 30px;
+  margin-top: 2px;
+}
+
+.include-list .div .include-para .p7 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  color: #7a7a7a;
+}
+
+.p5,
+.p7,
+.p8 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  color: #111111;
+}
+
+/*0000000000000000000000000000*/
+
+.learn {
+  height: auto;
+  margin-top: 55px;
+}
+
+.list {
+  margin-top: 25px;
+}
+
+.para,
+.include-para {
+  margin-left: 15px;
+  margin-top: 5px;
+}
+
+.p6 {
+  font-style: normal;
+  /* font-weight: 500; */
+  font-size: 18px;
+  line-height: 20px;
+  color: #111111;
+  list-style-type: none;
+  display: flex;
+}
+
+.list .div {
+  display: flex;
+  width: 100%;
+  /* align-items: center; */
+}
+
+.list .div img {
+  height: 20px;
+  margin-top: 5px;
+}
+
+.requirement,
+.instructor {
+  margin-top: 30px;
+}
+
+.requirement .div {
+  display: flex;
+  /* align-items: center; */
+}
+
+.po {
+  font-size: 50px;
+  position: relative;
+  bottom: 10px;
+}
+
+.requirement .div .para {
+  /* margin-top: 15px; */
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile img {
+  height: 100px;
+  border-radius: 10px;
+}
+
+.profile-detail {
+  margin-left: 25px;
+}
+
+.p9 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: #111111;
+}
+
+.p10 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #111111;
+  position: relative;
+  bottom: 8px;
+}
+.overviews {
+  width: 90%;
+  text-align: justify;
+  margin-top: 20px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+}
+.limitTextHeight {
+  height: 50px;
+  overflow: hidden;
+}
+.p13 {
+  width: 350px;
+  font-size: 16px;
+  line-height: 20px;
+  color: #111111;
+}
+.chapter-height::-webkit-scrollbar {
+  display: none;
+}
+.chapter-duration {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 30px;
+  color: #7a7a7a;
+}
+
+.add {
+  margin: 1%;
+  margin-block-start: 2%;
+  margin-left: 3%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.chap {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.875rem;
+  color: #042c5c;
+}
+.stepper {
+  margin: 2%;
+}
+
+.select-icon {
+  margin-bottom: 5%;
+  position: relative;
+  display: flex;
+}
+
+.plus {
+  color: #ec5d52;
+  cursor: pointer;
+}
+.complete-course-color {
+  color: #1eab0d;
+}
+.pending {
+  background-color: #e1e1e1;
+}
+.cirlce-image {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.vertical {
+  height: 130px;
+  top: 22.9px;
+  position: absolute;
+  z-index: 0;
+  border: 2px solid #e1e1e1;
+}
+.vertical1 {
+  height: 130px;
+  top: -122.9px;
+  position: absolute;
+  z-index: 0;
+  border: 2px solid #e1e1e1;
+}
+
+.chapter-number {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 30px;
+  color: #373737;
+}
+.lesson-completed {
+  color: #042c5c;
+}
+.chapter-name {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 30px;
+}
+.chapter-name1 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+}
+.chapters,
+.sub-chapter,
+.select-icon,
+.s-c-d,
+.sub-course-details {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.select-icon {
+  margin-bottom: 5%;
+  position: relative;
+
+  min-height: 120px;
+}
+.sub-course-details {
+  width: 87%;
+  background-color: #f9f9f9;
+  padding: 2.5%;
+  border-radius: 6px;
+}
+.s-c-d {
+  justify-content: flex-start;
+  gap: 5%;
+}
+.z-index {
+  z-index: 1;
+}
+
+.green {
+  color: #1eab0d;
+}
+.green-border {
+  border: 1px solid #1eab0d;
+}
+
+@media (max-width: 1200px) {
+  .playButton {
+left: 35vw;
+margin-bottom: 0px;
+bottom: 387.25px;
+top: 176.75px;
+height: 15.25rem;
+}
+.playButton button{
+  font-size: 1rem;
+width: 13rem; 
+}
+  .videoButton {
+    bottom: 213px;
+}
+  .left {
+    width: 100%;
+  }
+
+  .right {
+    width: 100%;
+  }
+
+  .content-right {
+    width: 100%;
+    margin-top: 80px;
+  }
+
+  .content-right .head {
+    background: rgba(195, 193, 193, 0.208);
+  }
+
+  .content-right .head button {
+    background: transparent;
+  }
+
+  .video-overview .video {
+    height: 350px;
+  }
+
+  .p0 {
+    left: 6rem;
+  }
+  .vertical {
+height: 140px;
+}
+.vertical1 {
+top: -135.9px;
+height: 140px;
+}
+}
+
+@media (max-width: 800px) {
+.vertical {
+  height: 126px;
+}
+.videoButton {
+/* left: 26vw; */
+}
+}
+
+@media (max-width: 750px) {
+.vertical {
+  height: 126px;
+}
+.btnline{
+font-size: 1.375rem;
+line-height: 1.625rem;
+font-size: 19px;
+line-height: 24px;
+}
+.playButton button{
+font-size: 1rem;
+width: 13rem;
+font-size: 16px;
+width: 11rem;
+}
+.videoButton {
+/* top: 337px;
+left: 29vw; */
+}
+.videoButton button{
+  font-size: 1.14rem;
+}
+}
+
+@media(max-width:600px){
+  .playButton {
+width: 38%;
+}
+  .btnline{
+font-size: 1rem;
+line-height: 1.125rem;
+font-size: 16px;
+line-height: 19px;
+}
+.playButton button{
+font-size: 14px;
+width: 38vw;
+font-size: 13px;
+width: 8rem;
+}
+}
+
+
+
+@media(max-width:500px){
+  /* .videoBut
+} */
+.videoButton button{
+  width: 171px;
+  line-height: 2.12rem;
+}
+.btnline{
+font-size: 1rem;
+line-height: 1.125rem;
+font-size: 16px;
+line-height: 19px;
+}
+.playButton button{
+font-size: 1rem;
+width: 13rem;
+font-size: 16px;
+width: 8rem;
+}
+}
+
+
+
+
+
+
+
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { OverViewSerService } from '../services/overViewService/over-view-ser.service';
+import { CertificateComponent } from '../certificate/certificate.component';
+
+@Component({
+  selector: 'app-over-view',
+  templateUrl: './over-view.component.html',
+  styleUrls: ['./over-view.component.css'],
+})
+export class OverViewComponent implements OnInit {
+  @ViewChild('scroll') scroll:ElementRef;
+
+  btnShow: any;
+  completionDate: any = [];
+  joiningDate: any = [];
+  completed: any;
+  hour: any;
+  chapter_completed: any;
+  length: any;
+  show: any = [];
+  onGoingSerial: any;
+  watch_chapter_number: any;
+  currentLessonIndex: any;
+  activeVideo: any;
+  serialNum: any;
+  pauseTime: any;
+  onGoing: any;
+  videoStatus: any;
+  testArray: any;
+  testMessage: any;
+  constructor(private service: OverViewSerService, private router: Router,private dialog:MatDialog) {}
+  overview: any;
+  title: any;
+  isReadMore = true;
+  videoclick = false;
+  onGo: any;
+  temp: any;
+  courseDetails: any;
+  chapters: any;
+  currPage: any;
+  ngOnInit(): void {
+    this.currPage = localStorage.getItem('currPage');
+    this.title = sessionStorage.getItem('courseName');
+    this.overview = sessionStorage.getItem('Overview');
+    this.overview = JSON.parse(this.overview);
+    this.getOverView();
+    this.getChapt();
+    this.getProgress();
+    this.setpreview();
+  }
+  setpreview() {
+    this.service.getOverview().subscribe({
+      next: (data) => {
+        this.temp = data;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        this.activeVideo =
+          this.temp.courseOverview.overViewId.previewThisCourse.videoLink;
+      },
+    });
+  }
+  overView() {
+    this.overview = true;
+    this.setpreview();
+  }
+  close() {
+    this.videoclick = false;
+    this.onGo = false;
+  }
+  onGoClick() {
+    this.onGo = false;
+    this.overview=false;
+    let pos = this.chapters?.isEnrolled.ongoingVideo.chapterNo - 1;
+    let lIndex = this.chapters?.isEnrolled.ongoingVideo.lessonNo - 1;
+
+    let val =
+      this.chapters.listOfChapters.totalChapters[0].chapters[pos].lessons[
+        lIndex
+      ];
+    this.onPlayClick(val);
+    this.show[pos] = false;
+  }
+  getOverView() {
+    this.service.getOverview().subscribe({
+      next: (data) => {
+        this.courseDetails = data;
+        console.log(this.courseDetails.isEnrolled);
+        let string = this.courseDetails.isEnrolled.dateOfCompletion;
+        this.testArray = this.courseDetails.isEnrolled.testApprovalRate;
+        if (this.courseDetails.isEnrolled.ongoingSerialNumber > 0) {
+          this.onGo = true;
+        }
+        if (this.courseDetails.isEnrolled.approvalRate == '0')
+          this.completed = true;
+        else {
+          this.completed = false;
+          string = string.substring(0, string.indexOf('T'));
+          sessionStorage.setItem('CDate', string);
+          this.completionDate = string.split('-');
+          console.log(this.completionDate);
+        }
+      },
+      error: (data) => {
+        console.log(data);
+      },
+    });
+  }
+  getChapt() {
+    this.service.getChapters().subscribe({
+      next: (data) => {
+        this.chapters = data;
+        this.hour = (
+          this.chapters.listOfChapters.courseContent.totalDuration / 3600
+        ).toFixed(2);
+        this.watch_chapter_number =
+          this.chapters.isEnrolled.ongoingSerialNumber;
+        this.chapter_completed = this.chapters.isEnrolled.chaptersCompleted;
+        this.length =
+          this.chapters.listOfChapters.totalChapters[0].chapters.length;
+        for (var i = 0; i < this.length; i++) {
+          this.show.push('false');
+        }
+      },
+      error: (data) => {
+        console.log(data);
+      },
+    });
+  }
+  onOverview() {
+    this.overview = true;
+  }
+  onChapter() {
+    this.overview = false;
+  }
+  // showText() {
+  //   this.isReadMore = !this.isReadMore;
+  // }
+  // trim(a:any){
+  //   let b = a;
+  //   if(b.length > 20){
+  //     this.btnShow=true;
+  //     return b.substring(0,20);
+  //   }
+  //   else{
+  //     this.btnShow=false
+  //     return a;
+  //   }
+  // }
+  display(a: any) {
+    this.show[a] = !this.show[a];
+  }
+
+  con(a: any) {
+    console.log(a);
+  }
+  getPauseTime() {
+    var myVideo: any = document.getElementById('singleVideo');
+    this.pauseTime = myVideo.currentTime;
+
+    if (myVideo.paused) {
+      this.videoPause(this.pauseTime);
+    }
+  }
+
+  videoEnd() {
+    console.log('EndWorks');
+    const body = {
+      courseId: sessionStorage.getItem('courseId'),
+      videoCompleted: 'true',
+      // "pauseTime": this.pauseTime,
+      videoSerialNumber: this.serialNum,
+    };
+
+    this.service.updateProgress(body).subscribe({
+      next: (data) => {
+        this.onGoing = data;
+        console.log(data);
+        this.getChapt();
+        this.getChapt();
+      },
+      error: (data) => {
+        console.log(data);
+        this.getProgress();
+        alert(data.error.message + ':Finish the Test');
+      },
+    });
+  }
+
+  onPlayClick(item: any) {
+    this.onGo = false;
+    console.log(item);
+    this.getProgress();
+    // console.log(item);
+    this.videoclick = false;
+    let currserialNum = item.serialNumberOfLesson;
+    this.onGoingSerial = JSON.parse(this.onGoingSerial);
+    this.videoStatus = JSON.parse(this.videoStatus);
+    if (currserialNum <= this.onGoingSerial) {
+      this.activeVideo = item.url;
+      this.serialNum = currserialNum;
+      if (this.videoStatus.length > 0) {
+        for (let val of this.videoStatus) {
+          if (val.serialNumber == item.serialNumberOfLesson) {
+            this.videoclick = true;
+            this.pauseTime = val.pauseTime;
+          }
+        }
+      }
+    } else {
+      this.getProgress();
+      alert('First Finish video ' + this.onGoingSerial + ' to continue');
+    }
+  }
+
+  getProgress() {
+    this.service.getProgress().subscribe({
+      next: (data) => {
+        this.onGoing = data;
+        let string = this.onGoing?.enrolledOn;
+        string = string.substring(0, string.indexOf('T'));
+        sessionStorage.setItem('jDate', string);
+        this.joiningDate = string.split('-');
+        this.videoStatus = sessionStorage.setItem(
+          'status',
+          (JSON.stringify(this.onGoing.allVideoStatus) as any) || []
+        );
+        this.videoStatus = sessionStorage.getItem('status');
+        sessionStorage.setItem(
+          'onGoingSerialNumber',
+          JSON.stringify(this.onGoing.ongoingSerialNumber) as any
+        );
+        this.onGoingSerial = sessionStorage.getItem('onGoingSerialNumber');
+      },
+      error: (data) => {
+        console.log(data);
+      },
+    });
+  }
+  videoPause(pauseTime: any) {
+    this.videoclick = false;
+    const body = {
+      courseId: sessionStorage.getItem('courseId'),
+      videoCompleted: 'false',
+      pauseTime: pauseTime,
+      videoSerialNumber: this.serialNum,
+    };
+    console.log(body);
+    this.service.updateProgress(body).subscribe((data: any) => {
+      console.log(data);
+    });
+  }
+
+  testStat(item: any) {
+    sessionStorage.setItem('testId', item._id);
+    this.service.testStatus().subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: (data) => {
+        console.log(data);
+      },
+    });
+  }
+
+  test(item: any, chapter: any) {
+    console.log(item.testNumber);
+    console.log(this.chapters.isEnrolled.testApprovalRate);
+    if (
+      this.chapters.isEnrolled.testApprovalRate[item.testNumber - 2] != 0 ||
+      item.testNumber == 1
+    ){
+      sessionStorage.setItem('chapNo', chapter.chapterNumber);
+      sessionStorage.setItem('chapName', chapter.chapterTitle);
+      sessionStorage.setItem('testId', item._id);
+      sessionStorage.setItem('chap_id', chapter._id);
+      this.service.gettestService().subscribe({
+        next: (data) => {
+          let temp: any = data;
+          if (temp.message == 'true') {
+            if(confirm(' Test already Taken: Go to Result'))this.router.navigate(['congrats']);
+            else this.router.navigate(['testResult']);
+            
+          } else {
+            sessionStorage.removeItem('answers');
+            sessionStorage.removeItem('timer');
+            this.router.navigate(['test']);
+          }
+        },
+        error: (data) => {
+          console.log(data);
+        },
+      });
+
+    } 
+    else alert("Complete Test :"+ this.index());
+    
+    
+      
+  }
+
+  index(){
+    let i =0;
+    for( let item of this.chapters.isEnrolled.testApprovalRate){
+      if( item == 0) break;
+      else i++
+    }
+    return i+1;
+  }
+  testresult() {
+    this.service.getresult().subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: (x) => {
+        console.log(x);
+      },
+    });
+  }
+  getCertificate(){
+      this.dialog.open(CertificateComponent, {
+        height: '60%',
+        width: '60%',
+      });
+  }
+}

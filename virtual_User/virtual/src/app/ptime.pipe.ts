@@ -1,9 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'time',
+  name: 'ptime',
 })
-export class TimePipe implements PipeTransform {
+export class PtimePipe implements PipeTransform {
   transform(value: any, ...args: unknown[]): any {
     let totalSeconds = value;
     let hrs = Math.floor(totalSeconds / 3600);
@@ -13,8 +13,12 @@ export class TimePipe implements PipeTransform {
 
     let completeDuration;
     if (hrs <= 0) {
-      return mins + 'min ' + sec + 'sec';
-    } else {
+      if (mins <= 0 ) {
+        return sec + 'sec';
+      }
+      else return mins + 'min ' + sec + 'sec';
+    } 
+    else {
       return hrs + '.' + mins + 'h ' + sec + 'sec';
     }
   }

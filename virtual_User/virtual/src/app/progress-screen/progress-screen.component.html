@@ -7,7 +7,7 @@
             <div class="course">
 
                 <div>
-                    <div class="chapterName">Chapter {{chapterNumber}}: {{chapterName}}</div>
+                    <div class="chapterName" routerLink="/overview">Chapter {{chapterNumber}}: {{chapterName}}</div>
                     <div class="courseName">{{courseName}}</div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
     <p class="questions" (click)="solutions()">List of Questions</p>
 </div>
 <div class="main">
-    <div class="ques" *ngFor="let question of result?.questions;index as i">
+    <div class="ques" *ngFor="let question of result?.questions;index as i" (click)="particularQ(i)">
         <div>
             <div class="qNo">{{question}}</div>
             <div class="status"
@@ -46,7 +46,7 @@
             <div class="notAnswered" *ngIf="result?.selectedAndActualAnswerSet[i][0] == null  ">Not answered</div>
         </div>
         <div class="arrow">
-            <mat-icon (click)=particularQ(i)>arrow_forward_ios</mat-icon>
+            <mat-icon >arrow_forward_ios</mat-icon>
         </div>
     </div>
 </div>

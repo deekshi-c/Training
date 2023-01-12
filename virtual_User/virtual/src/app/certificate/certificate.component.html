@@ -1,0 +1,33 @@
+
+    <div class="main">
+        <div class="heading">
+            <div class="certificate">Course Certificate</div>
+            <div (click)="download()">
+                <mat-icon>download</mat-icon>
+            </div>
+        </div>
+    </div>
+    <div class="certi">
+        <div class="inner">
+            <div class="container">
+                <p class="certOfComp">Certificate of Completion</p>
+                <p class="pName">{{name | titlecase}}</p>
+                <p class="courseName">{{title | titlecase}}</p>
+                <div class="flexing">
+                    <div class="values">
+                        <div class="dates">
+                            <div>Joined:{{joiningDate[2]}}/{{joiningDate[1]}}/{{joiningDate[0]}}</div>
+                            <div>Completed:{{completionDate[2]}}/{{completionDate[1]}}/{{completionDate[0]}}</div>
+
+                        </div>
+                            <span>3hrs 45mins</span>
+                        <p class="certificateNo">Certificate No: 1234567890</p>
+                    </div>
+                    <img src="/assets/trophy1.png" id="trophy" alt="">
+                </div>
+            </div>
+            <div class="footer">
+                <div><img src="/assets/Group 118.png" alt=""></div>
+            </div>
+        </div>
+    </div>
