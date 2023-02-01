@@ -1,0 +1,16 @@
+{
+  "seller": [
+    {
+      "name": "Anil S",
+      "email": "abb@gmial.com",
+      "password": "Anil@123",
+      "id": 1
+    },
+    {
+      "name": "Harshin",
+      "password": "harshiiii",
+      "email": "harsh@1234",
+      "id": 2
+    }
+  ]
+}

@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
     'assets/images/Web Development.png',
   ];
   ngOnInit(): void {
+    history.pushState(null, '');
     this.showName();
     this.service.getOnGoing().subscribe((data) => {
       this.onGoing = JSON.parse(data);

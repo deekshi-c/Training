@@ -34,12 +34,15 @@ export class SubmitComponent implements OnInit {
       next: (data) => {
         console.log(data);
         let show: any = data;
-        confirm(show.message);
-        if (show.message == 'You have passed this test') {
-          this.router.navigate(['/congrats']);
-        } else {
-          this.router.navigate(['/overview']);
+        console.log(show.message);  
+        alert(show.message);
+        if (show.message == 'You have already passed this test') {
+          this.router.navigate(['testResult']);
+        } else if (show.message == "You have passed the Test") {
+          alert("dffddf")
+          this.router.navigate(['congrats']);
         }
+        else this.router.navigate(['overview']);
       },
       error: (e) => {},
     });

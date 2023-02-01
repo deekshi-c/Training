@@ -220,7 +220,9 @@ export class OverViewComponent implements OnInit {
 
     console.log(b);
     console.log(a);
-
+     this.getProgress();
+     this.getOverView();
+     this.getChapt();
     // console.log(item);
     this.videoclick = false;
     let currserialNum = item.serialNumberOfLesson;
@@ -239,7 +241,7 @@ export class OverViewComponent implements OnInit {
       }
     } else {
       this.getProgress();
-      // alert('First Finish video ' + this.onGoingSerial + ' to continue');
+      alert('First Finish video ' + this.onGoingSerial + ' to continue');
     }
   }
 
@@ -307,15 +309,15 @@ export class OverViewComponent implements OnInit {
       this.service.gettestService().subscribe({
         next: (data) => {
           let temp: any = data;
-          if (temp.message == 'true') {
-            if (confirm(' Test already Taken: Go to Result'))
-              this.router.navigate(['congrats']);
-            else this.router.navigate(['overview']);
-          } else {
+          // if (temp.message == 'true') {
+          //   if (confirm(' Test already Taken: Go to Result'))
+          //     this.router.navigate(['testResult']);
+          //   else this.router.navigate(['overview']);
+          // } else {
             sessionStorage.removeItem('answers');
             sessionStorage.removeItem('timer');
             this.router.navigate(['test']);
-          }
+          // }
         },
         error: (data) => {
           console.log(data);
@@ -382,5 +384,8 @@ export class OverViewComponent implements OnInit {
         this.onPlayClick(val,lIndex, cIndex);
       }
     }
+    this.getProgress();
+    this.getOverView();
+    this.getChapt();
   }
 }

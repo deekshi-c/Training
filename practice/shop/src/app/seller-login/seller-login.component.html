@@ -1,0 +1,55 @@
+<div class="container">
+        <div class="getData">
+            <div class="back"></div>
+            <div class="data">
+                <div class="logo">
+                  <img src="assets/navLogo.png" alt="">
+                </div>
+                <div class="head">
+                      Work hard, Have fun, Make history. And You're Done! You Shop
+                </div>
+                <div class="input"  *ngIf="!signup">
+                        <div class="title">
+                            SignUp
+                        </div>
+                        <div class="form">
+                            <form  [formGroup]="signUpForm">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>User Name</mat-label>
+                                    <input matInput formControlName="name">
+                                </mat-form-field>
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Password</mat-label>
+                                    <input type="password" matInput formControlName="password">
+                                </mat-form-field>
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>E-Mail</mat-label>
+                                    <input type="email" matInput formControlName="email">
+                                </mat-form-field>   
+                            </form>
+                        </div>
+                        <button (click)="signUp()">SignUp</button>
+  
+                </div> 
+                <div class="input" *ngIf="signup">
+                    <div class="title">
+                        Login
+                    </div>
+                    <div class="form">
+                        <form [formGroup]="signUpForm">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>E-Mail</mat-label>
+                                <input type="email" matInput formControlName="email">
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Password</mat-label>
+                                <input type="password" matInput formControlName="password">
+                            </mat-form-field>
+                        </form>
+                    </div>
+                    <button (click)="signUp()">login</button>
+                
+                </div>
+            </div>
+    </div>
+</div>

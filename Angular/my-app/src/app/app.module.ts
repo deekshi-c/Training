@@ -8,6 +8,7 @@ import { CitytwoDetailComponent } from './citytwo-detail/citytwo-detail.componen
 import { CityoneDetailComponent } from './cityone-detail/cityone-detail.component';
 import { KanheOverviewComponent } from './kanhe-overview/kanhe-overview.component';
 import { KanheContactComponent } from './kanhe-contact/kanhe-contact.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { KanheContactComponent } from './kanhe-contact/kanhe-contact.component';
     CityoneDetailComponent,
     KanheOverviewComponent,
     KanheContactComponent,
+    NavBarComponent,
     
   ],
   imports: [

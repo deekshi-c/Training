@@ -44,8 +44,25 @@ export class TestComponent implements OnInit {
     this.chapterName =sessionStorage.getItem('chapName');
   }
   close() {
-    this.dialog.open(CloseTestComponent, { height: '25%', width: '50%' });
+    if(confirm('Are you sure you want to close')){
+      clearInterval(this.interval);
+             this.router.navigateByUrl('/overview');
+    }
+
+
+
   }
+  //   let dialogRef = this.dialog.open(CloseTestComponent, {
+  //     height: '25%',
+  //     width: '50%',
+  //   });
+  //   dialogRef.afterClosed().subscribe((res) => {
+  //     if (res.data == 'done') {
+  //       clearInterval(this.interval);
+  //        this.router.navigate(['overview']);
+  //     }
+  //   });
+  // }
   getQuestions() {
     this.service.courseTests().subscribe((data: any) => {
       this.questions = data;
@@ -53,7 +70,7 @@ export class TestComponent implements OnInit {
       if(sessionStorage.getItem('timer')){
             this.remTime = sessionStorage.getItem('timer');
       } else{
-              this.remTime = this.questions.totalTimeAlloted;
+              this.remTime = 10;
       }
       this.answersArr = new Array(this.questions.totalQuestions).fill(null);
       console.log(this.answersArr);
@@ -141,12 +158,12 @@ export class TestComponent implements OnInit {
         console.log(data);
         let show: any = data;
         alert(show.message);
-        
         if (show.message == 'You have passed this test') {
           this.router.navigate(['/congrats']);
         } else {
           this.router.navigate(['/overview']);
         }
+        clearInterval(this.interval);
       },
       error: (e) => {},
     });

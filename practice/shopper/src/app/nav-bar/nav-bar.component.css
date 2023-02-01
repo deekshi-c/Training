@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+.nav-outer {
+  color: white;
+  background-image: linear-gradient(to right, #002887, #1b2952);
+  width: 100vw;
+  min-height: 88px;
+  border: 1px solid rgb(124, 0, 226);
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.left {
+  margin: 10px;
+  height: 78px;
+  width: 20vw;
+  display: flex;
+}
+.search {
+  position: relative;
+  margin: 20px;
+  height: 40px;
+  width: 24vw;
+  display: flex;
+  color: black;
+  /* border: 1px solid rgb(30, 96, 170); */
+}
+.search input {
+  width: 23vw;
+  height: 35px;
+  border-radius: 10px;
+  font-size: 23px;
+}
+.search-icon > mat-icon:nth-child(1) {
+margin-top: 7px;
+}
+.search-icon {
+  position: absolute;
+  width: fit-content;
+  color: black;
+  height: 30px;
+  left: 21vw;
+  width: 38px;
+  height: 41px;
+  background-color:#eaeaea;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.right {
+  height: 96px;
+  width: 34vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 24px;
+  font-weight: 700;
+}
+.logo {
+  height: 100%;
+  width: 35%;
+  color: black;
+}
+.logo img {
+  height: 100%;
+  width: 100%;
+}
+.name {
+  font-size: 46px;
+  text-shadow: -3px 3px 3px pink;
+  font-style: italic;
+  font-family: "Pacifico", cursive;
+  height: 100%;
+  text-align: center;
+  width: 65%;
+  display: flex;
+  align-items: center;
+}
